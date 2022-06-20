@@ -1,0 +1,43 @@
+* {
+	box-sizing: border-box !important;
+}
+#nav-main {
+	height: 15vh;
+	padding: 0 2vw 0 2vw !important;
+	box-shadow: 0 2px 4px -2px gray;
+	background-color: white;
+}
+.navbar-brand {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+#img-navbarBrand {
+	height: 3.5rem;
+	width: 3.5rem;
+}
+#navbarNav {
+	justify-content: right;
+}
+.nav-item {
+	font-size: 20px;
+	margin-left: 5vh;
+	text-transform: capitalize;
+}
+.nav-item .active {
+	font-weight: 600;
+}
+.product-dropdown:hover .product-dropdown-menu {
+    display: block;
+    margin-top: 0px;
+}
+@media (max-width: 992px) {
+	#nav-main {
+		padding: 0 2vw 0 2vw !important;
+	}
+	.navbar-brand {
+		margin: 5vh 0 0 3vw;
+	}
+	#nav-main .navbar-toggler {
+		margin: -5vh 0 0 0 !important;
+	}
+}

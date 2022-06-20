@@ -1,0 +1,79 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+.index-content {
+	position: relative;
+	height: 85vh !important;
+}
+svg {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+#div-img {
+	position: absolute;
+	right: 0;
+	top: 15vh;
+}
+#div-indexPage1-txt h1 {
+	color: white;
+	width: 60vw;
+	height: 70%;
+	align-items: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	padding: 0 0 0 7vw;
+}
+.div-product h3{
+	margin: 20px auto;
+	text-align: center;
+	text-transform: capitalize;
+}
+.div-product svg {
+	top: 25vh;
+}
+.div-product rect{
+	height: 30vh;
+	width: 100%;
+	fill: #72b01d;
+}
+.div-product div {
+	position: absolute;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: 50% auto;
+	align-items: center;
+	align-content: center;
+	color: white;
+}
+.div-product div span {
+	padding: 0 15%;
+}
+.div-product a:link {
+	text-decoration: none;
+	cursor: pointer;
+	z-index: 3;
+	position: absolute;
+	top: 58vh;
+	left: 7%;
+	color: #3F7D20;
+	font-weight: 700;
+}
+#indexPage3 img{
+	height: 350px;
+	width: 320px;
+	margin: auto 0 auto 100px;
+}
+#indexPage3 div{
+	top: 5vh;
+}
+#indexPage5 h3 {
+	margin: 20px auto 0 auto;
+	text-align: center;
+}

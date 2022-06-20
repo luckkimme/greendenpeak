@@ -1,0 +1,83 @@
+body {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+.div-header {
+	position: relative;
+	width: 100%;
+	height: 15vh;
+	background-color: #72B01D;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.div-header h4 {
+	height: fit-content;
+	width: fit-content;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+#txt-about {
+	height: 70vh;
+	width: 100%;
+	margin: 0;
+	padding: 5vh 15vw;
+	display: flex wrap;
+	flex-direction: column;
+	text-align: center;
+}
+#div-office, #div-service, #div-faq {
+	position: relative;
+	width: 100%;
+	height: 85vh;
+}
+svg {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+#txt-office {
+	width: 55%;
+	padding: 6rem 6rem 4rem 6rem;
+	color: white;
+}
+#div-office h1 {
+	align-items: center;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	text-transform: capitalize;
+	font-weight: 700;
+}
+#div-office img {
+	position: absolute;
+	top: 10vh;
+	right: 10vw;
+	width: 250px;
+	height: 350px;
+}
+#div-service img {
+	position: absolute;
+	top: 10vh;
+	left: 10vw;
+	width: 300px;
+	height: 300px;
+}
+#txt-service {
+	position: absolute;
+	top: 10vh;
+	right: 3vw;
+	width: 55%;
+	padding: 0 6rem 4rem 6rem;
+	color: black;
+}
+#txt-service h1 {
+	text-transform: capitalize;
+}
+#accordionPanelsStayOpenExample {
+	width: 80%;
+	margin: 3% auto;
+}

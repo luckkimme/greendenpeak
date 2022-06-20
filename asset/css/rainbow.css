@@ -1,0 +1,41 @@
+* {
+	box-sizing: border-box;
+}
+.nav-rainbow {
+}
+.nav {
+	display: flex row wrap;
+}
+.nav-product {
+	flex: 1;
+	text-transform: capitalize;
+	font-size: 1rem;
+	color: grey;
+	border-radius: 0 !important;
+}
+.nav-product:hover {
+	color: #72B01D;
+}
+#nav-tab .active {
+	color: #3F7D20;
+	font-weight: 700;
+}
+.tab-content {
+}
+#nav-home {
+}
+#pills-tab {
+	padding: .5vh 0;
+	display: flex row wrap;
+	border-bottom: 1px solid black;
+}
+.nav-rainbow-item {
+	flex: 1;
+	margin: 0 !important;
+	font-size: .8rem !important;
+}
+.btn-rainbow-item {
+	text-transform: capitalize;
+	padding: .5vh 2vw;
+	margin: 0 auto !important;
+}
