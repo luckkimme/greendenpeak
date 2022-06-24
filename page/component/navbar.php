@@ -8,7 +8,7 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item nav-item-main">
-					<a class="nav-link active" aria-current="page" href="/greendenpeak/index.php">home</a>
+					<a class="nav-link active" aria-current="page" href="../index.php">home</a>
 				</li>
 				<li class="nav-item dropdown nav-item-main">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,7 +31,7 @@
 									Rainbow Products
 								</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="/greendenpeak/greendenpeak/page/rainbow-vacuum.php">Rainbow Vacuum Cleaner</a></li>
+										<li><a class="dropdown-item" href="../page/rainbow-vacuum.php">Rainbow Vacuum Cleaner</a></li>
 										<li><a class="dropdown-item" href="#">Accessories</a></li>
 									</ul>
 						</li>
