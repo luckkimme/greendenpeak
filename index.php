@@ -1,18 +1,19 @@
+<? php  ?>
 <!DOCTYPE>
 <html>
 	<head>
 		<meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link href="/greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	    <link href="/greendenpeak/asset/css/index.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <link href="/greendenpeak/asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <link href="/greendenpeak/asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <script type="text/javascript" src="/greendenpeak/asset/js/bootstrap.min.js"></script>
+	    <link href="asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	    <link href="asset/css/index.css?d=<?php echo time(); ?>" rel="stylesheet">
+	    <link href="asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
+	    <link href="asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
+	    <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<?php 
-	        include_once("page/navbar.php");
+	        include_once("page/component/navbar.php");
 	    ?>
 	    <div class="index-content" id="indexPage1">
 		    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-2.48,154.44 C452.93,153.45 204.62,64.64 503.72,87.32 L501.46,-2.46 L-2.48,-1.48 Z" style="stroke: none; fill: #72B01D;"></path></svg>
@@ -20,7 +21,7 @@
 			    <h1>Authorized Partner of Rainbow and Thermostar Philippines</h1>
 		    </div>
 		    <div id="div-img">
-		    	<img src="/greendenpeak/asset/img/placeholder/e.png">
+		    	<img src="asset/img/placeholder/e.png">
 		    </div>
 	    </div>
 	    <div class="index-content div-product" id="indexPage2">
@@ -33,9 +34,9 @@
 				    <h4>Rainbow Vacuum</h4>
 				    <p>Great technology for dust-free cleaning for all surfaces with the power of water.</p>
 				</span>
-			    <img src="/greendenpeak/asset/img/placeholder/g.png">
+			    <img src="asset/img/placeholder/g.png">
 		    </div>
-		  	<a href="/greendenpeak/page/rainbow.php">Learn More ></a>
+		  	<a href="page/rainbow.php">Learn More ></a>
 	    </div>
 	    <div class="index-content div-product" id="indexPage3">
 		    <svg style="height: 100%; width: 100%;">
@@ -47,9 +48,9 @@
 				    <h4>Thermostar Dry Cleaner</h4>
 				    <p>At least 180°C micro dry steam perfect for DIY heat sterilization and disinfection on surfaces.</p>
 				</span>
-			    <img src="/greendenpeak/asset/img/placeholder/h.png">
+			    <img src="asset/img/placeholder/h.png">
 		    </div>
-		  	<a href="/greendenpeak/page/thermostar.php">Learn More ></a>
+		  	<a href="page/thermostar.php">Learn More ></a>
 	    </div>
 <!--  asked by client to be removed
 	    <div class="index-content div-product" id="indexPage4">
@@ -70,7 +71,7 @@
 	    <div class="index-content" id="indexPage5">
 		    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M189.69,160.49 C348.83,111.12 355.60,84.44 406.95,-3.45 L507.41,-3.45 L507.97,166.41 Z" style="stroke: none; fill: #72B01D;"></path></svg>
 		    <h3>Check out what other customers have to say</h3>
-		    <img src="/greendenpeak/asset/img/placeholder/j.png" style="height: 300px; width: 500px; margin: 3% 25%;">
+		    <img src="asset/img/placeholder/j.png" style="height: 300px; width: 500px; margin: 3% 25%;">
 	    </div>
 	    <div id="div-faq">
 	    	<div class="div-header">

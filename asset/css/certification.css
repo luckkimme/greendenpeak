@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+#div-carousel-certification {
+    position: relative;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    min-height: calc(90% - 15vh) !important;
+    background-color: red;
+}
+    .div-carousel-item {
+        display: flex !important;
+        justify-content: center !important;
+    }
+        #div-carousel-certification img {
+            height: 100% !important;
+            max-width: 100% !important;
+            width: auto !important;
+        }

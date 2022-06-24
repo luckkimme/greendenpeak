@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+.div-kit-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+    .row {
+        padding: 1rem;
+    }
+        .col-7 {
+            padding: 1rem 2rem;
+        }
+            .div-header {
+                border-bottom: 2px solid #72b01d;
+            }
+            .div-kit-list {
+            }
+                .div-kit-list ul {
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    padding: 1rem 3rem;
+                }
+        .col-5 {
+        }
+            #img-kit {
+                height: 400px; 
+                width: 400px;
+            }

@@ -4,14 +4,14 @@
 		<meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link href="/greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	    <link href="/greendenpeak/asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <link href="/greendenpeak/asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
+	    <link href="../asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	    <link href="../asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
+	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <script type="text/javascript" src="/greendenpeak/asset/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<?php 
-	        include_once("navbar.php");
+	        include_once("component/navbar.php");
 	    ?>
 	    <div class="div-header">
 	    	<h4>what is greendenpeak?</h4>
@@ -19,9 +19,9 @@
 	    <div id="txt-about">
 	    	<p>Greendenpeak is an authorized distributor and partner of Rainbow Vacuum & Thermostar Philippines. They have been serving customers since (insert year). Moreover, they entrust the delivery of products with authorized dealers.</p>
 	    	<div>
-	    		<img src="/greendenpeak/asset/img/placeholder/a.png">
-	    		<img src="/greendenpeak/asset/img/placeholder/c.png">
-	    		<img src="/greendenpeak/asset/img/placeholder/b.png">
+	    		<img src="../asset/img/placeholder/a.png">
+	    		<img src="../asset/img/placeholder/c.png">
+	    		<img src="../asset/img/placeholder/b.png">
 	    	</div>
 	    </div>
 	    <div id="div-office">
@@ -30,7 +30,7 @@
 		    	<h1>offices</h1>
 		    	<p>Our main offices are in Mandaluyong City and Baguio City. We also have offices in Cebu, Bicol and Mindanao.</p>
 	    	</div>
-	    	<img src="/greendenpeak/asset/img/placeholder/map.png">
+	    	<img src="../asset/img/placeholder/map.png">
 	    </div>
 	    <div id="div-service">
 	    	<svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M77.95,-21.24 C208.87,178.28 411.73,147.65 503.16,97.29 L489.61,566.45 L-153.42,25.17 Z" style="stroke: none; fill: #72B01D;"></path></svg>
@@ -38,7 +38,7 @@
 		    	<h1>service center</h1>
 		    	<p>Service Center is open for regular check-up and repair.</p>
 	    	</div>
-	    	<img src="/greendenpeak/asset/img/placeholder/d.png">
+	    	<img src="../asset/img/placeholder/d.png">
 	    </div>
 	    <div id="div-faq">
 	    	<div class="div-header">

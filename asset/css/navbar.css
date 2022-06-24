@@ -7,7 +7,7 @@
 	box-shadow: 0 2px 4px -2px gray;
 	background-color: white;
 }
-.navbar-brand {
+.navbar-brand-main {
 	text-transform: uppercase;
 	font-weight: 700;
 }
@@ -18,12 +18,12 @@
 #navbarNav {
 	justify-content: right;
 }
-.nav-item {
+.nav-item-main {
 	font-size: 20px;
 	margin-left: 5vh;
 	text-transform: capitalize;
 }
-.nav-item .active {
+.nav-item-main .active {
 	font-weight: 600;
 }
 .product-dropdown:hover .product-dropdown-menu {
@@ -34,10 +34,10 @@
 	#nav-main {
 		padding: 0 2vw 0 2vw !important;
 	}
-	.navbar-brand {
+	.navbar-brand-main {
 		margin: 5vh 0 0 3vw;
 	}
-	#nav-main .navbar-toggler {
+	#nav-main .navbar-toggler-main {
 		margin: -5vh 0 0 0 !important;
 	}
 }

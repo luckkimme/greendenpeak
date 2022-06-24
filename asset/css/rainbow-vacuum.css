@@ -6,55 +6,46 @@ html, body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	height: 100%;
 }
-#div-rainbow {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-}
-#div-main-tab {
-	position: sticky;
-	top: 15vh;
-	z-index: 5;
-	height: 10%;
-	font-size: 16px;
-	background-color: white;
-}
-#div-main-tab ul {
-	display: flex wrap row !important;
-	margin: 0 0 10px 0!important;
-	height: 100%;
-}
-#div-main-tab ul li {
-	flex: 1;
-	margin: 0 !important;
-	display: flex;
-	justify-content: center;
-}
-#div-main-tab .nav-link {
-	width: 100%;
-	font-size: .7rem;
-	color: black !important;
-	text-transform: capitalize;
-	border-radius: 0;
-	border-bottom: 1px solid black;
-}
-#div-main-tab li .active {
-	background-color: transparent;
-	border-radius: 0;
-	color: #72B01D !important;
-	border-bottom: 5px solid #72B01D;
-}
+	#div-rainbow {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+		#div-main-tab {
+			position: sticky;
+			top: 15vh;
+			z-index: 5;
+			height: 10% !important;
+			font-size: 16px;
+			background-color: white;
+		}
+			#div-main-tab li .active {
+				background-color: transparent;
+				border-radius: 0;
+				color: #72B01D !important;
+				border-bottom: 5px solid #72B01D;
+			}
+				#div-main-tab .nav-link {
+					width: 100%;
+					font-size: .7rem;
+					color: black !important;
+					text-transform: capitalize;
+					border-radius: 0;
+				}
 
 /* tab contents */
-#pills-tabContent {
-	width: 100%;
-	height: auto;
-	min-height: calc(90% - 15vh);
+#tab-content {
+	position: relative;
+	border: 1px solid black;
 }
-	#pills-vacuum {
+.tab-item {
+	width: 100%;
+	height: 100%;
+	padding-top: 30vh;
+}
+	#rainbow-vacuum-cleaner {
+		padding-top: 0;
 	}
 		.div-main-container {
 			display: grid;
@@ -62,10 +53,6 @@ html, body {
 			min-height: calc(90% - 15vh);
 			align-items: center;
 		}
-			.div-product-img {
-			}
-				.div-product-img img {
-				}
 			.div-product-desc {
 				text-transform: capitalize;
 				padding: 1.5rem;
@@ -112,3 +99,16 @@ html, body {
 			.div-product-feature-img img {
 				height: 300px;
 			}
+#pills-kit, #pills-certification {
+	width: 100% !important;
+	padding: 0;
+	min-height: calc(90% - 15vh) !important;
+}
+#user-manual h4, #user-manual h5 {
+	width: 100%;
+	text-align: center;
+}
+	#user-manual svg {
+		height: 1.5rem;
+		width: 1.5rem;
+	}
