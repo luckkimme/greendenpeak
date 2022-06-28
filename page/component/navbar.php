@@ -31,7 +31,7 @@
 									Rainbow Products
 								</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="../page/rainbow-vacuum.php">Rainbow Vacuum Cleaner</a></li>
+										<li><a class="dropdown-item" href="../greendenpeak/page/rainbow-vacuum.php">Rainbow Vacuum Cleaner</a></li>
 										<li><a class="dropdown-item" href="#">Accessories</a></li>
 									</ul>
 						</li>
