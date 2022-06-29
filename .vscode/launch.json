@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
+<<<<<<< HEAD
             "name": "Launch Edge",
             "request": "launch",
             "type": "msedge",
@@ -50,6 +51,13 @@
                 "uriFormat": "http://localhost:%s",
                 "action": "openExternally"
             }
+=======
+            "type": "pwa-msedge",
+            "request": "launch",
+            "name": "Launch Edge against localhost",
+            "url": "http://localhost/greendenpeak",
+            "webRoot": "${workspaceFolder}"
+>>>>>>> d654b82f12c8aefd6e77339f49ca1ffcae24f915
         }
     ]
 }
