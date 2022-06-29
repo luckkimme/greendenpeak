@@ -41,8 +41,9 @@ html, body {
 }
 .tab-item {
 	width: 100%;
-	height: 100%;
-	padding-top: 30vh;
+	min-height: 100%;
+	height: auto;
+	padding: 30vh 0;
 }
 	#rainbow-vacuum-cleaner {
 		padding-top: 0;

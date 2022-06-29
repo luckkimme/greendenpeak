@@ -33,8 +33,20 @@
         }
 #div-certification-desc {
     position: relative;
-    background-color: blue;
+    width: 100%;
+    height: auto;
 }
-    #div-certification-desc h3 {
-        background-color: gray;
+    .div-certification-content {
+        text-align: center;
     }
+        /* aham certificate */
+        #div-certification-desc h3 {
+            margin: 1rem auto;
+        }
+        .div-pdf-download {
+            margin: 0 5%;
+        }
+            .div-pdf-download svg {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
