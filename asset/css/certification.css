@@ -10,6 +10,7 @@
     background-color: red;
 }
     .div-carousel-item {
+        position: relative;
         display: flex !important;
         justify-content: center !important;
     }
@@ -18,3 +19,22 @@
             max-width: 100% !important;
             width: auto !important;
         }
+        .txt-carousel-desc {
+            position: absolute;
+            width: 40%;
+            text-align: justify;
+            margin: 0;
+            padding: 1rem;
+            bottom: 20%;
+            left: 10%;
+            font-size: 1.3rem;
+            color: white;
+            background-color: rgba(128, 128, 128, 60%);
+        }
+#div-certification-desc {
+    position: relative;
+    background-color: blue;
+}
+    #div-certification-desc h3 {
+        background-color: gray;
+    }
