@@ -8,6 +8,7 @@ body {
 }
 .index-content {
 	position: relative;
+	margin-top: 15vh;
 	height: 85vh !important;
 }
 svg {
