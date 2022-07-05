@@ -39,8 +39,7 @@
 									Thermostar Products
 								</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Thermostar Avantgarde S4</a></li>
-										<li><a class="dropdown-item" href="#">Thermostar Professional S4</a></li>
+										<li><a class="dropdown-item" href="../greendenpeak/page/thermostar.php">Thermostar Avantgarde S4/Professional S4</a></li>
 										<li><a class="dropdown-item" href="#">Accessories</a></li>
 									</ul>
 						</li>
