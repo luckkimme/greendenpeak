@@ -1,0 +1,88 @@
+.div-rainbow-feature {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+    .div-svg {
+        position: absolute;
+        height: calc(90% - 15vh);
+        min-height: calc(90% - 15vh);
+        max-height: 100%;
+    }
+    .div-rainbow-feature-desc {
+        width: 100%;
+        height: calc(90% - 15vh);
+        min-height: calc(90% - 15vh);
+        max-height: auto;
+        display: flex;
+        flex-direction: row wrap;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+        .div-rainbow-feature-desc h3 {
+            flex: 2;
+            padding: 0 10vw;
+        }
+        .div-rainbow-feature-desc img {
+            flex: 1;
+            height: 80%;
+        }
+#div-carousel-rainbow-feature {
+    position: relative;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    min-height: calc(90% - 15vh) !important;
+    background-color: #72B01D;
+}
+    .div-carousel-rainbow-feature-item {
+        position: relative;
+        display: flex !important;
+        justify-content: center !important;
+    }
+        .div-carousel-rainbow-feature-item img {
+            height: 100% !important;
+            max-width: 100% !important;
+            width: auto !important;
+        }
+        .div-carousel-rainbow-feature-item-desc {
+            position: absolute;
+            width: 70%;
+            text-align: justify;
+            margin: 0;
+            padding: 1rem;
+            top: 15%;
+            left: 10%;
+            color: white;
+/*            background-color: rgba(128, 128, 128, 60%);   */
+        }
+            .div-carousel-rainbow-feature-item-desc h3 {
+                margin: 1rem auto 2rem auto;
+                font: 3rem;
+                font-weight: 700;
+            } 
+            .div-carousel-rainbow-feature-item-desc h4 {
+                margin: 1rem auto 2rem auto;
+                font: 2rem;
+                font-weight: 500;
+            } 
+            .div-carousel-rainbow-feature-item-desc p {
+                font: 1.5rem;
+                font-weight: 400;
+            } 
+.div-carousel-rainbow-feature-img {
+    position: relative;
+    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    height: calc(90% - 15vh);
+    min-height: calc(90% - 15vh) !important;
+    text-align: center;
+    background-color: #72B01D;
+}
+    .div-carousel-rainbow-feature-img img {
+        height: 100% !important;
+        max-width: 100% !important;
+        width: auto !important;
+    }

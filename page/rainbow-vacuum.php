@@ -8,6 +8,7 @@
 	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/rainbow-vacuum.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/rainbow-kit.css?d=<?php echo time(); ?>" rel="stylesheet">
+	    <link href="../asset/css/rainbow-product-feature.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/certification.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <script type="text/javascript" src="../asset/js/bootstrap.min.js"></script>
 	</head>
@@ -29,10 +30,10 @@
                         <a class="nav-link" href="#specifications">specifications / kit</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#certifications">certifications</a>
+                        <a class="nav-link" href="#optional-accessories">optional accessories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#accessories">accessories</a>
+                        <a class="nav-link" href="#certifications">certifications</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#reviews">reviews</a>
@@ -66,20 +67,17 @@
 			    	</div>
                 </div> 
                 <div id="product-features" class="tab-item">
-                    <h4 id="scrollspyHeading2">Second heading</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <?php include_once("component/rainbow-product-feature.php"); ?>
                 </div> 
                 <div id="specifications" class="tab-item">
                     <?php include_once("component/rainbow-kit.php"); ?>
                 </div> 
+                <div id="optional-accessories" class="tab-item">
+                    <?php include_once("component/rainbow-optional-accessories.php"); ?>    
+                </div>
                 <div id="certifications" class="tab-item">
                     <?php include_once("component/certification.php"); ?>
                 </div> 
-                <div id="accessories" class="tab-item">
-                    <h4 id="scrollspyHeading5">Fifth heading</h4>
-                    <p>Where can I get some?
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-                </div>
                 <div id="reviews" class="tab-item">
                     <h4 id="scrollspyHeading5">Fifth heading</h4>
                     <p>Where can I get some?

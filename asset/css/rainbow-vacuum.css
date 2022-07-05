@@ -43,7 +43,7 @@ html, body {
 	width: 100%;
 	min-height: 100%;
 	height: auto;
-	padding: 30vh 0;
+	padding: 25vh 0;
 }
 	#rainbow-vacuum-cleaner {
 		padding-top: 0;
@@ -78,33 +78,6 @@ html, body {
 					.btn-order:focus {
 						box-shadow: 0px 0px 5px 3px #72B01D; 
 					}
-#pills-features {
-	min-height: calc(90% - 15vh);
-}	
-	.div-features{
-		height: auto;
-	}
-		.div-feature-desc {
-			display: flex;
-			padding: 5%;
-		}
-			.div-feature-desc p {
-				font-size: 1.5rem;
-				text-align: right;
-			}
-		.div-product-feature-img {
-			height: 100%;
-			width: 100%;
-			padding: 5%;
-		}
-			.div-product-feature-img img {
-				height: 300px;
-			}
-#pills-kit, #pills-certification {
-	width: 100% !important;
-	padding: 0;
-	min-height: calc(90% - 15vh) !important;
-}
 #user-manual h4, #user-manual h5 {
 	width: 100%;
 	text-align: center;
