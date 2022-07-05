@@ -11,6 +11,9 @@
     <link href="asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
 
     <style>
+        body {
+            overflow-y: hidden;
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
