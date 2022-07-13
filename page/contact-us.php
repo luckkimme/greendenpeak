@@ -18,38 +18,37 @@
 	    </div>
 	    <div id="div-contact-select">
 	    	<div>Select the reason for contacting us</div>
-	    	<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+	    	<select class="form-select form-select-lg mb-3" method="post" name="subject" aria-label=".form-select-lg example">
 				<option selected>Open this select menu</option>
-				<option value="1">One</option>
-				<option value="2">Two</option>
-				<option value="3">Three</option>
+				<option value="Inquire">Inquire</option>
+				<option value="Question">Question</option>
+				<option value="Buying">Buying</option>
 			</select>
-			<button type="button" class="btn btn-primary">Proceed</button>
 	    </div>
 	    <div id="div-form">
     		<h4>Please fill out the form</h4>
-	    	<form>
+	    	<form action="/greendenpeak/page/sendemail.php" method="post">
 	    		<div class="form-floating mb-3 mt-3">
-				    <input type="text" class="form-control" id="floatingInput" placeholder="Full Name">
+				    <input type="text" name="fname" class="form-control" id="floatingInput" placeholder="Full Name">
 				    <label for="floatingInput">Full Name</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
-				    <input type="num" class="form-control" id="floatingInput" placeholder="Phone Number">
+				    <input type="num" name="phone" class="form-control" id="floatingInput" placeholder="Phone Number">
 				    <label for="floatingInput">Phone Number</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
-				    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+				    <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
 				    <label for="floatingInput">Email address</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
-				    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-				    <label for="floatingTextarea2">Comments</label>
+				    <textarea class="form-control" name="message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+				    <label for="floatingTextarea2">Message</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
 				    <input type="date" class="form-control" id="floatingPassword" placeholder="date">
 				    <label for="floatingPassword">Select date for appointment</label>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary" name="send">Submit</button>
 	    	</form>
 	    </div>
 	</body>
