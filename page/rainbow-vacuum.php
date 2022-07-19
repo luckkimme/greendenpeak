@@ -10,6 +10,7 @@
 	    <link href="../asset/css/rainbow-kit.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/rainbow-product-feature.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/certification.css?d=<?php echo time(); ?>" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	    <script type="text/javascript" src="../asset/js/bootstrap.min.js"></script>
 	</head>
 	<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
@@ -137,5 +138,6 @@
                 </div>
             </div>
         </div>
+        <?php include_once("component/footer.php"); ?>
 	</body>
 </html>

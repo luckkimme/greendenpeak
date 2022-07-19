@@ -7,6 +7,7 @@
 	    <link href="../asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	    <link href="../asset/css/contact-us.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	    <script type="text/javascript" src="../asset/js/bootstrap.min.js"></script>
 	</head>
 	<body>
@@ -51,5 +52,6 @@
 				<button type="submit" class="btn btn-primary" name="send">Submit</button>
 	    	</form>
 	    </div>
+		<?php include_once("component/footer.php"); ?>
 	</body>
 </html>
