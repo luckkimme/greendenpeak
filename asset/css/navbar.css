@@ -1,49 +1,32 @@
 * {
 	box-sizing: border-box !important;
 }
-html, body {
-	padding: 0 !important;
+body {
+	padding: 15vh 0 0 0 !important;
 	margin: 0 !important;
 }
-#nav-main {
-	position: fixed;
-	z-index: 10;
-	height: 15vh;
-	padding: 0 2vw 0 2vw !important;
-	box-shadow: 0 2px 4px -2px gray;
-	background-color: white;
-}
-.navbar-brand-main {
-	margin: 0 !important;
-	text-transform: uppercase;
-	font-weight: 700;
-}
-#img-navbarBrand {
-	height: 3.5rem;
-	width: 3.5rem;
-}
-#navbarNav {
-	top: 15vh;
-	background-color: white;
-	justify-content: right !important;
-}
-.navbar-list {
-	margin: auto 0 0 auto !important;
-}
-.nav-item-main {
-	font-size: 20px;
-	margin-left: 5vh;
-	text-transform: capitalize;
-}
-.nav-item-main .active {
-	font-weight: 600;
-}
-.product-dropdown:hover .product-dropdown-menu {
-    display: block;
-    margin-top: 0px;
-}
-@media (max-width: 992px) {
-	#nav-main {
-		padding: 0 2vw 0 2vw !important;
-	}
-}
+    #nav-main {
+        height: 15vh !important;
+        box-shadow: 0 2px 4px -2px gray;
+        background-color: white !important;
+        text-transform: uppercase;
+    }
+        .navbar-brand-main {
+            padding-top: 0 !important;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+            .navbar-brand-main img {
+                height: 3.5rem;
+                width: auto;
+            }
+            .div-navbar-offcanvas {
+                background-color: white !important;
+                font-weight: 600;
+            }
+                .div-navbar-offcanvas ul {
+                    margin: auto 0 0 auto !important;
+                }
+                    .div-navbar-offcanvas .nav-item {
+                        margin-left: 10px;
+                    }

@@ -1,0 +1,149 @@
+* {
+	box-sizing: border-box;
+}
+body {
+    padding: 0 !important;
+}
+	#div-product {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+		#div-main-tab {
+			top: 15vh;
+			z-index: 5;
+			padding: 0;
+			height: 2.75rem !important;
+			font-size: 16px;
+			box-shadow: 0 1px 4px -2px gray;
+		}
+			#div-main-tab li .active {
+				background-color: transparent;
+				border-radius: 0;
+				color: #14C9CB !important;
+				border-bottom: 5px solid #14C9CB;
+			}
+				#div-main-tab .nav-link {
+					width: 100%;
+					font-size: .7rem;
+					color: black !important;
+					text-transform: capitalize;
+					border-radius: 0;
+				}
+/* tab contents */
+#tab-content {
+	position: relative;
+	overflow: hidden;
+    padding: 0 0 15vh 0 !important;
+    border: 1px solid green;
+}
+.tab-item {
+	width: 100%;
+    height: auto !important;
+    max-height: 100%;
+}
+	#product {
+        height: 100vh !important;
+        max-height: 100%;
+        padding: 10vh 0 0 0 !important;
+	}
+        #product-info {
+        }
+        .div-product-desc h1 {
+            text-transform: capitalize;
+        }
+            .div-product-desc ul {
+                display: grid;
+                grid-template-columns: 50% 50%;
+            }
+    #product-features {
+        min-height: calc(170vh + 8rem) !important;
+    }
+        #product-feature-container {
+            height: auto !important;
+        }
+            .div-feature {
+                height: calc(85vh - 2.75rem);
+                max-height: auto;
+            }
+                .div-feature-desc {
+                    height: 100% !important;
+                }   
+                    .div-feature-desc h1 {
+                        font-size: 2rem;
+                    }
+                    .div-feature-desc p {
+                        font-size: 1rem;
+                    }
+                    .div-feature-desc img {
+                        height: 95%;
+                        width: auto;
+                    }
+        #div-carousel-product-feature {
+        }
+    #specifications {
+        width: 100%;
+        min-height: calc(85vh + 5rem) !important;
+        height: calc(85vh + 5rem);
+        max-height: auto;
+        margin: 0;
+    }
+        #div-product-kit .row {
+        }
+        #div-product-kit h1 {
+            font-size: 1.5rem;
+        }
+            .div-kit-list {
+                border-top: 3px solid #14C9CB;
+            }
+                .div-kit-list p {
+                    font-size: 1rem;
+                    margin: 0;
+                }
+                .div-kit-list ul {
+                    padding: 0 5rem;
+                }
+                    .div-kit-list li {
+                        font-size: 0.8rem;
+                    }
+    #optional-accessories {
+        width: 100%;
+        height: 100%;
+        max-height: max-content;
+        min-height: calc(85vh + 5rem) !important;
+    }
+        #product-accessories {
+            height: max-content;
+        }
+            #product-accessories .card {
+                font-size: 0.8rem;
+            }
+    #other-info {
+        width: 100%;
+        height: 100%;
+        max-height: max-content;
+        min-height: calc(85vh + 5rem) !important;
+    }
+        .div-other-info-container {
+            border-bottom: 3px solid #14C9CB;
+        }
+            .div-other-info-container h1 {
+                font-size: 1.5rem;
+            }
+            .div-other-info-container p {
+                font-size: 1rem;
+            }
+                .div-other-info-list ul {
+                    margin: 0;
+                }
+                    .div-other-info-list li {
+                        font-size: 0.8rem;
+                    }
+    #user-manual h4, #user-manual h5 {
+        width: 100%;
+        text-align: center;
+    }
+        #user-manual svg {
+            height: 1.5rem;
+            width: 1.5rem;
+        }

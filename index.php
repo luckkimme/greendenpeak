@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Greendenpeak Website">
+    <meta name="author" content="Kimberly Mae Soguilon and Ryu Juanito Pagkaliwangan IV">
+    <title>Greendenpeak, OPC</title>
+    
 
-    <link href="asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="asset/css/index.css?d=<?php echo time(); ?>" rel="stylesheet">
-    <link href="asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
-    <link href="asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
-
+    <!-- Bootstrap core CSS -->
+    <link href="asset/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        body {
-            overflow-y: hidden;
-        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -28,114 +26,138 @@
             }
         }
     </style>
-    <!-- Custom styles for this template -->
+
+    
+    <!-- Custom styles for offcanvas navbar -->
     <link href="asset/css/offcanvas.css?d=<?php echo time(); ?>" rel="stylesheet">
+    <!-- Custom styles for the product display -->
+    <link href="asset/css/heroes.css" rel="stylesheet">
+    <!-- Custom styles for navbar -->
+    <link href="asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
+    <!-- Custom styles index page -->
+    <link href="asset/css/index.css?d=<?php echo time(); ?>" rel="stylesheet">
+
 </head>
-<body>
+<body class="bg-light">
+    
     <?php include_once("page/component/navbar.php"); ?>
 
-    <div class="index-content" id="indexPage1">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-2.48,154.44 C452.93,153.45 204.62,64.64 503.72,87.32 L501.46,-2.46 L-2.48,-1.48 Z" style="stroke: none; fill: #72B01D;"></path></svg>
-        <div id="div-indexPage1-txt">
-            <h1>Authorized Partner of Rainbow and Thermostar Philippines</h1>
-        </div>
-        <div id="div-img">
-            <img src="asset/img/placeholder/e.png">
-        </div>
-    </div>
-    <div class="index-content div-product" id="indexPage2">
-        <svg style="height: 100%; width: 100%;">
-            <rect/>
-        </svg>
-        <h3>featured products</h3>
-        <div>
-            <span>
-                <h4>Rainbow Vacuum</h4>
-                <p>Great technology for dust-free cleaning for all surfaces with the power of water.</p>
-            </span>
-            <img src="asset/img/placeholder/g.png">
-        </div>
-        <a href="page/rainbow.php">Learn More ></a>
-    </div>
-    <div class="index-content div-product" id="indexPage3">
-        <svg style="height: 100%; width: 100%;">
-            <rect/>
-        </svg>
-        <h3>featured products</h3>
-        <div>
-            <span>
-                <h4>Thermostar Dry Cleaner</h4>
-                <p>At least 180°C micro dry steam perfect for DIY heat sterilization and disinfection on surfaces.</p>
-            </span>
-            <img src="asset/img/placeholder/h.png">
-        </div>
-        <a href="page/thermostar.php">Learn More ></a>
-    </div>
-<!--  asked by client to be removed
-    <div class="index-content div-product" id="indexPage4">
-        <svg style="height: 100%; width: 100%;">
-            <rect/>
-        </svg>
-        <h3>featured products</h3>
-        <div>
-            <span>
-                <h4>MD Solution</h4>
-                <p>MD Solution has distinct properties compared with other traditional disinfectants in the market today ideal most especially for emerging infectious diseases.</p>
-            </span>
-            <img src="/greendenpeak/asset/img/placeholder/i.webp">
-        </div>
-        <a href="/greendenpeak/page/mdsolution.php">Learn More ></a>
-    </div>
--->
-    <div class="index-content" id="indexPage5">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M189.69,160.49 C348.83,111.12 355.60,84.44 406.95,-3.45 L507.41,-3.45 L507.97,166.41 Z" style="stroke: none; fill: #72B01D;"></path></svg>
-        <h3>Check out what other customers have to say</h3>
-        <img src="asset/img/placeholder/j.png" style="height: 300px; width: 500px; margin: 3% 25%;">
-    </div>
-    <div id="div-faq">
-        <div class="div-header">
-            <h4>frequently asked questions (faq)</h4>
-        </div>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                Question 1
+    <main>
+        <div id="div-index-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active index-carousel-item">
+                    <img src="asset/img/index/carousel/carousel-1.png">
+                </div>
+                <div class="carousel-item index-carousel-item">
+                    <img src="asset/img/index/carousel/carousel-2.jpg">
+                </div>
+                <div class="carousel-item index-carousel-item">
+                    <img src="asset/img/index/carousel/carousel-3.jpg">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#div-index-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            </h2>
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <button class="carousel-control-next" type="button" data-bs-target="#div-index-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="b-example-divider"></div>
+
+        <div class="container col-xxl-8 px-4 py-5 div-index-product">
+            <div class="row flex-lg-row-reverse align-items-center px-3 py-3">
+                <div class="col-10 col-sm-8 col-lg-6 div-index-product-image">
+                    <img src="asset/img/products/rainbow/rainbow-vacuum-no-bg.png" class="d-block mx-lg-auto img-fluid" alt="Product Image" loading="lazy">
                 </div>
-            </div>
-            </div>
-            <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                Question 2
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">Rainbow Vacuum</h1>
+                    <p class="lead">Great technology for dust-free cleaning for all surfaces with the power of water.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Learn More ></button>
+                    </div>
                 </div>
-            </div>
-            </div>
-            <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                Question 3
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-            </div>
             </div>
         </div>
-    </div>
-    <script src="asset/js/bootstrap.bundle.min.js"></script>
-    <script src="asset/js/offcanvas.js"></script>
+
+        <div class="b-example-divider"></div>
+
+        <div class="container col-xxl-8 px-4 py-5 div-index-product">
+            <div class="row flex-lg-row-reverse align-items-center px-3 py-3">
+                <div class="col-10 col-sm-8 col-lg-6 div-index-product-image">
+                    <img src="asset/img/index/carousel/carousel-3.jpg" class="d-block mx-lg-auto img-fluid" alt="Product Image" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">Thermostar Dry Cleaner</h1>
+                    <p class="lead">At least 180°C micro dry steam perfect for DIY heat sterilization and disinfection on surfaces.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Learn More ></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-example-divider"></div>
+
+        <div class="my-3 p-3 bg-body rounded shadow-sm container">
+            <h6 class="border-bottom pb-2 mb-0">frequently asked questions (faq)</h6>
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        Question 1
+                    </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                    </div>
+                    </div>
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        Question 2
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                    </div>
+                    </div>
+                    <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                        Question 3
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <small class="d-block text-end mt-3">
+                    <a href="#">View All</a>
+                </small>
+            </div>
+        </div>
+
+    </main>
+
+
+        <script src="asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="asset/js/offcanvas.js"></script>
 </body>
 </html>

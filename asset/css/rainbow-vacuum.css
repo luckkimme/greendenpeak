@@ -1,11 +1,5 @@
 * {
 	box-sizing: border-box;
-	position: relative;
-}
-html, body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
 }
 	#div-rainbow {
 		margin: 0;
@@ -13,12 +7,12 @@ html, body {
 		width: 100%;
 	}
 		#div-main-tab {
-			position: sticky;
 			top: 15vh;
 			z-index: 5;
-			height: 10% !important;
+			padding: 0;
+			height: 2.75rem !important;
 			font-size: 16px;
-			background-color: white;
+			box-shadow: 0 1px 4px -2px gray;
 		}
 			#div-main-tab li .active {
 				background-color: transparent;
@@ -33,11 +27,10 @@ html, body {
 					text-transform: capitalize;
 					border-radius: 0;
 				}
-
 /* tab contents */
 #tab-content {
 	position: relative;
-	border: 1px solid black;
+	overflow-x: hidden;
 }
 .tab-item {
 	width: 100%;
@@ -46,7 +39,7 @@ html, body {
 	padding: 25vh 0;
 }
 	#rainbow-vacuum-cleaner {
-		padding-top: 0;
+		padding-top: 2.75rem;
 	}
 		.div-main-container {
 			display: grid;
@@ -78,6 +71,9 @@ html, body {
 					.btn-order:focus {
 						box-shadow: 0px 0px 5px 3px #72B01D; 
 					}
+#optional-accessories {
+	width: 99%;
+}
 #user-manual h4, #user-manual h5 {
 	width: 100%;
 	text-align: center;

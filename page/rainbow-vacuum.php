@@ -10,14 +10,33 @@
 	    <link href="../asset/css/rainbow-kit.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/rainbow-product-feature.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/certification.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <script type="text/javascript" src="../asset/js/bootstrap.min.js"></script>
-	</head>
+	
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+                }
+            }
+        </style>
+
+        
+        <!-- Custom styles for offcanvas navbar -->
+        <link href="../asset/css/offcanvas.css?d=<?php echo time(); ?>" rel="stylesheet">
+    </head>
 	<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
-		<div id="div-rainbow">
+		<main id="div-rainbow">
 			<?php 
 		        include_once("component/navbar.php");
 		    ?>
-            <nav id="div-main-tab" class="navbar navbar-light bg-light px-3 sticky-top">
+            <nav id="div-main-tab" class="navbar navbar-light bg-light px-3 fixed-top">
                 <a class="navbar-brand" href="#">Rainbow</a>
                 <ul class="nav nav-pills">
                     <li class="nav-item">
@@ -136,6 +155,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+        <script src="../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="../asset/js/offcanvas.js"></script>
 	</body>
 </html>

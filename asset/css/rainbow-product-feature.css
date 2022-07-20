@@ -5,8 +5,8 @@
 }
     .div-svg {
         position: absolute;
-        height: calc(90% - 15vh);
-        min-height: calc(90% - 15vh);
+        height: calc((100%-56px) - 15vh);
+        min-height: calc((100%-56px) - 15vh);
         max-height: 100%;
     }
     .div-rainbow-feature-desc {
@@ -76,7 +76,7 @@
     max-width: 100%;
     width: auto;
     max-height: 100%;
-    height: calc(90% - 15vh);
+    height: calc(100% - 15vh);
     min-height: calc(90% - 15vh) !important;
     text-align: center;
     background-color: #72B01D;

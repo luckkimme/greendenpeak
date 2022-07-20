@@ -4,7 +4,7 @@
             <div class="col-md-5">
                 <img src="../asset/img/placeholder/u.jpg" class="img-fluid rounded-start" alt="...">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <div class="card-body">
                     <h5 class="card-title">Power Nuzzle</h5>
                     <p class="card-text">Wall-to-Wall Cleaning</p>
@@ -23,7 +23,7 @@
             <div class="col-md-5">
                 <img src="../asset/img/placeholder/u.jpg" class="img-fluid rounded-start" alt="...">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <div class="card-body">
                     <h5 class="card-title">Power Nuzzle</h5>
                     <p class="card-text">Wall-to-Wall Cleaning</p>

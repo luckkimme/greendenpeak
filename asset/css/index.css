@@ -3,13 +3,38 @@
 }
 body {
 	position: relative;
-	margin: 0;
-	padding: 0;
 }
+	#div-index-carousel {
+		text-align: center;
+	}
+		.index-carousel-item {
+			width: 100%;
+			height: 85vh;
+			max-height: 85vh !important;
+		}
+			.index-carousel-item img {
+				width: auto;
+				max-width: 100%;
+				height: auto;
+				min-height: 85vh;
+				max-height: 85vh !important;
+			}
+	.div-index-product {
+		height: 85vh;
+		padding: 0 !important;
+	}
+		.div-index-product-image {
+			/* center this shiet vertically */
+		}
+			.div-index-product img {
+				height: auto;
+				max-height: 80vh;
+			}
+/*
 .index-content {
 	position: relative;
 	margin-top: 15vh;
-	height: 85vh !important;
+	max-height: 85vh !important;
 }
 svg {
 	position: absolute;
@@ -77,4 +102,4 @@ svg {
 #indexPage5 h3 {
 	margin: 20px auto 0 auto;
 	text-align: center;
-}
+} */

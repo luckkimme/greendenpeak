@@ -1,4 +1,4 @@
-<div>
+<div style="width: 100%;">
     <div class="div-rainbow-feature">
         <div style="overflow: hidden;" class="div-svg">
             <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
@@ -86,7 +86,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="div-carousel-rainbow-feature-img">
+    <div class="div-carousel-rainbow-feature-img specs">
         <img src="../asset/img/placeholder/t.png">
     </div>
 </div>
