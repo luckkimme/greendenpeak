@@ -44,7 +44,8 @@
             <h6 class="text-uppercase mb-3 font-weight-bold">Contact</h6>
             <p><i class="bi bi-house-fill mr-3"></i> Rm 1. Naguilian Rd, Rainbow Bldg. Brgy. MRR Queen of Peace,<br /> Baguio City, Benguet</p>
             <p><i class="bi bi-envelope-fill mr-3"></i> info@greendenpeak.com</p>
-            <p><i class="bi bi-phone-fill mr-3"></i> 0917-545-1254 | (02)7502-1405</p>
+            <p><i class="bi bi-phone-fill mr-3"></i> 0917-545-1254</p>
+            <p><i class="bi bi-telephone-fill mr-3"></i> (02)7502-1405</p>
           </div>
           <!-- Grid column -->
 
@@ -94,7 +95,7 @@
 
     <!-- Copyright -->
     <div
-         class="text-center p-3"
+         class="text-center p-3 mt-3"
          style="background-color: #02ABAB"
          >
       © 2020 Greendenpeak - All Rights Reserved

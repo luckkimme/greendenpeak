@@ -17,18 +17,20 @@
 	    <div class="div-header">
 	    	<h4>contact us</h4>
 	    </div>
-	    <div id="div-contact-select">
-	    	<div>Select the reason for contacting us</div>
-	    	<select class="form-select form-select-lg mb-3" method="post" name="subject" aria-label=".form-select-lg example">
-				<option selected>Open this select menu</option>
-				<option value="Inquire">Inquire</option>
-				<option value="Question">Question</option>
-				<option value="Buying">Buying</option>
-			</select>
-	    </div>
+			<form action="/greendenpeak/page/sendemail.php" method="post">
+	    		<div id="div-contact-select">
+	    			<div>Select the reason for contacting us</div>
+	    				<select class="form-select form-select-lg mb-3" name="purpose" aria-label=".form-select-lg example">
+							<option selected>Open this select menu</option>
+							<option value="Inquire">Inquire</option>
+							<option value="Question">Question</option>
+							<option value="Buying">Buying</option>
+						</select>
+	    			</div>
+
 	    <div id="div-form">
     		<h4>Please fill out the form</h4>
-	    	<form action="/greendenpeak/page/sendemail.php" method="post">
+	    	
 	    		<div class="form-floating mb-3 mt-3">
 				    <input type="text" name="fname" class="form-control" id="floatingInput" placeholder="Full Name">
 				    <label for="floatingInput">Full Name</label>

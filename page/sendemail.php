@@ -38,8 +38,9 @@ if (isset($_POST["send"])) {
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = $_POST["subject"];
-    $mail->Body    = $_POST["message"]."<br/>";
+    $mail->Subject = 'Greendenpeak Client';
+    $mail->Body    = $_POST["purpose"]."<br/><br/>";
+    $mail->Body    .= $_POST["message"]."<br/><br/>";
     $mail->Body    .= $_POST["email"]."<br/>";
     $mail->Body    .= $_POST["phone"];
     //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

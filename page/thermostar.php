@@ -5,7 +5,7 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link href="../asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	    <link href="../asset/css/navbar-test.css?d=<?php echo time(); ?>" rel="stylesheet">
+	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/thermostar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/thermostar-avantgarde.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/thermostar-professional.css?d=<?php echo time(); ?>" rel="stylesheet">
@@ -16,7 +16,7 @@
     <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 		<div id="div-rainbow">
             <?php 
-		        include_once("component/navbar-test.php");
+		        include_once("component/navbar.php");
 		    ?>
 
 			<nav id="div-main-tab" class="navbar navbar-light bg-light px-4 sticky-top">

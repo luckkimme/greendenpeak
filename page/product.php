@@ -7,6 +7,7 @@
 	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/product.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/certification.css?d=<?php echo time(); ?>" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	
         <!-- Bootstrap core CSS -->
         <link href="../asset/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -153,5 +154,6 @@
         <script src="../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script src="../asset/js/offcanvas.js"></script>
+        <?php include_once("component/footer.php"); ?>
 	</body>
 </html>
