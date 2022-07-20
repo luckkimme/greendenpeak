@@ -10,6 +10,7 @@
 	    <link href="../asset/css/rainbow-kit.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/rainbow-product-feature.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/certification.css?d=<?php echo time(); ?>" rel="stylesheet">
+<<<<<<< HEAD
 	
         <style>
             .bd-placeholder-img {
@@ -31,6 +32,11 @@
         <!-- Custom styles for offcanvas navbar -->
         <link href="../asset/css/offcanvas.css?d=<?php echo time(); ?>" rel="stylesheet">
     </head>
+=======
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	    <script type="text/javascript" src="../asset/js/bootstrap.min.js"></script>
+	</head>
+>>>>>>> bebc933506d6863f3eb1cda18a0b5bb62b0be619
 	<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 		<main id="div-rainbow">
 			<?php 
@@ -155,9 +161,14 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </main>
         <script src="../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script src="../asset/js/offcanvas.js"></script>
+=======
+        </div>
+        <?php include_once("component/footer.php"); ?>
+>>>>>>> bebc933506d6863f3eb1cda18a0b5bb62b0be619
 	</body>
 </html>

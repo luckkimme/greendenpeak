@@ -9,6 +9,7 @@
 	    <link href="../asset/css/thermostar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/thermostar-avantgarde.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/thermostar-professional.css?d=<?php echo time(); ?>" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	    <script type="text/javascript" src="../asset/js/bootstrap.min.js"></script>
     </head>
 
@@ -145,5 +146,6 @@
                 </div>
             </div>
 		</div>
+        <?php include_once("component/footer.php"); ?>
     </body>
 </html>
