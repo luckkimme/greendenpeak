@@ -47,8 +47,9 @@ body {
         max-height: 100%;
         padding: 10vh 0 0 0 !important;
 	}
+        /*
         #product-info {
-        }
+        }   */
         .div-product-desc h1 {
             text-transform: capitalize;
         }
@@ -79,17 +80,18 @@ body {
                         height: 95%;
                         width: auto;
                     }
+        /*
         #div-carousel-product-feature {
-        }
+        }   */
     #specifications {
         width: 100%;
         min-height: calc(85vh + 5rem) !important;
         height: calc(85vh + 5rem);
         max-height: auto;
         margin: 0;
-    }
+    }   /*
         #div-product-kit .row {
-        }
+        }   */
         #div-product-kit h1 {
             font-size: 1.5rem;
         }
