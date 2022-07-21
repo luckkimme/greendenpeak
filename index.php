@@ -1,4 +1,20 @@
-<?php include_once("includes/connection.php"); ?>
+<?php 
+
+    //Includes Scripts
+    require_once __DIR__ . '/includes/connection.php';
+    require_once __DIR__ . '/includes/processor/product-processor.php';
+
+    //Product Brands
+    $brand = get_brand($conn);
+    $product_name = get_product_name($conn);
+    //echo $brand['brand_name'];
+    foreach($product_name as $product) {
+        echo $product['product_name'];
+    }
+    //View Scripts
+    require_once __DIR__ . '/includes/view/product-view.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +58,7 @@
 </head>
 <body class="bg-light">
     
-    <?php include_once("page/component/navbar.php"); ?>
+    <?php include_once __DIR__ . '/page/component/navbar.php'; ?>
 
     <main>
         <div id="div-index-carousel" class="carousel slide" data-bs-ride="carousel">

@@ -1,3 +1,20 @@
+<?php
+
+    //Includes Scripts
+    require_once __DIR__ . '/../includes/connection.php';
+    require_once __DIR__ . '/../includes/processor/product-processor.php';
+
+    //Product Brands
+    $brand = get_brand($conn);
+    $product_name = get_product_name($conn);
+    //echo $brand['brand_name'];
+   /*  foreach($product_name as $product) {
+        echo $product['product_name'];
+    } */ 
+    //View Scripts
+    require_once __DIR__ . '/../includes/view/product-view.php';
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
