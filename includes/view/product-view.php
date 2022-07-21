@@ -22,7 +22,7 @@
             
             foreach($product_name as $pName) {
                 if($currBrand == $pName['fk_brand_id']) {
-                    $productBrand .= '<li><a class="dropdown-item" href="/greendenpeak/page/product.php">';
+                    $productBrand .= '<li><a class="dropdown-item" href="/greendenpeak/page/product.php?productID=' . $pName['product_id'] .'">';
                     $productBrand .= $pName['product_name'] . '</a></li>';
                 }
             } 
