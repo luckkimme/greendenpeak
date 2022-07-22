@@ -21,7 +21,7 @@
 	    		<div id="div-contact-select">
 	    			<div>Select the reason for contacting us</div>
 	    				<select class="form-select form-select-lg mb-3" name="purpose" aria-label=".form-select-lg example">
-							<option selected>Open this select menu</option>
+							<option value="Request Demo" selected>Request Demo</option>
 							<option value="Inquire">Inquire</option>
 							<option value="Question">Question</option>
 							<option value="Buying">Buying</option>
