@@ -1,4 +1,38 @@
-<!DOCTYPE>
+<?php
+
+    session_start();
+
+    //Includes Scripts
+    require_once __DIR__ . '/../includes/connection.php';
+    require_once __DIR__ . '/../includes/function/db.php';
+    require_once __DIR__ . '/../includes/processor/product-processor.php';
+
+    //Product Brands for the navbar
+    $brand = get_brand($conn);
+    $product_name = get_product_name($conn);
+
+    //View Scripts
+    require_once __DIR__ . '/../includes/view/product-view.php';
+
+    //Get Product ID
+    if(!isset($_GET['productID'])){
+        header("Location: ../index.php");
+        exit;
+    } 
+    else{
+        $productID = $_GET['productID']; 
+        /* echo '<script language="javascript">';
+        echo 'alert(' . $productID . ');';
+        echo '</script>'; */
+    }
+
+    //Product Information to display
+    $product = get_product_info($conn, $productID);
+    $productDescList = get_product_info_desc_list($conn, $productID);
+    
+?>
+
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">

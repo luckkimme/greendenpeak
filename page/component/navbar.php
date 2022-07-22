@@ -25,22 +25,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" href="#">products</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <li class="dropdown"><a tabindex="0" class="dropdown-item dropdown-toggle" role="button" data-bs-toggle="dropdown" data-bs-trigger="focus" title="Click to view Rainbow Products">
-                                Rainbow Products
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/greendenpeak/page/product.php">Rainbow Vacuum Cleaner</a></li>
-                                <li><a class="dropdown-item" href="#">Accessories</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"><a tabindex="0" class="dropdown-item dropdown-toggle" role="button" data-bs-toggle="dropdown" data-bs-trigger="focus" title="Click to view Rainbow Products">
-                                Thermostar Products
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/greendenpeak/page/product.php">Thermostar Avantgarde S4/Professional S4</a></li>
-                                <li><a class="dropdown-item" href="#">Accessories</a></li>
-                            </ul>
-                        </li>
+                        <?php display_brand_products($brand, $product_name); ?>
                     </ul>
                 </li>
                 <li class="nav-item">
