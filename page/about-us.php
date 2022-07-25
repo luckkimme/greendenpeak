@@ -1,87 +1,101 @@
+<?php 
+
+    session_start();
+
+    //Includes Scripts
+    require_once __DIR__ . '/../includes/connection.php';
+    require_once __DIR__ . '/../includes/processor/product-processor.php';
+
+    //Product Brands
+    $brand = get_brand($conn);
+    $product_name = get_product_name($conn);
+
+    //View Scripts
+    require_once __DIR__ . '/../includes/view/product-view.php';
+
+?>
+
 <!DOCTYPE>
-<html>
-	<head>
-		<meta charset="UTF-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link href="../asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	    <link href="../asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <script type="text/javascript" src="/greendenpeak/asset/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<?php 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
+	<link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
+	<link href="../asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link href="../asset/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+  		<?php 
 	        include_once("component/navbar.php");
 	    ?>
-	    <div class="div-header">
-	    	<h4>what is greendenpeak?</h4>
-	    </div>
-	    <div id="txt-about">
-	    	<p>Greendenpeak is an authorized distributor and partner of Rainbow Vacuum & Thermostar Philippines. They have been serving customers since (insert year). Moreover, they entrust the delivery of products with authorized dealers.</p>
-	    	<div>
-	    		<img src="../asset/img/placeholder/a.png">
-	    		<img src="../asset/img/placeholder/c.png">
-	    		<img src="../asset/img/placeholder/b.png">
-	    	</div>
-	    </div>
-	    <div id="div-office">
-	    	<svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M327.09,159.36 C243.57,117.93 243.57,33.05 340.62,-15.29 L-20.54,-18.25 L-5.87,151.47 Z" style="stroke: none; fill: #72B01D;"></path></svg>
-	    	<div id="txt-office">
-		    	<h1>offices</h1>
-		    	<p>Our main offices are in Mandaluyong City and Baguio City. We also have offices in Cebu, Bicol and Mindanao.</p>
-	    	</div>
-	    	<img src="../asset/img/placeholder/map.png">
-	    </div>
-	    <div id="div-service">
-	    	<svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M77.95,-21.24 C208.87,178.28 411.73,147.65 503.16,97.29 L489.61,566.45 L-153.42,25.17 Z" style="stroke: none; fill: #72B01D;"></path></svg>
-	    	<div id="txt-service">
-		    	<h1>service center</h1>
-		    	<p>Service Center is open for regular check-up and repair.</p>
-	    	</div>
-	    	<img src="../asset/img/placeholder/d.png">
-	    </div>
-	    <div id="div-faq">
-	    	<div class="div-header">
-		    	<h4>frequently asked questions (faq)</h4>
-		    </div>
-		    <div class="accordion" id="accordionPanelsStayOpenExample">
-			<div class="accordion-item">
-			    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-			    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-			        Question 1
-			    </button>
-			    </h2>
-			    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-			      <div class="accordion-body">
-			        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-			      </div>
-			    </div>
-			  </div>
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-			      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-			        Question 2
-			      </button>
-			    </h2>
-			    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-			      <div class="accordion-body">
-			        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-			      </div>
-			    </div>
-			  </div>
-			  <div class="accordion-item">
-			    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-			      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-			        Question 3
-			      </button>
-			    </h2>
-			    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-			      <div class="accordion-body">
-			        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-			      </div>
-			    </div>
-			  </div>
-			</div>
-	    </div>
-	</body>
+<main>
+  <div class="container py-3">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">ABOUT US</span>
+      </a>
+    </header>
+
+    <div class="p-5 mb-4 bg-lsg rounded-3 text-white">
+      <div class="container-fluid py-2">
+        <h1 class="display-5 fw-bold">Company History</h1>
+        <p class="col-md-8 fs-5">Founded by Dennis Tupas Salamanca in 2019, Greendenpeak,
+								OPC is committed to delivering top-of-the-line cleaning
+								equipment and quality cleaning services. While focusing on
+								only two products, Rainbow Cleaning System and Thermostar
+								Dry Steam System, the founder added cleaning services using
+								these two cleaning equipment to attain the quality cleaning
+								service the customers deserve.</p>
+        <a class="btn btn-outline-light btn-lg" href='/greendenpeak/page/component/history.php'>Find Out More!</a>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-lsg rounded-3">
+          <h2>“Built to last. Clean and convenient at the same time.”</h2>
+          <p>Know what we stand for and what we consider important, our mission, vision, and core values.</p>
+          <a class="btn btn-outline-light" href='/greendenpeak/page/component/mission.php'>Find Out More!</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-lsg text-white border rounded-3">
+          <h2>Products and Services</h2>
+          <p>Know about our partners, Thermostar, Rainbow Vaccuum, and Doulos Cleaning Services.</p>
+          <a class="btn btn-outline-light" href='/greendenpeak/page/component/partners.php'>Find Out More!</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      &copy; 2020 Greendenpeak - Allright Reserved
+    </footer>
+  </div>
+</main>
+
+  </body>
 </html>

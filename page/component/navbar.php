@@ -13,14 +13,8 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/greendenpeak/index.php">home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">about us</a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">What is Greendenpeak?</a></li>
-                        <li><a class="dropdown-item" href="#">Offices</a></li>
-                        <li><a class="dropdown-item" href="#">Service Center</a></li>
-                        <li><a class="dropdown-item" href="#">Frequently Asked Questions (FAQ)</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/greendenpeak/page/about-us.php">about us</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" href="#">products</a>

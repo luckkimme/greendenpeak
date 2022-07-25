@@ -20,6 +20,15 @@ body {
 	text-transform: uppercase;
 	font-weight: 700;
 }
+
+.bg-tiffblue{
+	background-color: #08B5B6;
+
+}
+.bg-lsg{
+	background-color: #02ABAB;
+}
+
 #txt-about {
 	height: 70vh;
 	width: 100%;
