@@ -122,4 +122,28 @@
 
         return $carouselItem;
     }
+
+    function display_product_kit_standard_items($product_kit_standard){
+        $product_kit_standard_item = '';
+        foreach($product_kit_standard as $standard_kit){
+            $product_kit_standard_item .= '<li class="col-6">' . $standard_kit['product_kit_standard_item_name'] . '</li>';
+        }
+
+        return $product_kit_standard_item;
+    }
+
+    function display_product_kit_optional_items($product_kit, $product_kit_optional){
+        $product_kit_optional_item = '';
+
+        $product_kit_optional_item = '<div class="justify-content-md-start div-kit-list">';
+        $product_kit_optional_item.= '<p class="lead">' . $product_kit['product_kit_optional_title'] . '</p>';
+        $product_kit_optional_item.= '<ul class="row">';
+
+        foreach($product_kit_optional as $optional_kit) {
+            $product_kit_optional_item .= '<li class="col-6">' . $optional_kit['product_kit_optional_item_name'] . '</li>';
+        }
+        $product_kit_optional_item.= '</ul></div>';
+
+        return $product_kit_optional_item;
+    }
 ?>

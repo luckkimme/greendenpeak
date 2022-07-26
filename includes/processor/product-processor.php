@@ -58,4 +58,33 @@
         $productFeatureCarousel = get_single_query($query, $conn);
         return $productFeatureCarousel;
     }
+
+    function get_product_kit($conn, $productID) {
+        $query = "SELECT pk.product_kit_id, pk.product_kit_title, pk.product_kit_subtitle, pk.product_kit_standard_title, pk.product_kit_optional_title, pk.product_kit_img
+                  FROM `product_kit` pk
+                  LEFT JOIN `product` p ON pk.fk_product_id = p.product_id 
+                  WHERE p.product_id =" . $productID;
+        $productKit = get_single_query($query, $conn);
+        return $productKit;
+    }
+
+    function get_product_kit_standard($conn, $productID) {
+        $query = "SELECT pks.product_kit_standard_id, pks.product_kit_standard_item_name
+                  FROM `product_kit_standard` pks
+                  LEFT JOIN `product_kit` pk ON pks.fk_product_kit_id = pk.product_kit_id 
+                  LEFT JOIN `product` p ON pk.fk_product_id = p.product_id
+                  WHERE pks.isShown = 1 AND p.product_id =" . $productID;
+        $productKitStandard = get_multiple_query($query, $conn);
+        return $productKitStandard;
+    }
+
+    function get_product_kit_optional($conn, $productID) {
+        $query = "SELECT pko.product_kit_optional_id, pko.product_kit_optional_item_name
+                  FROM `product_kit_optional` pko
+                  LEFT JOIN `product_kit` pk ON pko.fk_product_kit_id = pk.product_kit_id 
+                  LEFT JOIN `product` p ON pk.fk_product_id = p.product_id
+                  WHERE pko.isShown = 1 AND p.product_id =" . $productID;
+        $productKitOptional = get_multiple_query($query, $conn);
+        return $productKitOptional;
+    }
 ?>

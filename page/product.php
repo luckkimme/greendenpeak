@@ -27,11 +27,19 @@
     }
 
     //Product Information to display
-    $product = get_product_info($conn, $productID);
-    $productDescList = get_product_info_desc_list($conn, $productID);
-    $product_feature = get_product_feature($conn, $productID);
-    $product_feature_carousel = get_product_feature_carousel($conn, $productID);
-    $product_feature_carousel_count = count_product_feature_carousel_item($conn, $productID);
+        //basic information
+        $product = get_product_info($conn, $productID);
+        $productDescList = get_product_info_desc_list($conn, $productID);
+
+        //features
+        $product_feature = get_product_feature($conn, $productID);
+        $product_feature_carousel = get_product_feature_carousel($conn, $productID);
+        $product_feature_carousel_count = count_product_feature_carousel_item($conn, $productID);
+
+        //kit
+        $product_kit = get_product_kit($conn, $productID);
+        $product_kit_standard = get_product_kit_standard($conn, $productID);
+        $product_kit_optional = get_product_kit_optional($conn, $productID);
     
 ?>
 
