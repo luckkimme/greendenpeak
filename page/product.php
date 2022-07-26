@@ -83,9 +83,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#product"><?php echo $product['product_name']; ?></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#product-features">product features</a>
-                    </li>
+                    <?php 
+                        if($product_feature){
+                            echo '<li class="nav-item">';
+                            echo '<a class="nav-link" href="#product-features">product features</a>';
+                            echo '</li>';
+                        }
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#specifications">specifications / kit</a>
                     </li>
@@ -115,7 +119,7 @@
                         echo '</div>';
                     }
                 ?>
-                
+
                 <div id="specifications" class="tab-item">
                     <?php include_once("component/product-kit.php"); ?>
                 </div> 
