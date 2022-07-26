@@ -80,9 +80,13 @@ body {
                         height: 95%;
                         width: auto;
                     }
-        /*
+        
         #div-carousel-product-feature {
-        }   */
+            height: calc(85vh - 2.75rem) !important;
+        }   
+            #div-carousel-product-feature .carousel-inner, #div-carousel-product-feature .carousel-item {
+                height: 100%;
+            }
     #specifications {
         width: 100%;
         min-height: calc(85vh + 5rem) !important;

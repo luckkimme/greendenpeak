@@ -29,6 +29,9 @@
     //Product Information to display
     $product = get_product_info($conn, $productID);
     $productDescList = get_product_info_desc_list($conn, $productID);
+    $product_feature = get_product_feature($conn, $productID);
+    $product_feature_carousel = get_product_feature_carousel($conn, $productID);
+    $product_feature_carousel_count = count_product_feature_carousel_item($conn, $productID);
     
 ?>
 
@@ -75,10 +78,10 @@
 		        include_once("component/navbar.php");
 		    ?>
             <nav id="div-main-tab" class="navbar navbar-light bg-light px-3 fixed-top">
-                <a class="navbar-brand" href="#">Rainbow</a>
+                <a class="navbar-brand" href="#"><?php echo $product['brand_name']; ?></a>
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link" href="#product">rainbow vacuum cleaner</a>
+                        <a class="nav-link" href="#product"><?php echo $product['product_name']; ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#product-features">product features</a>
@@ -105,10 +108,14 @@
                     <?php include_once("component/product-info.php"); ?>
                 </div>
                 
-                <div id="product-features" class="tab-item">
-                    <?php include_once("component/product-feature.php"); ?>
-                </div> 
-
+                <?php 
+                    if($product_feature) {
+                        echo '<div id="product-features" class="tab-item">';
+                                include_once("component/product-feature.php");
+                        echo '</div>';
+                    }
+                ?>
+                
                 <div id="specifications" class="tab-item">
                     <?php include_once("component/product-kit.php"); ?>
                 </div> 

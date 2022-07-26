@@ -1,7 +1,6 @@
 <?php 
 
     //$productInfo = display_product_info($productID);
-
 ?>
 <div id="product-info" class="container col-xxl-8 px-4 tab-item">
     <div class="b-example-divider"></div>

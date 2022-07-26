@@ -2,7 +2,7 @@
 
     function get_multiple_query($query, $conn){
         $result = $conn->query($query);
-        echo $conn->error;
+        //echo $conn->error;
         $data = null;
         if($result && $result->num_rows > 0){
             $data = Array();
@@ -15,7 +15,7 @@
 
     function get_single_query($query, $conn){
         $result = $conn->query($query);
-        echo $conn->error;
+        //echo $conn->error;
         $data = null;
         if($result && $result->num_rows > 0)
             $data = $result->fetch_assoc();

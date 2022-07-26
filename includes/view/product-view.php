@@ -54,5 +54,72 @@
         
         return $prodInfo;
     }
+
+    function display_product_feature($product_feature){
+        $product_feature_title = $product_feature['product_feature_main_title'];
+        $product_feature_subtitle = $product_feature['product_feature_subtitle'];
+        $product_feature_subtitle_desc = $product_feature['product_feature_subtitle_desc'];
+        $product_feature_imgSrc = $product_feature['product_feature_main_img'];
+        $prodFeature = '';
+
+        $prodFeature = '<div class="col-lg-7">';
+        $prodFeature.= '<h1 class="display-4 lh-1">' . $product_feature_title . '</h1>';   
+        if($product_feature_subtitle){
+            $prodFeature.= '<p class="lead">' . $product_feature_subtitle . '</p>';
+        }
+        $prodFeature.= '<p class="lead">' . $product_feature_subtitle_desc . '</p></div>';       
+        $prodFeature.= '<div class="col-lg-4 p-0 shadow-lg">';
+        $prodFeature.= '<img class="rounded-lg-3" src="' . $product_feature_imgSrc . '" alt="Feature Image"></div>';
     
+        return $prodFeature;
+    }
+    
+    function display_product_feature_carousel_indicators($product_feature_carousel_count){
+        $itemCount = $product_feature_carousel_count['count'];
+        $carouselIndicator = '';
+        $i = 0;
+        $n = 0;
+        
+        for($i=0; $i < $itemCount; $i++) {
+            if(!($i==0)) {
+                //the succeeding indicators after the 1st one
+                $n = $i + 1;
+                $carouselIndicator .= '<button type="button" data-bs-target="#div-carousel-product-feature" data-bs-slide-to="'. $i . '" aria-label="Slide ' . $n . '"></button>';
+            } else if($i == 0) {
+                //the first indicator which is active
+                $carouselIndicator = '<button type="button" data-bs-target="#div-carousel-product-feature" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+            }
+        }
+        return $carouselIndicator;
+    }
+
+    function display_product_feature_carousel_items($product_feature, $product_feature_carousel, $carouselCount){
+        $carousel_title = $product_feature['product_feature_carousel_title'];
+        $carousel_count = $carouselCount['count'];
+        $carouselItem = '';
+        $i = 0;
+
+        foreach ($product_feature_carousel as $feature){
+            if(!($i==0)) {
+                //the succeeding indicators after the 1st one
+                $carouselItem.= '<div class="carousel-item">';
+                $carouselItem.= '<img src="' . $feature['product_feature_carousel_img'] . '" class="d-block w-100" alt="Carousel Image">';
+                $carouselItem.= '<div class="carousel-caption d-none d-md-block">';
+                $carouselItem.= '<h3>' . $carousel_title . '</h3>';
+                $carouselItem.= '<h5>' . $feature['product_feature_carousel_subtitle'] . '</h5>';
+                $carouselItem.= '<p>' . $feature['product_feature_carousel_desc'] . '</p></div></div>';
+            } else if($i == 0) {
+                //the first carousel which is active
+                $carouselItem = '<div class="carousel-item active">';
+                $carouselItem.= '<img src="' . $feature['product_feature_carousel_img'] . '" class="d-block w-100" alt="Carousel Image">';
+                $carouselItem.= '<div class="carousel-caption d-none d-md-block">';
+                $carouselItem.= '<h3>' . $carousel_title . '</h3>';
+                $carouselItem.= '<h5>' . $feature['product_feature_carousel_subtitle'] . '</h5>';
+                $carouselItem.= '<p>' . $feature['product_feature_carousel_desc'] . '</p></div></div>';
+            }
+            $i++;
+        }
+
+        return $carouselItem;
+    }
 ?>
