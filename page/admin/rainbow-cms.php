@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function(){
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href=#>
+            <a class="nav-link active" href="/../greendenpeak/page/admin/product-cms.php">
               <span data-feather="shopping-cart"></span>
               Products Page
             </a>
