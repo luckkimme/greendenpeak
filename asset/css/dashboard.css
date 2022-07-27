@@ -1,5 +1,5 @@
 body {
-  font-size: .875rem;
+  font-size: 1rem;
 }
 
 .feather {
@@ -116,4 +116,15 @@ body {
 .border-bottom{
   border-bottom: 1.3px solid black !important;
 
+}
+.td{
+  font-size: 15px;
+  vertical-align: middle;
+}
+.tdproduct{
+  font-size: 20px;
+  vertical-align: middle;
+}
+.alignment{
+  text-align: right;
 }
