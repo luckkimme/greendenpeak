@@ -128,3 +128,7 @@ body {
 .alignment{
   text-align: right;
 }
+.button-padding{
+ padding-left: 27px;
+ padding-right: 27px;
+}

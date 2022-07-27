@@ -130,15 +130,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Content Management > Product Page</h1>
+        <h1 class="h2">Content Management > Product Page > Rainbow</h1>
       </div>
           
       <div class="table-responsive-lg">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Brand Names</th>
-              <th scope="col" class="alignment"><a type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">+ New Brand</a></th>
+              <th scope="col">Rainbow</th>
+              <th scope="col" class="alignment"><a type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Brand</a></th>
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -161,12 +161,19 @@ document.addEventListener("DOMContentLoaded", function(){
           </thead>
           <tbody>
             <tr>
-              <td class="tdproduct">Rainbow</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" type="button" class="btn btn-secondary">View Products</a></td>
+              <td class="tdproduct">Rainbow Vacuum Cleaner</td>
+              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" 
+              type="button" class="btn btn-secondary button-padding">Edit</a></td>
             </tr>
             <tr>
-              <td class="tdproduct">Thermostar</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/thermostar-cms.php" type="button" class="btn btn-secondary">View Products</a></td>
+              <td class="tdproduct">Rainmate</td>
+              <td class="alignment"><a href="/../greendenpeak/page/admin/thermostar-cms.php" 
+              type="button" class="btn btn-secondary button-padding">Edit</a></td>
+            </tr>
+            <tr>
+              <td class="tdproduct">Fragrances</td>
+              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" 
+              type="button" class="btn btn-secondary button-padding">Edit</a></td>
             </tr>
           </tbody>
         </table>
