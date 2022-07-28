@@ -130,75 +130,60 @@ document.addEventListener("DOMContentLoaded", function(){
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Content Management > Product Page > Thermostar</h1>
+        <h1 class="h3">Content Management > Product Page > Rainbow > Rainbow Vacuum</h1>
       </div>
           
       <div class="table-responsive-lg">
         <table class="table table-striped">
+          <h3>Rainbow Vacuum Cleaner</h3>
           <thead>
             <tr>
-              <th scope="col">Thermostar</th>
-              <th scope="col"></a></th>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Add New Brand</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <input class="form-control" placeholder="New Brand Name"></input>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <th scope="col" class="h5">Component</th>
+              <th scope="col" class="alignment h5">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="tdproduct">Component</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
-            </tr>
-            <tr>
               <td class="tdproduct">Product Information</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/thermostar-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
+              <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
+              data-bs-toggle="modal" data-bs-target="#editProductModal">Edit</a></td>
+              <?php include ("../component/modals.php");?>
             </tr>            
             <tr>
               <td class="tdproduct">Features</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
+              <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
+              data-bs-toggle="modal" data-bs-target="#editFeaturesModal">Edit</a></td>
+              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">Specification / Kit</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/thermostar-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
+              <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
+              data-bs-toggle="modal" data-bs-target="#editKitModal">Edit</a></td>
+              <?php include ("../component/modals.php");?>
             </tr>            
             <tr>
               <td class="tdproduct">Accessories</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
+              <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
+              data-bs-toggle="modal" data-bs-target="#editAccessoriesModal">Edit</a></td>
+              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">Other Information</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/thermostar-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
+              <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
+              data-bs-toggle="modal" data-bs-target="#editOtherModal">Edit</a></td>
+              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">User Manual</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
+              <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
+              data-bs-toggle="modal" data-bs-target="#">Edit</a></td>
+              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">Gallery</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/thermostar-cms.php" type="button" 
-              class="btn btn-secondary button-padding">Edit</a></td>
+              <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
+              data-bs-toggle="modal" data-bs-target="#">Edit</a></td>
+              <?php include ("../component/modals.php");?>
             </tr>
           </tbody>
         </table>

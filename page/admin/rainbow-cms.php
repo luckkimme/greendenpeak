@@ -137,32 +137,16 @@ document.addEventListener("DOMContentLoaded", function(){
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Rainbow</th>
-              <th scope="col" class="alignment"><a type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Brand</a></th>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Add New Brand</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <input class="form-control" placeholder="New Brand Name"></input>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <th scope="col" class="h4">Rainbow</th>
+              <th scope="col" class="alignment"><a type="button" class="btn btn-outline-secondary btn-sm" 
+              data-bs-toggle="modal" data-bs-target="#editbrandmodal">Edit Brand</a></th>
+              <?php include ("../component/modals.php");?>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="tdproduct">Rainbow Vacuum Cleaner</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" 
+              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-vacuum-cms.php" 
               type="button" class="btn btn-secondary button-padding">Edit</a></td>
             </tr>
             <tr>

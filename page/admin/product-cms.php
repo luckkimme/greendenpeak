@@ -137,26 +137,10 @@ document.addEventListener("DOMContentLoaded", function(){
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Brand Names</th>
-              <th scope="col" class="alignment"><a type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">+ New Brand</a></th>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Add New Brand</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <input class="form-control" placeholder="New Brand Name"></input>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <th scope="col" class="h4">Brand Names</th>
+              <th scope="col" class="alignment"><a type="button" 
+              class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newbrandmodal">+ New Brand</a></th>
+              <?php include ("../component/modals.php");?>
             </tr>
           </thead>
           <tbody>
