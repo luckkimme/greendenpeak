@@ -146,4 +146,55 @@
 
         return $product_kit_optional_item;
     }
+
+    function display_product_accessory($product_accessory, $product_accessory_desc, $product_accessory_desc_list) {
+        $product_accessory_item = '';
+
+        foreach($product_accessory as $accessory_item) {
+            $product_accessory_item.= '<div class="card py-3 col-5 mb-3">';
+            $product_accessory_item.= '<div class="row g-0">';
+            $product_accessory_item.= '<div class="col-md-5 align-self-center">';
+            $product_accessory_item.= '<img src="' . $accessory_item['product_accessory_item_img'] . '" class="img-fluid rounded-start" alt="Accessory Image">';
+            $product_accessory_item.= '</div>';
+            $product_accessory_item.= '<div class="col-md-7 d-grid">';
+            $product_accessory_item.= '<div class="card-body">';
+            $product_accessory_item.= '<h5 class="card-title">' . $accessory_item['product_accessory_item_title'] . '</h5>';
+            
+            if(!($product_accessory_desc) == NULL) {
+                foreach($product_accessory_desc as $accessory_desc) {
+                    if($accessory_item['product_accessory_item_id'] == $accessory_desc['fk_product_accessory_item_id']){
+                        $product_accessory_item.= '<p class="card-text">' . $accessory_desc['product_accessory_item_desc'] . '</p>';
+                    } else {
+                        continue;
+                    }
+                }
+            } else {
+                goto proceed; //break loop if there is no description
+            }
+
+            proceed:
+
+            $product_accessory_item.= '<ul class="card-text">';
+
+            if(!($product_accessory_desc_list) == NULL) {
+                foreach($product_accessory_desc_list as $accessory_desc_list) {
+                    if($accessory_item['product_accessory_item_id'] == $accessory_desc_list['fk_product_accessory_item_id']) {
+                        $product_accessory_item.= '<li>' . $accessory_desc_list['product_accessory_item_desc_list_name'] . '</li>';
+                    } else {
+                        continue;
+                    }
+                }
+            } else {
+                goto done; //break loop if there is no description
+            }
+
+            done:
+
+            $product_accessory_item.= '</ul></div>';
+            $product_accessory_item.= '<button class="btn btn-primary">Get Yours Now!</button>';
+            $product_accessory_item.= '</div></div></div>';
+        }
+
+        return $product_accessory_item;
+    }
 ?>

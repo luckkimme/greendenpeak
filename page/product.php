@@ -26,7 +26,7 @@
         echo '</script>'; */
     }
 
-    //Product Information to display
+    //Get Product Information to display
         //basic information
         $product = get_product_info($conn, $productID);
         $productDescList = get_product_info_desc_list($conn, $productID);
@@ -40,6 +40,30 @@
         $product_kit = get_product_kit($conn, $productID);
         $product_kit_standard = get_product_kit_standard($conn, $productID);
         $product_kit_optional = get_product_kit_optional($conn, $productID);
+
+        //accessory
+        $product_accessory_title = get_accessories($conn, $productID);
+        $product_accessory = get_accessory_item($conn, $productID);
+        $product_accessory_desc = get_accessory_item_desc($conn, $productID);
+        $product_accessory_desc_list = get_accessory_item_desc_list($conn, $productID);
+
+        //other info
+            //getting the keyword
+            $keyword = get_other_info_keyword($conn, $productID);
+            //getting the other info using keyword
+            $i = 0;
+            $product_other_info[] = '';
+            $product_other_info_desc[] = '';
+            $product_other_info_desc_list[] = '';
+            foreach($keyword as $key) {
+                $product_other_info[$i] = get_other_info($conn, $productID, $key['info_keyword']);
+                $product_other_info_desc[$i] = get_other_info_desc($conn, $productID, $key['info_keyword']);
+                $product_other_info_desc_list[$i] = get_other_info_desc_list($conn, $productID, $key['info_keyword']);
+                $i++;
+            } 
+        //end of other info
+    //end of getting product information
+
     
 ?>
 
