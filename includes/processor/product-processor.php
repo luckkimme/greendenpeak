@@ -138,31 +138,43 @@
         return $productOtherInfoKeyword;
     }
 
-    function get_other_info($conn, $productID, $key) {
-        $query = "SELECT poi.product_info_id, poi.product_info_title, poi.product_info_img, poi.product_info_subtitle
+    function get_other_info($conn, $productID) {
+        $query = "SELECT poi.product_other_info_id, poi.product_other_info_title
                   FROM `product_other_info` poi 
                   LEFT JOIN `product` p ON poi.fk_product_id = p.product_id 
-                  WHERE p.product_id = " . $productID . " AND poi.keyword LIKE '" . $key . "'";
-        $productOtherInfoKeyword = get_multiple_query($query, $conn);
-        return $productOtherInfoKeyword;
+                  WHERE poi.isShown = 1 AND p.product_id = " . $productID;
+        $productOtherInfo = get_multiple_query($query, $conn);
+        return $productOtherInfo;
     }
 
-    function get_other_info_desc($conn, $productID, $key) {
-        $query = "SELECT pid.product_info_desc_id, pid.product_info_desc, pid.fk_product_info_id
-                  FROM `product_other_info` poi 
+    function get_other_info_item($conn, $productID) {
+        $query = "SELECT pitem.product_info_item_id, pitem.product_info_item_title, pitem.product_info_item_img, pitem.product_info_item_subtitle, pitem.fk_other_info_item_id
+                  FROM `product_other_info_item` pitem 
+                  LEFT JOIN `product_other_info` poi ON pitem.fk_other_info_item_id = poi.product_other_info_id 
+                  LEFT JOIN `product` p ON poi.fk_product_id = p.product_id
+                  WHERE pitem.isShown = 1 AND p.product_id = " . $productID;
+        $productOtherInfoItem = get_multiple_query($query, $conn);
+        return $productOtherInfoItem;
+    }
+
+    function get_other_info_item_desc($conn, $productID) {
+        $query = "SELECT pid.product_info_desc_id, pid.product_info_desc, pid.isShown, pid.fk_product_info_item_id
+                  FROM `product_other_info_item_desc` pid 
+                  LEFT JOIN `product_other_info_item` poii ON pid.fk_product_info_item_id = poii.product_info_item_id
+                  LEFT JOIN `product_other_info` poi ON poii.fk_other_info_item_id = poi.product_other_info_id
                   LEFT JOIN `product` p ON poi.fk_product_id = p.product_id 
-                  LEFT JOIN `product_other_info_desc` pid ON pid.fk_product_info_id = poi.product_info_id
-                  WHERE p.product_id = " . $productID . " AND poi.keyword = '" . $key . "' AND pid.isShown = 1";
+                  WHERE pid.isShown AND p.product_id = " . $productID;
         $productOtherInfoDesc = get_multiple_query($query, $conn);
         return $productOtherInfoDesc;
     }
 
-    function get_other_info_desc_list($conn, $productID, $key) {
-        $query = "SELECT pidl.product_info_desc_list_item_id, pidl.product_info_desc_list_item, pidl.fk_product_info_id
-                  FROM `product_other_info_desc_list` pidl 
-                  LEFT JOIN `product_other_info` poi ON pidl.fk_product_info_id = poi.product_info_id
+    function get_other_info_item_desc_list($conn, $productID) {
+        $query = "SELECT pidl.product_info_desc_list_item_id, pidl.product_info_desc_list_item, pidl.isShown, pidl.fk_product_info_item_id
+                  FROM `product_other_info_item_desc_list` pidl 
+                  LEFT JOIN `product_other_info_item` poii ON pidl.fk_product_info_item_id = poii.product_info_item_id
+                  LEFT JOIN `product_other_info` poi ON poii.fk_other_info_item_id = poi.product_other_info_id
                   LEFT JOIN `product` p ON poi.fk_product_id = p.product_id 
-                  WHERE p.product_id = " . $productID . " AND poi.keyword = '" . $key . "' AND pidl.isShown = 1";
+                  WHERE pidl.isShown AND p.product_id = " . $productID;
         $productOtherInfoDescList = get_multiple_query($query, $conn);
         return $productOtherInfoDescList;          
     }

@@ -160,7 +160,7 @@
             $product_accessory_item.= '<div class="card-body">';
             $product_accessory_item.= '<h5 class="card-title">' . $accessory_item['product_accessory_item_title'] . '</h5>';
             
-            if(!($product_accessory_desc) == NULL) {
+            if(!($product_accessory_desc == NULL)) {
                 foreach($product_accessory_desc as $accessory_desc) {
                     if($accessory_item['product_accessory_item_id'] == $accessory_desc['fk_product_accessory_item_id']){
                         $product_accessory_item.= '<p class="card-text">' . $accessory_desc['product_accessory_item_desc'] . '</p>';
@@ -176,7 +176,7 @@
 
             $product_accessory_item.= '<ul class="card-text">';
 
-            if(!($product_accessory_desc_list) == NULL) {
+            if(!($product_accessory_desc_list == NULL)) {
                 foreach($product_accessory_desc_list as $accessory_desc_list) {
                     if($accessory_item['product_accessory_item_id'] == $accessory_desc_list['fk_product_accessory_item_id']) {
                         $product_accessory_item.= '<li>' . $accessory_desc_list['product_accessory_item_desc_list_name'] . '</li>';
@@ -196,5 +196,78 @@
         }
 
         return $product_accessory_item;
+    }
+    
+    function display_product_other_info_per_keyword($product_other_title, $product_other_info, $product_other_info_desc, $product_other_info_desc_list) {
+        $product_other = '';
+
+        foreach($product_other_title as $title) {
+            $product_other .= '<div class="container col-xxl-8 ">';
+            $product_other .= '<h1 class="display-5 fw-bold lh-1 mb-3 py-3">' . $title['product_other_info_title'] . '</h1>';
+
+            if(!($product_other_info == NULL)) {
+                foreach($product_other_info as $other_info) {
+                    if($other_info['fk_other_info_item_id'] == $title['product_other_info_id']) {
+                        $product_other .= '<div class="row flex-lg-row-reverse align-items-center g-5 py-5 div-other-info-container">';
+                        $product_other .= '<div class="col-10 col-sm-8 col-lg-4">';
+                        $product_other .= '<img src="' . $other_info['product_info_item_img'] . '" class="d-block mx-lg-auto img-fluid" alt="Other Information Image" width="700" height="500" loading="lazy">';
+                        $product_other .= '</div>'; //end img div
+                        $product_other .= '<div class="col-lg-8">';
+                        $product_other .= '<h1 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_title'] . '</h1>';
+                        $product_other .= '<h5 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_subtitle'] . '</h5>';
+                        
+                        if(!($product_other_info_desc == NULL)) {
+                            foreach($product_other_info_desc as $other_info_desc) {
+                                if($other_info['product_info_item_id'] == $other_info_desc['fk_product_info_item_id']) {
+                                    $product_other .= '<p class="lead">' . $other_info_desc['product_info_desc'] . '</p>';
+                                } else {
+                                    continue;
+                                }
+                            }
+                        } else {
+                            goto proceed;
+                        }
+
+                        proceed:
+
+                        $product_other .= '<div class="justify-content-md-start div-other-info-list">';
+                        $product_other .= '<ul class="row">';
+
+                        if(!($product_other_info_desc_list == NULL)) {
+                            foreach($product_other_info_desc_list as $other_info_desc_list) {
+                                if($other_info['product_info_item_id'] == $other_info_desc_list['fk_product_info_item_id']) {
+                                    $product_other .= '<li class="col-6">' . $other_info_desc_list['product_info_desc_list_item'] . '</li>';
+                                } else {
+                                    continue;
+                                }
+                            }
+                        } else {
+                            goto done;
+                        }
+
+                        done:
+
+                        $product_other .= '</ul></div>'; //end of ul div
+                        $product_other .= '<div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">';
+                        $product_other .= '<button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>';
+                        $product_other .= '<button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>';
+                        $product_other .= '</div>'; //end of button div
+                        $product_other .= '</div>'; //end of title div
+                        $product_other .= '</div>'; //end of keyword item div
+                    } else {
+                        continue;
+                    }
+                }
+            } else {
+                goto next;
+            }
+
+            next:
+            
+            $product_other .= '</div>'; //end of keyword component
+        }   
+        
+        return $product_other;
+
     }
 ?>

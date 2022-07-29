@@ -48,19 +48,13 @@
         $product_accessory_desc_list = get_accessory_item_desc_list($conn, $productID);
 
         //other info
-            //getting the keyword
-            $keyword = get_other_info_keyword($conn, $productID);
-            //getting the other info using keyword
-            $i = 0;
-            $product_other_info[] = '';
-            $product_other_info_desc[] = '';
-            $product_other_info_desc_list[] = '';
-            foreach($keyword as $key) {
-                $product_other_info[$i] = get_other_info($conn, $productID, $key['info_keyword']);
-                $product_other_info_desc[$i] = get_other_info_desc($conn, $productID, $key['info_keyword']);
-                $product_other_info_desc_list[$i] = get_other_info_desc_list($conn, $productID, $key['info_keyword']);
-                $i++;
-            } 
+        $product_other_title = get_other_info($conn, $productID);
+        $product_other_info = get_other_info_item($conn, $productID);
+        $product_other_info_desc = get_other_info_item_desc($conn, $productID);
+        $product_other_info_desc_list = get_other_info_item_desc_list($conn, $productID);
+
+        /* echo "<br><br><br><br><br><br>";
+        var_dump($product_other_title); */
         //end of other info
     //end of getting product information
 
