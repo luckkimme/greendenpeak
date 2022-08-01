@@ -1,5 +1,5 @@
 <div class="col-xxl-8" id="div-product-kit">
-    <div class="b-example-divider-v2"></div>
+    <!-- <div class="b-example-divider-v2"></div> -->
 
     <div class="row flex-lg-row-reverse align-items-center g-5 px-5 py-5">
         <div class="col-10 col-sm-12 col-lg-4">

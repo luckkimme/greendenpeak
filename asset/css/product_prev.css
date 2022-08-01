@@ -9,87 +9,54 @@ body {
 		padding: 0;
 		width: 100%;
 	}
-        #div-main-tab {
-            top: 15vh;
-            z-index: 1;
-            margin: 0;
-            padding: 0;
-            height: 2.75rem;
-            font-size: 13px !important;
-            box-shadow: 0 1px 4px -2px gray;
-        } 
-            #div-main-nav {
-                top: 15vh;
-                height: 2.75rem;
-                margin: 0 !important;
-                padding: 0 !important;
-            } 
-                .product-brand {
-                    text-transform: capitalize;
-                    cursor: default;
-                    pointer-events: none;
-                    height: 100%;
-                    margin: 0 0 2rem 0 !important;
-                    padding: 0 0 0 1rem;
-                }
-                #ul-pills-tab {
-                    margin: 0;
-                } 
-                    #div-main-nav .nav-item {
-                        margin: 0;
-                        height: 2.75rem;
-                        padding: 0 !important;
-                    }
-                    #div-main-tab li .active {
-                        font-weight: 700;
-                        background-color: transparent;
-                        border-radius: 0;
-                        color: #14C9CB !important;
-                        border-bottom: 5px solid #14C9CB;
-                    }
-                    #div-main-tab li button:hover {
-                        color: #14C9CB !important;
-                    }
-                        #div-main-tab .nav-link {
-                            width: 100%;
-                            height: 100%;
-                            color: black !important;
-                            text-transform: capitalize;
-                            border-radius: 0;
-                        }  
-        /* tab contents */
-        #div-tabContent {
-            padding-top: calc(15vh + 2.75rem) !important;
+		#div-main-tab {
+			top: 15vh;
+			z-index: 5;
+			padding: 0;
+			height: 2.75rem !important;
+			font-size: 16px;
+			box-shadow: 0 1px 4px -2px gray;
+		}
+			#div-main-tab li .active {
+				background-color: transparent;
+				border-radius: 0;
+				color: #14C9CB !important;
+				border-bottom: 5px solid #14C9CB;
+			}
+				#div-main-tab .nav-link {
+					width: 100%;
+					font-size: .7rem;
+					color: black !important;
+					text-transform: capitalize;
+					border-radius: 0;
+				}
+/* tab contents */
+#tab-content {
+	position: relative;
+	overflow: hidden;
+    padding: 0 0 15vh 0 !important;
+    border: 1px solid green;
+}
+.tab-item {
+	width: 100%;
+    height: auto !important;
+    max-height: 100%;
+}
+	#product {
+        height: 100vh !important;
+        max-height: 100%;
+        padding: 10vh 0 0 0 !important;
+	}
+        /*
+        #product-info {
+        }   */
+        .div-product-desc h1 {
+            text-transform: capitalize;
         }
-            #product {
-                height: 85vh;
+            .div-product-desc ul {
+                display: grid;
+                grid-template-columns: 50% 50%;
             }
-            #product-info {
-                height: 100%;
-            }
-                #product-info img {
-                    height: 350px;
-                }
-                #product-info ul {
-                    display: grid;
-                    grid-template-columns: 50% 50%;
-                }
-
-@media only screen and (max-width: 1059px) {
-    #div-main-tab {
-        font-size: 10px !important;
-    }
-    .product-brand {
-        display: none !important;
-    }
-}       
-@media only screen and (max-width: 899px) {
-    
-    #div-main-tab {
-        background-color: red !important;
-    }
-}     
-                /*
     #product-features {
         min-height: calc(170vh + 8rem) !important;
     }
@@ -128,7 +95,7 @@ body {
         margin: 0;
     }   /*
         #div-product-kit .row {
-        }   
+        }   */
         #div-product-kit h1 {
             font-size: 1.5rem;
         }
@@ -186,4 +153,3 @@ body {
             height: 1.5rem;
             width: 1.5rem;
         }
-        */

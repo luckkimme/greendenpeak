@@ -213,8 +213,8 @@
                         $product_other .= '<img src="' . $other_info['product_info_item_img'] . '" class="d-block mx-lg-auto img-fluid" alt="Other Information Image" width="700" height="500" loading="lazy">';
                         $product_other .= '</div>'; //end img div
                         $product_other .= '<div class="col-lg-8">';
-                        $product_other .= '<h1 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_title'] . '</h1>';
-                        $product_other .= '<h5 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_subtitle'] . '</h5>';
+                        $product_other .= '<h4 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_title'] . '</h4>';
+                        $product_other .= '<h6 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_subtitle'] . '</h6>';
                         
                         if(!($product_other_info_desc == NULL)) {
                             foreach($product_other_info_desc as $other_info_desc) {

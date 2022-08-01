@@ -1,5 +1,5 @@
 <div id="product-feature-container">
-    <div class="b-example-divider-v2"></div>
+    <!-- <div class="b-example-divider-v2"></div> -->
     <div class="container div-feature">
         <div class="row align-items-center rounded-3 border shadow-lg div-feature-desc">
             <?php echo display_product_feature($product_feature); ?>
