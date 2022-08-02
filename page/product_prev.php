@@ -69,7 +69,8 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/product.css?d=<?php echo time(); ?>" rel="stylesheet">
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	    <link href="../asset/css/certification.css?d=<?php echo time(); ?>" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	
         <!-- Bootstrap core CSS -->
         <link href="../asset/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -97,77 +98,77 @@
         <link href="../asset/css/heroes.css?d=<?php echo time(); ?>" rel="stylesheet">
     
     </head>
-	<body>
+	<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
 		<main id="div-product">
 			<?php 
 		        include_once("component/navbar.php");
 		    ?>
-            <div id="div-main-tab" class="nav-scroller fixed-top">
-                <nav id="div-main-nav" class="navbar nav-underline navbar-light bg-light px-3 fixed-top">
-                    <a class="navbar-brand product-brand display-5 fw-bold" href="#"><?php echo $product['brand_name']; ?></a>
-                    <ul class="nav nav-pills mb-3" id="ul-pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="btn-product-tab" data-bs-toggle="pill" data-bs-target="#product" type="button" role="tab" aria-controls="product" aria-selected="true"><?php echo $product['product_name']; ?></button>
-                        </li>
-                        <?php 
-                            if($product_feature){
-                                echo '<li class="nav-item" role="presentation">';
-                                echo '<button class="nav-link" id="btn-feature-tab" data-bs-toggle="pill" data-bs-target="#product-features" type="button" role="tab" aria-controls="product-features" aria-selected="false">product features</button>';
-                                echo '</li>';
-                            } 
-                        ?>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="btn-specification-tab" data-bs-toggle="pill" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">specifications / kit</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="btn-accessory-tab" data-bs-toggle="pill" data-bs-target="#optional-accessories" type="button" role="tab" aria-controls="optional-accessories" aria-selected="false">optional accessories</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="btn-other-info-tab" data-bs-toggle="pill" data-bs-target="#other-info" type="button" role="tab" aria-controls="other-info" aria-selected="false">other information</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="btn-reviews-tab" data-bs-toggle="pill" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">reviews</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="btn-manual-tab" data-bs-toggle="pill" data-bs-target="#user-manual" type="button" role="tab" aria-controls="user-manual" aria-selected="false">user manual</button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="tab-content" id="div-tabContent">
-                <div class="tab-pane fade show active" id="product" role="tabpanel" aria-labelledby="btn-product-tab">
-                    <div id="product-info" class="container col-xxl-8 px-4">
-                        <div class="row flex-lg-row-reverse align-items-center g-5 pt-3 div-product-desc">
-                            <?php echo display_product_info($product, $productDescList); ?>
-                        </div>
-                    </div>
+            <nav id="div-main-tab" class="navbar navbar-light bg-light px-3 fixed-top">
+                <a class="navbar-brand" href="#"><?php echo $product['brand_name']; ?></a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#product"><?php echo $product['product_name']; ?></a>
+                    </li>
+                    <?php 
+                        if($product_feature){
+                            echo '<li class="nav-item">';
+                            echo '<a class="nav-link" href="#product-features">product features</a>';
+                            echo '</li>';
+                        }
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#specifications">specifications / kit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#optional-accessories">optional accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#other-info">other information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#user-manual">user manual</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="tab-content">
+                <div id="product" class="tab-item">
+                    <?php include_once("component/product-info.php"); ?>
                 </div>
+                
                 <?php 
                     if($product_feature) {
-                        echo '<div id="product-features" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-feature-tab">';
+                        echo '<div id="product-features" class="tab-item">';
                                 include_once("component/product-feature.php");
                         echo '</div>';
-                    } 
+                    }
                 ?>
-                <div id="specifications" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-specification-tab">
+
+                <div id="specifications" class="tab-item">
                     <?php include_once("component/product-kit.php"); ?>
                 </div> 
                 
-                <div id="optional-accessories" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-accessory-tab">
+                <div id="optional-accessories" class="tab-item">
                     <?php include_once("component/product-accessories.php"); ?>    
                 </div>
                 
-                <div id="other-info" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-other-info-tab">
+                <div id="other-info" class="tab-item">
                     <?php include_once("component/product-other-info.php"); ?>
-                </div>
+                </div> 
 
-                <div id="reviews" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-review-tab">
+                <div class="b-example-divider-v2"></div>
+
+                <div id="reviews" class="tab-item">
                     <h4 id="scrollspyHeading5">Fifth heading</h4>
                     <p>Where can I get some?
                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
                 </div>
 
-                <div id="user-manual" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-manual-tab">
+                <div class="b-example-divider-v2"></div>
+
+                <div id="user-manual" class="tab-item">
                     <h4>In need of assistance for using the Rainbow Vacuum Cleaner?</h4>
                     <h5>You may download these user manuals for better user experience</h6>
                     <div class="container">
