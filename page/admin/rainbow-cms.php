@@ -6,15 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-    
+    <title>Dashboard Template · Bootstrap v5.0</title>
 
     <!-- Bootstrap core CSS -->
 
-<link href="/../greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="/../greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -135,9 +132,14 @@ document.addEventListener("DOMContentLoaded", function(){
           
       <div class="table-responsive-lg">
         <table class="table table-striped">
+          <div>
+            <p class="h3">Rainbow</p>
+          </div>
           <thead>
             <tr>
-              <th scope="col" class="h4">Rainbow</th>
+              <th><a type="button" class="btn btn-outline-secondary btn-sm" 
+              data-bs-toggle="modal" data-bs-target="#addProductModal">+New Product</a></th>
+              <?php include ("../component/modals.php");?></th>
               <th scope="col" class="alignment"><a type="button" class="btn btn-outline-secondary btn-sm" 
               data-bs-toggle="modal" data-bs-target="#editbrandmodal">Edit Brand</a></th>
               <?php include ("../component/modals.php");?>

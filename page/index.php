@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function(){
             <a class="nav-link" href="#"> <span data-feather="bar-chart-2"></span> Reports </a>
           </li>
         </ul>
-
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span class="h7">Content Management</span>
           <a class="link-secondary" href="#" aria-label="Add a new report">
