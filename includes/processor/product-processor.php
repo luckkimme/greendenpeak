@@ -93,7 +93,7 @@
                   FROM `product_accessory` pa 
                   LEFT JOIN `product` p ON pa.fk_product_id = p.product_id
                   WHERE p.product_id = " . $productID;
-        $productAccessoryTitle = get_multiple_query($query, $conn);
+        $productAccessoryTitle = get_single_query($query, $conn);
         return $productAccessoryTitle;
     }
 
