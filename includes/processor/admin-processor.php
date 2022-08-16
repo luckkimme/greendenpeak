@@ -68,5 +68,11 @@
         $product_kit = post_query($query, $conn);
         return $product_kit;
     }
+
+    function update_product_kit($conn, $kit_title, $kit_subtitle, $kit_standard_title, $kit_optional_title, $kit_img, $isShown, $productID) {
+        $query = "INSERT INTO `product_kit`(`product_kit_title`, `product_kit_subtitle`, `product_kit_standard_title`, `product_kit_optional_title`, `product_kit_img`, `fk_product_id`) VALUES ('{$kit_title}', {$kit_subtitle}', {$kit_standard_title}','{$kit_optional_title}','{$kit_img}','{$productID}')";
+        $product_kit = post_query($query, $conn);
+        return $product_kit;
+    }
     
 ?>

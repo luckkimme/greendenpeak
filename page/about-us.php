@@ -8,14 +8,14 @@
 
     //Product Brands
     $brand = get_brand($conn);
-    $product_name = get_product_name($conn);
+    $product = get_products($conn);
 
     //View Scripts
     require_once __DIR__ . '/../includes/view/product-view.php';
 
 ?>
 
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -24,11 +24,11 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
-	<link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
-	<link href="../asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-	<link href="../asset/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
+    <link href="../asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="../asset/bootstrap-5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -46,11 +46,13 @@
       }
     </style>
 
+    <!-- Custom styles for offcanvas navbar -->
+    <link href="asset/css/offcanvas.css?d=<?php echo time(); ?>" rel="stylesheet">
     
   </head>
   <body>
   		<?php 
-	        include_once("component/navbar.php");
+	        include_once __DIR__ . '/component/navbar.php';
 	    ?>
 <main>
   <div class="container py-3">
@@ -96,6 +98,8 @@
     </footer>
   </div>
 </main>
-
+  <script src="/asset/css/offcanvas.css"></script>
+  <script src="/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+      
   </body>
 </html>

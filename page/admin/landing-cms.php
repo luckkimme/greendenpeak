@@ -147,8 +147,17 @@ document.addEventListener("DOMContentLoaded", function(){
           <tbody>
             <tr>
               <td class="td margin-0">Carousel</td>
-              <td><a class="btn btn-secondary">Edit Carousel Image</a></td>
-              <td><input class="form-control"></input></td>
+              <td>
+                <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping">Edit Carousel Image</span>
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Select Carousel Image</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Image 1: Cover Photo 1</a></li>
+                    <li><a class="dropdown-item" href="#">Image 2: Cover Photo 2</a></li>
+                    <li><a class="dropdown-item" href="#">Image 3: Cover Photo 3</a></li>
+                  </ul>
+                </div>
+              </td>
               <td><a class="btn btn-secondary">+ Add New Image</a></td>
             </tr>
           </tbody>

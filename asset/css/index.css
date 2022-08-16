@@ -30,6 +30,9 @@ body {
 				height: auto;
 				max-height: 80vh;
 			}
+	#div-faq h6{
+		text-transform: capitalize;
+	}
 /*
 .index-content {
 	position: relative;

@@ -14,12 +14,12 @@
                     <a class="nav-link active" aria-current="page" href="/greendenpeak/index.php">home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/greendenpeak/page/about-us.php">about us</a>
+                    <a class="nav-link" aria-current="page" href="/greendenpeak/page/about-us.php">about us</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" href="#">products</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <?php display_brand_products($brand, $product_name); ?>
+                        <?php display_brand_products($brand, $product); ?>
                     </ul>
                 </li>
                 <li class="nav-item">

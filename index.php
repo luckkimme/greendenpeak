@@ -5,10 +5,14 @@
     //Includes Scripts
     require_once __DIR__ . '/includes/connection.php';
     require_once __DIR__ . '/includes/processor/product-processor.php';
+    require_once __DIR__ . '/includes/processor/index-processor.php';
 
     //Product Brands
     $brand = get_brand($conn);
-    $product_name = get_product_name($conn);
+    $product = get_products($conn);
+    $carousel = get_index_carousel($conn);
+    $carousel_count = get_carousel_count($conn);
+    $faq = get_faq($conn);
 
     //View Scripts
     require_once __DIR__ . '/includes/view/product-view.php';
@@ -62,20 +66,41 @@
     <main>
         <div id="div-index-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <?php
+                    for($i = 0; $i < $carousel_count['count']; $i++) {
+                        $n = $i + 1;
+                        if($i == 0) {
+                            echo '<button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="'. $i .'" class="active" aria-current="true" aria-label="Slide '. $n .'"></button>';
+                        } else {
+                            echo '<button type="button" data-bs-target="#div-index-carousel" data-bs-slide-to="'. $i .'" aria-label="Slide '. $n .'"></button>';
+                        }
+                    }
+                ?>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active index-carousel-item">
-                    <img src="asset/img/index/carousel/carousel-1.png">
+                <?php
+                    $i = 0;
+                    $carousel_item = '';
+                    foreach($carousel as $image) {
+                        if($i == 0) {
+                            echo '<div class="carousel-item active index-carousel-item">';
+                        } else {
+                            echo '<div class="carousel-item index-carousel-item">';
+                        }
+                        echo '<img src="'. $image['carousel_img'] .'" alt="'. $image['carousel_title'] .'">';
+                        echo '</div>';
+                        $i++;
+                    }
+                ?>
+                <!-- <div class="carousel-item active index-carousel-item">
+                    <img src="asset/img/index/carousel/carousel-1.png" alt="">
                 </div>
                 <div class="carousel-item index-carousel-item">
                     <img src="asset/img/index/carousel/carousel-2.jpg">
                 </div>
                 <div class="carousel-item index-carousel-item">
                     <img src="asset/img/index/carousel/carousel-3.jpg">
-                </div>
+                </div> -->
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#div-index-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -89,7 +114,25 @@
 
         <div class="b-example-divider"></div>
 
-        <div class="container col-xxl-8 px-4 py-5 div-index-product">
+        <?php
+
+            foreach($product as $p) {
+                echo '<div class="container col-xxl-8 px-4 py-5 div-index-product">';
+                echo '<div class="row flex-lg-row-reverse align-items-center px-3 py-3">';
+                echo '<div class="col-10 col-sm-8 col-lg-6 div-index-product-image">';
+                echo '<img src="'. $p['product_img'] .'" class="d-block mx-lg-auto img-fluid" alt="Product Image" loading="lazy">';
+                echo '</div>';
+                echo '<div class="col-lg-6">';
+                echo '<h1 class="display-5 fw-bold lh-1 mb-3">'. $p['product_name'] .'</h1>';
+                echo '<p class="lead">'. $p['product_desc'] .'</p>';
+                echo '<div class="d-grid gap-2 d-md-flex justify-content-md-start">';
+                echo '<a href="page/product.php?productID='. $p['product_id'] .'" type="button" class="btn btn-primary btn-lg px-4 me-md-2">Learn More ></a>';
+                echo '</div></div></div></div>';
+                echo '<div class="b-example-divider"></div>';
+            }
+
+        ?>
+       <!--  <div class="container col-xxl-8 px-4 py-5 div-index-product">
             <div class="row flex-lg-row-reverse align-items-center px-3 py-3">
                 <div class="col-10 col-sm-8 col-lg-6 div-index-product-image">
                     <img src="asset/img/products/rainbow/rainbow-vacuum-no-bg.png" class="d-block mx-lg-auto img-fluid" alt="Product Image" loading="lazy">
@@ -98,7 +141,7 @@
                     <h1 class="display-5 fw-bold lh-1 mb-3">Rainbow Vacuum</h1>
                     <p class="lead">Great technology for dust-free cleaning for all surfaces with the power of water.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Learn More ></button>
+                        <a href="page/product.php?productID=1" type="button" class="btn btn-primary btn-lg px-4 me-md-2">Learn More ></a>
                     </div>
                 </div>
             </div>
@@ -115,30 +158,45 @@
                     <h1 class="display-5 fw-bold lh-1 mb-3">Thermostar Dry Cleaner</h1>
                     <p class="lead">At least 180°C micro dry steam perfect for DIY heat sterilization and disinfection on surfaces.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Learn More ></button>
+                        <a href="page/product.php?productID=2" type="button" class="btn btn-primary btn-lg px-4 me-md-2">Learn More ></a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="b-example-divider"></div>
-
-        <div class="my-3 p-3 bg-body rounded shadow-sm container">
-            <h6 class="border-bottom pb-2 mb-0">frequently asked questions (faq)</h6>
+ -->
+        <div id="div-faq" class="my-3 p-3 bg-body rounded shadow-sm container">
+            <h6 class="border-bottom pb-2 mb-0">frequently asked questions (FAQ)</h6>
             <div class="accordion" id="accordionPanelsStayOpenExample">
+                <?php
+
+                    foreach($faq as $f) {
+                        echo '<div class="accordion-item">';
+                        echo '<h2 class="accordion-header" id="panelHeading'. $f['faq_id'] .'">';
+                        echo '<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelCollapse'. $f['faq_id'] .'" aria-expanded="true" aria-controls="panelCollapse'. $f['faq_id'] .'">';
+                        echo $f['faq_question'];
+                        echo '</button></h2>';
+                        echo '<div id="panelCollapse'. $f['faq_id'] .'" class="accordion-collapse collapse show" aria-labelledby="panelHeading'. $f['faq_id'] .'">';
+                        echo '<div class="accordion-body">';
+                        echo $f['faq_answer'];
+                        echo '</div></div></div>';
+                    }
+
+                ?><!-- 
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                        Question 1
-                    </button>
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                            Question 1
+                        </button>
                     </h2>
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
-                    </div>
-                    <div class="accordion-item">
+                </div>
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                         Question 2
@@ -146,11 +204,11 @@
                     </h2>
                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
-                    </div>
-                    <div class="accordion-item">
+                </div>
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                         Question 3
@@ -158,17 +216,17 @@
                     </h2>
                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                         <div class="accordion-body">
-                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
-                    </div>
-                </div>
-                
-                <small class="d-block text-end mt-3">
-                    <a href="#">View All</a>
-                </small>
+                </div> -->
             </div>
+                
+            <!-- <small class="d-block text-end mt-3">
+                <a href="#">View All</a>
+            </small> -->
         </div>
+    </div>
 
     </main>
 

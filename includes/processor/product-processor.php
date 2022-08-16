@@ -8,9 +8,9 @@
         return $brand;
     }
 
-    function get_product_name($conn) {
+    function get_products($conn) {
         $product_name = '';
-        $query = 'SELECT p.product_id, p.product_name, p.fk_brand_id FROM product p JOIN brand b ON p.fk_brand_id = b.brand_id';
+        $query = 'SELECT p.product_id, p.product_name, p.product_desc, p.product_img, p.fk_brand_id FROM product p JOIN brand b ON p.fk_brand_id = b.brand_id';
         $product_name = get_multiple_query($query, $conn);
         return $product_name;
     }

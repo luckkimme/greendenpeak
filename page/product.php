@@ -9,7 +9,7 @@
 
     //Product Brands for the navbar
     $brand = get_brand($conn);
-    $product_name = get_product_name($conn);
+    $product = get_products($conn);
 
     //View Scripts
     require_once __DIR__ . '/../includes/view/product-view.php';
