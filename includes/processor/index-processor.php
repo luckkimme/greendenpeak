@@ -21,4 +21,10 @@
         return $faq;
     }
 
+    function get_company_info($conn) {
+        $query = 'SELECT * FROM `company`';
+        $company = get_single_query($query, $conn);
+        return $company;
+    }
+
 ?>

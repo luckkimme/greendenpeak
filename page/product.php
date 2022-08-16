@@ -28,7 +28,7 @@
 
     //Get Product Information to display
         //basic information
-        $product = get_product_info($conn, $productID);
+        $product_info = get_product_info($conn, $productID);
         $productDescList = get_product_info_desc_list($conn, $productID);
 
         //features
@@ -104,10 +104,10 @@
 		    ?>
             <div id="div-main-tab" class="nav-scroller fixed-top">
                 <nav id="div-main-nav" class="navbar nav-underline navbar-light bg-light px-3 fixed-top">
-                    <a class="navbar-brand product-brand display-5 fw-bold" href="#"><?php echo $product['brand_name']; ?></a>
+                    <a class="navbar-brand product-brand display-5 fw-bold" href="#"><?php echo $product_info['brand_name']; ?></a>
                     <ul class="nav nav-pills mb-3" id="ul-pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="btn-product-tab" data-bs-toggle="pill" data-bs-target="#product" type="button" role="tab" aria-controls="product" aria-selected="true"><?php echo $product['product_name']; ?></button>
+                            <button class="nav-link active" id="btn-product-tab" data-bs-toggle="pill" data-bs-target="#product" type="button" role="tab" aria-controls="product" aria-selected="true"><?php echo $product_info['product_name']; ?></button>
                         </li>
                         <?php 
                             if($product_feature){
@@ -138,7 +138,7 @@
                 <div class="tab-pane fade show active" id="product" role="tabpanel" aria-labelledby="btn-product-tab">
                     <div id="product-info" class="container col-xxl-8 px-4">
                         <div class="row flex-lg-row-reverse align-items-center g-5 pt-3 div-product-desc">
-                            <?php echo display_product_info($product, $productDescList); ?>
+                            <?php echo display_product_info($product_info, $productDescList); ?>
                         </div>
                     </div>
                 </div>

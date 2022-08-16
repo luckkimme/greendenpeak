@@ -1,3 +1,10 @@
+<?php 
+  //Include scripts
+  require_once __DIR__ . '/../../includes/processor/index-processor.php';
+
+  $company = get_company_info($conn);
+
+?>
 <footer
           class="text-center text-lg-start text-white"
           style="background-color: #08B5B6"
@@ -11,15 +18,9 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-3 font-weight-bold">
-              GREENDENPEAK
+              <?php echo $company['company_name']; ?>
             </h6>
-            <p>
-                We aim to provide our clients with the highest level
-                of quality service in the cleaning industry and to
-                provide top-of-the-line products and unequaled
-                customer service in the cleaning equipment
-                industry.
-            </p>
+            <p><?php echo $company['company_mission']; ?></p>
           </div>
           <!-- Grid column -->
 
@@ -42,10 +43,10 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-3 font-weight-bold">Contact</h6>
-            <p><i class="bi bi-house-fill mr-3"></i> Rm 1. Naguilian Rd, Rainbow Bldg. Brgy. MRR Queen of Peace,<br /> Baguio City, Benguet</p>
-            <p><i class="bi bi-envelope-fill mr-3"></i> info@greendenpeak.com</p>
-            <p><i class="bi bi-phone-fill mr-3"></i> 0917-545-1254</p>
-            <p><i class="bi bi-telephone-fill mr-3"></i> (02)7502-1405</p>
+            <p><i class="bi bi-house-fill mr-3"></i> <?php echo $company['address']; ?></p>
+            <p><i class="bi bi-envelope-fill mr-3"></i> <?php echo $company['email']; ?></p>
+            <p><i class="bi bi-phone-fill mr-3"></i> <?php echo $company['phone_no']; ?></p>
+            <p><i class="bi bi-telephone-fill mr-3"></i> <?php echo $company['tel_no']; ?></p>
           </div>
           <!-- Grid column -->
 
@@ -64,7 +65,7 @@
                ><i class="bi bi-facebook"></i
               ></a>
 
-            <!-- Google -->
+            <!-- Youtube -->
             <a
                class="btn btn-primary btn-circle btn-md"
                style="background-color: #dd4b39"

@@ -7,11 +7,9 @@
         $productName = '';
         $productID = '';
         $brandName = '';
-        $currBrand = '';
         
         foreach($brand as $pBrand) {
             $currBrand = $pBrand['brand_id'];
-            
             $productBrand = '<li class="dropdown">';
             $productBrand .='<a tabindex="0" class="dropdown-item dropdown-toggle" role="button"';
             $productBrand .='data-bs-toggle="dropdown" data-bs-trigger="focus" title="Click to view ' . $pBrand['brand_name'] . '">';
