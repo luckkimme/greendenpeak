@@ -42,6 +42,7 @@ body {
 	margin: auto;
 	display: flex;
 	flex-direction: column;
+	display: none;
 }
 #div-form button {
 	background-color: #02ABAB;

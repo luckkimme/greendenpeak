@@ -35,14 +35,36 @@
 	    </div>
 			<form action="/greendenpeak/page/sendemail.php" method="post">
 	    		<div id="div-contact-select">
-	    			<div>Select the reason for contacting us</div>
-	    				<select class="form-select form-select-lg mb-3" name="purpose" aria-label=".form-select-lg example">
-							<option value="Request Demo" selected>Request Demo</option>
+	    			<div class="h3">Select the reason for contacting us</div>
+	    				<select class="form-select form-select-lg mb-3" id="reasonForContact" onchange="selectedReason()" name="purpose" aria-label=".form-select-lg example">
+							<option value="Option" selected>-Select Options-</option>
+							<option value="Request Demo">Request Demo</option>
 							<option value="Inquire">Inquire</option>
 							<option value="Question">Question</option>
 							<option value="Buying">Buying</option>
 						</select>
 	    			</div>
+		
+		<script>
+			function selectedReason(){
+			var reason = document.getElementById("reasonForContact");
+			if(reason.value == "Request Demo"){
+				document.getElementById("div-form").style.display="block";
+			}
+			if(reason.value == "Inquire"){
+				document.getElementById("div-form").style.display="block";
+			}
+			if(reason.value == "Question"){
+				document.getElementById("div-form").style.display="block";
+			}
+			if(reason.value == "Buying"){
+				document.getElementById("div-form").style.display="block";
+			}
+			if(reason.value == "Option"){
+				document.getElementById("div-form").style.display="none";
+			}
+		}
+		</script>
 
 	    <div id="div-form">
     		<h4>Please fill out the form</h4>
@@ -63,10 +85,12 @@
 				    <textarea class="form-control" name="message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
 				    <label for="floatingTextarea2">Message</label>
 				</div>
-				<div class="form-floating mb-3 mt-3">
+				<!--
+					<div class="form-floating mb-3 mt-3">
 				    <input type="date" class="form-control" id="floatingPassword" placeholder="date">
 				    <label for="floatingPassword">Select date for appointment</label>
 				</div>
+				-->
 				<button type="submit" class="btn btn-primary" name="send">Submit</button>
 	    	</form>
 	    </div>
