@@ -37,8 +37,8 @@
         $product_desc_list = '';
         $prodInfo = '';
 
-        $prodInfo ='<div class="col-10 col-sm-8 col-lg-6">';
-        $prodInfo .='<img src="' . $product_img_src . '" class="d-block mx-lg-auto img-fluid" alt="Product Image" loading="lazy">';
+        $prodInfo ='<div class="col-12 col-sm-8 col-lg-6 justify-content-center div-p-img">';
+        $prodInfo .='<img src="' . $product_img_src . '" class="d-block mx-lg-auto mx-auto img-fluid" alt="Product Image" loading="lazy">';
         $prodInfo .='</div><div class="col-lg-6 pt-3 div-product-desc">';
         $prodInfo .='<h1 class="display-5 fw-bold lh-1 mb-3">' . $product_name . '</h1>';
         $prodInfo .='<p class="lead">' . $product_desc . '</p>';
@@ -48,7 +48,7 @@
             $prodInfo .= '<li>' . $listItem['li'] . '</li>';
         }
         $prodInfo .='</ul><div class="d-grid">';
-        $prodInfo .='<button type="button" class="btn btn-primary btn-lg px-4">' . $product_btn_name . '</button></div></div>';
+        $prodInfo .='<a href="/greendenpeak/page/contact-us.php" type="button" class="btn btn-primary btn-lg px-4 btn-page">' . $product_btn_name . '</a></div></div>';
         
         return $prodInfo;
     }
@@ -135,7 +135,7 @@
 
         $product_kit_optional_item = '<div class="justify-content-md-start div-kit-list">';
         $product_kit_optional_item.= '<p class="lead">' . $product_kit['product_kit_optional_title'] . '</p>';
-        $product_kit_optional_item.= '<ul class="row">';
+        $product_kit_optional_item.= '<ul class="row ul-kit">';
 
         foreach($product_kit_optional as $optional_kit) {
             $product_kit_optional_item .= '<li class="col-6">' . $optional_kit['product_kit_optional_item_name'] . '</li>';
@@ -149,12 +149,9 @@
         $product_accessory_item = '';
 
         foreach($product_accessory as $accessory_item) {
-            $product_accessory_item.= '<div class="card py-3 col-5 mb-3">';
-            $product_accessory_item.= '<div class="row g-0">';
-            $product_accessory_item.= '<div class="col-md-5 align-self-center">';
-            $product_accessory_item.= '<img src="' . $accessory_item['product_accessory_item_img'] . '" class="img-fluid rounded-start" alt="Accessory Image">';
-            $product_accessory_item.= '</div>';
-            $product_accessory_item.= '<div class="col-md-7 d-grid">';
+            $product_accessory_item.= '<div class="col">';
+            $product_accessory_item.= '<div class="card h-100">';
+            $product_accessory_item.= '<img src="' . $accessory_item['product_accessory_item_img'] . '" class="card-img-top rounded-start p-accessory-img" alt="Accessory Image">';
             $product_accessory_item.= '<div class="card-body">';
             $product_accessory_item.= '<h5 class="card-title">' . $accessory_item['product_accessory_item_title'] . '</h5>';
             
@@ -189,7 +186,8 @@
             done:
 
             $product_accessory_item.= '</ul></div>';
-            $product_accessory_item.= '<button class="btn btn-primary">Get Yours Now!</button>';
+            $product_accessory_item.= '<div class="card-footer d-grid gap-0">';
+            $product_accessory_item.= '<a type="button" href="/greendenpeak/page/contact-us.php" class="btn btn-primary">Get Yours Now!</a>';
             $product_accessory_item.= '</div></div></div>';
         }
 
@@ -211,8 +209,8 @@
                         $product_other .= '<img src="' . $other_info['product_info_item_img'] . '" class="d-block mx-lg-auto img-fluid" alt="Other Information Image" width="700" height="500" loading="lazy">';
                         $product_other .= '</div>'; //end img div
                         $product_other .= '<div class="col-lg-8">';
-                        $product_other .= '<h4 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_title'] . '</h4>';
-                        $product_other .= '<h6 class="display-5 fw-bold lh-1 mb-3">' . $other_info['product_info_item_subtitle'] . '</h6>';
+                        $product_other .= '<h4 class="lh-1 mb-3">' . $other_info['product_info_item_title'] . '</h4>';
+                        $product_other .= '<h6 class="lh-1 mb-3">' . $other_info['product_info_item_subtitle'] . '</h6>';
                         
                         if(!($product_other_info_desc == NULL)) {
                             foreach($product_other_info_desc as $other_info_desc) {
@@ -234,7 +232,7 @@
                         if(!($product_other_info_desc_list == NULL)) {
                             foreach($product_other_info_desc_list as $other_info_desc_list) {
                                 if($other_info['product_info_item_id'] == $other_info_desc_list['fk_product_info_item_id']) {
-                                    $product_other .= '<li class="col-6">' . $other_info_desc_list['product_info_desc_list_item'] . '</li>';
+                                    $product_other .= '<li>' . $other_info_desc_list['product_info_desc_list_item'] . '</li>';
                                 } else {
                                     continue;
                                 }
