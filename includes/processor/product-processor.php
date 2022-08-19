@@ -16,7 +16,7 @@
     }
 
     function get_product_info($conn, $productID) {
-        $query = "SELECT p.product_id, p.product_name, p.product_desc, p.product_img, p.product_purchase_btn_name, p.product_feature_carousel_title, b.brand_name   
+        $query = "SELECT p.product_id, p.product_name, p.product_desc, p.product_desc_list, p.product_img, p.product_purchase_btn_name, p.product_feature_carousel_title, b.brand_name   
                   FROM `product` p JOIN `brand` b ON p.fk_brand_id = b.brand_id 
                   WHERE product_id = " . $productID;
         $productInfo = get_single_query($query, $conn);
@@ -32,11 +32,10 @@
     }
 
     function get_product_feature($conn, $productID) {
-        $query = "SELECT pf.product_feature_main_title, pf.product_feature_main_img, pf.product_feature_carousel_title, pfs.product_feature_subtitle, pfs.product_feature_subtitle_desc 
+        $query = "SELECT pf.product_feature_main_title, pf.product_feature_main_img, pf.product_feature_description
                   FROM `product_feature` pf
                   LEFT JOIN `product` p ON pf.fk_product_id = p.product_id 
-                  JOIN `product_feature_subtitle` pfs ON pfs.fk_product_feature_id = pf.product_feature_id
-                  WHERE pf.isShown = 1 AND pfs.isShown = 1 AND p.product_id =" . $productID;
+                  WHERE pf.isShown = 1 AND p.product_id =" . $productID;
         $productFeature = get_single_query($query, $conn);
         return $productFeature;
     }
@@ -60,7 +59,7 @@
     }
 
     function get_product_kit($conn, $productID) {
-        $query = "SELECT pk.product_kit_id, pk.product_kit_title, pk.product_kit_subtitle, pk.product_kit_standard_title, pk.product_kit_optional_title, pk.product_kit_img
+        $query = "SELECT pk.product_kit_id, pk.product_kit_title, pk.product_kit_subtitle, pk.product_kit_standard_title, pk.product_kit_standard_desc, pk.product_kit_optional_title, pk.product_kit_optional_desc, pk.product_kit_img
                   FROM `product_kit` pk
                   LEFT JOIN `product` p ON pk.fk_product_id = p.product_id 
                   WHERE p.product_id =" . $productID;
@@ -98,7 +97,7 @@
     }
 
     function get_accessory_item($conn, $productID) {
-        $query = "SELECT pai.product_accessory_item_id, pai.product_accessory_item_title, pai.product_accessory_item_img, pai.isShown
+        $query = "SELECT pai.product_accessory_item_id, pai.product_accessory_item_title, pai.product_acc_desc, pai.product_acc_desc_list, pai.product_accessory_item_img, pai.isShown
                   FROM `product_accessory_item` pai 
                   LEFT JOIN `product_accessory` pa ON pai.fk_product_accessory_id = pa.product_accessory_id
                   LEFT JOIN `product` p ON pa.fk_product_id = p.product_id
@@ -148,7 +147,7 @@
     }
 
     function get_other_info_item($conn, $productID) {
-        $query = "SELECT pitem.product_info_item_id, pitem.product_info_item_title, pitem.product_info_item_img, pitem.product_info_item_subtitle, pitem.fk_other_info_item_id
+        $query = "SELECT pitem.product_info_item_id, pitem.product_info_item_title, pitem.product_other_info_desc, pitem.product_other_info_desc_list, pitem.product_info_item_img, pitem.product_info_item_subtitle, pitem.fk_other_info_item_id
                   FROM `product_other_info_item` pitem 
                   LEFT JOIN `product_other_info` poi ON pitem.fk_other_info_item_id = poi.product_other_info_id 
                   LEFT JOIN `product` p ON poi.fk_product_id = p.product_id
