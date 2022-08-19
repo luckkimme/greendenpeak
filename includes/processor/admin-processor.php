@@ -1,30 +1,61 @@
 <?php
-
-    require_once __DIR__ . '/../connection.php';
     require_once __DIR__ . '/../function/query.php';
 
-    function set_brand($conn, $brand_name) {
-        $query = "INSERT INTO `brand`(`brand_name`) VALUES ('{$brand_name}')";
-        $brand = post_query($query, $conn);
-        return $brand;
+    function get_all_brands(mysqli $conn) {
+        $query = 'SELECT * FROM `brand` WHERE `is_shown` = 1';
+        return get_multiple_query($query, $conn);
     }
 
-    function update_brand($conn, $brandID, $brand_name) {
-        $query = "UPDATE `brand` SET `brand_name`='{$brand_name}' WHERE `brand_id` = {$brandID}";
-        $brand = post_query($query, $conn);
-        return $brand;
+    function get_brand_name_by_id(mysqli $conn, int $brand_id) {
+        $query = "SELECT `brand_name` FROM `brand` WHERE `brand_id` = $brand_id LIMIT 1";
+        return get_single_query($query, $conn);
     }
 
-    function set_product($conn, $product_name, $product_desc, $product_img, $product_btn, $brandID) {
-        $query = "INSERT INTO `product`(`product_name`, `product_desc`, `product_img`, `product_purchase_btn_name`, `fk_brand_id`) VALUES ('{$product_name}','{$product_desc}','{$product_img}','{$product_btn}',{$brandID})";
-        $product = post_query($query, $conn);
-        return $product;
+    function set_brand(mysqli $conn, string $brand_name) {
+        $brand_name = $conn->real_escape_string($brand_name);
+        $query = "INSERT INTO `brand`(`brand_name`) VALUES ('$brand_name')";
+        return post_query($query, $conn);
     }
 
-    function update_product($conn, $productID, $product_name, $product_desc, $product_img, $product_btn, $carousel_title, $isShown, $brandID) {
-        $query = "UPDATE `product` SET `product_name`='{$product_name}',`product_desc`='{$product_desc}',`product_img`='{$product_img}',`product_purchase_btn_name`='{$product_btn}',`product_feature_carousel_title`='{$carousel_title}',`isShown`='{$isShown}',`fk_brand_id`='{$brandID}' WHERE `product_id` = {$productID}";
-        $product = post_query($query, $conn);
-        return $product;
+    function update_brand(mysqli $conn, int $brandID, string $brand_name) {
+        $brand_name = $conn->real_escape_string($brand_name);
+        $query = "UPDATE `brand` SET `brand_name`='$brand_name' WHERE `brand_id` = $brandID";
+        return post_query($query, $conn);
+    }
+
+    function delete_brand(mysqli $conn, int $id) {
+        $query = "UPDATE `brand` SET `is_shown` = 0 WHERE `brand_id` = $id";
+        return post_query($query, $conn);
+    }
+
+    function get_products_by_brand(mysqli $conn, int $brand_id) {
+        $query = "SELECT `product_id`, `product_name` FROM `product` WHERE `fk_brand_id`= $brand_id AND `isShown` = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function get_product_by_id(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product` WHERE `product_id`= $product_id AND `isShown` = 1 LIMIT 1";
+        return get_single_query($query, $conn);
+    }
+
+    function set_product(mysqli $conn, string $product_name, int $brand_id) {
+        $product_name = $conn->real_escape_string($product_name);
+        $query = "INSERT INTO `product`(`product_name`, `fk_brand_id`) VALUES('$product_name', $brand_id)";
+        return post_query($query, $conn);
+    }
+
+    function update_product_information(mysqli $conn, int $productID, string $product_name, string $product_desc, string $product_img, string $product_btn) {
+        $product_name = $conn->real_escape_string($product_name);
+        $product_desc = $conn->real_escape_string($product_desc);
+        $product_img = $conn->real_escape_string($product_img);
+        $product_btn = $conn->real_escape_string($product_btn);
+        $query = "UPDATE `product` SET `product_name`='{$product_name}',`product_desc`='{$product_desc}',`product_img`='{$product_img}',`product_purchase_btn_name`='{$product_btn}' WHERE `product_id` = {$productID}";
+        return post_query($query, $conn);
+    }
+
+    function delete_product(mysqli $conn, int $productID) {
+        $query = "UPDATE `product` SET `isShown` = 0 WHERE `product_id` = $productID";
+        return post_query($query, $conn);
     }
 
     function set_product_feature($conn, $feature_title, $feature_img, $productID) {

@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+    <title>Greendenpeak | Admin</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -14,7 +14,7 @@
 
     <!-- Bootstrap core CSS -->
 
-<link href="/../greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="/greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     
     <!-- Custom styles for this template -->
-    <link href="/../greendenpeak/asset/css/dashboard.css?d=<?php echo time(); ?>" rel="stylesheet">
+    <link href="/greendenpeak/asset/css/dashboard.css?d=<?php echo time(); ?>" rel="stylesheet">
   </head>
   <body>
     
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function(){
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="/../greendenpeak/page/admin/landing-cms.php">
+            <a class="nav-link" href="/greendenpeak/page/admin/landing-cms.php">
               <span data-feather="file"></span>
               Landing Page
             </a>
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function(){
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/greendenpeak/page/admin/product-cms.php">
+            <a class="nav-link" href="/greendenpeak/page/admin/brand-cms.php">
               <span data-feather="shopping-cart"></span>
               Products Page
             </a>
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
 
 
-    <script src="/../greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/../greendenpeak/asset/js/dashboard.js"></script>
   </body>

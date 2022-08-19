@@ -1,67 +1,3 @@
-<!-- Add New Brand Button Modal -->
-<div class="modal fade" id="newbrandmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="newBrandLabel">Add New Brand</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="newBrand"placeholder="New Brand Name" required></input>
-                    <label for="newBrand">New Brand Name</label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Edit Brand Modal -->
-<div class="modal fade" id="editbrandmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center" id="newBrandLabel">Edit Brand</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="editBrand" placeholder="Edit Brand Name" required></input>
-                    <label for="editBrand">Edit Brand Name</label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Add New Product Button Modal -->
-<div class="modal fade" id="addProductModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="newBrandLabel"> Add New Product</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="newProd" placeholder="New Product Name" required></input>
-                    <label for="newProd">New Product Name</label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <!-- Edit Productinfo Modal -->
 <div class="modal fade" id="editProductModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -70,31 +6,38 @@
                 <h5 class="modal-title text-center" id="newBrandLabel"> Edit Product Information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control"id="proName" placeholder="Product Name" required></input>
-                    <label for="proName">Product Name</label>
+            <form action="/greendenpeak/includes/api/product-details.php" method="POST" enctype="multipart/form-data">
+                <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control"id="proName" placeholder="Product Name" name="product_name" value="<?php echo $product_details['product_name'] ?? ''; ?>" required />
+                        <label for="proName">Product Name</label> 
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <textarea class="form-control" id="proDesc" rows="3" placeholder="Product Description"></textarea>
-                    <label for="proDesc">Product Description</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="proDesc" rows="3" placeholder="Product Description" name="product_desc">
+                            <?php echo $product_details['product_desc'] ?? ''; ?>
+                        </textarea>
+                        <label for="proDesc">Product Description</label>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Product Purchase Button Name" placeholder="Product Purchase Button Name"></input>
-                    <label for="Product Purchase Button Name">Product Purchase Button Name</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Product Purchase Button Name" placeholder="Product Purchase Button Name" name="product_btn" value="<?php echo $product_details['product_purchase_btn_name'] ?? ''; ?>"/>
+                        <label for="Product Purchase Button Name">Product Purchase Button Name</label>
+                    </div>
                 </div>
-            </div>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                <p class="modal-titles text-center">Select a new Photo</p>
+                <div class="input-group modal-body">
+                    <input type="text" name="product_img" value="<?php echo $product_details['product_img'];?>" hidden/>
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_img" onchange="previewImage(this, 'product-information-img-preview')"/>
+                </div>
+                <img id="product-information-img-preview" class="w-100 mx-auto d-block" src="<?php echo $product_details['product_img'];?>" alt="<?php echo $product_details['product_name'];?>" <?php if($product_details['product_img'] === null || $product_details['product_img'] === '') echo 'hidden';?> >
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" name="method" value="edit_product_information">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -109,20 +52,14 @@
             </div>
             <div class="modal-body">
                 <div class="form-floating">
-                    <input class="form-control" id="Main Title" placeholder="Main Title" required></input>
+                    <input class="form-control" id="Main Title" placeholder="Main Title" name="feature_main_title" required></input>
                     <label for="Main Title">Main Title</label>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="form-floating">
-                    <textarea class="form-control" id="Product Description (1 Paragraph)" style="height: 100px" placeholder="Product Description (1 Paragraph)" required></textarea>
-                    <label for="Product Description (1 Paragraph)">Product Description (1 Paragraph)</label>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <textarea class="form-control" id="subProduct Description (1 Paragraph)" style="height: 100px" placeholder="Product Description (1 Paragraph)" required></textarea>
-                    <label for="subProduct Description (1 Paragraph)">Product Description (1 Paragraph)</label>
+                    <textarea class="form-control" id="Product Description" style="height: 100px" placeholder="Product Description" required></textarea>
+                    <label for="Product Description">Product Description</label>
                 </div>
             </div>
             <p class="modal-titles text-center">Select a new Photo</p>
@@ -207,7 +144,7 @@
             <hr>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Ok</button>
             </div>  
         </div>
     </div>

@@ -1,3 +1,15 @@
+<?php 
+  require_once('../../includes/connection.php');
+  require_once('../../includes/processor/admin-processor.php');
+
+  if(isset($_GET['product_id'])) {
+    $product_id = $_GET['product_id'];
+    $product_details = get_product_by_id($conn, $product_id);
+  } else {
+    header('Location: /greendenpeak/page/component/error.php');
+  }
+?>
+
 <!DOCTYPE>
 <html lang="en">
   <head>
@@ -6,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+    <title>Greendenpeak | Admin</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -14,7 +26,7 @@
 
     <!-- Bootstrap core CSS -->
 
-<link href="/../greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="/greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -107,19 +119,19 @@ document.addEventListener("DOMContentLoaded", function(){
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="/../greendenpeak/page/admin/landing-cms.php">
+            <a class="nav-link" href="/greendenpeak/page/admin/landing-cms.php">
               <span data-feather="file"></span>
               Landing Page
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/../greendenpeak/page/admin/aboutus-cms.php">
+            <a class="nav-link" href="/greendenpeak/page/admin/aboutus-cms.php">
               <span data-feather="user-check"></span>
               About Us Page
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/../greendenpeak/page/admin/product-cms.php">
+            <a class="nav-link active" href="/greendenpeak/page/admin/brand-cms.php">
               <span data-feather="shopping-cart"></span>
               Products Page
             </a>
@@ -130,12 +142,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h3">Content Management > Product Page > Rainbow > Rainbow Vacuum</h1>
+        <h1 class="h3">Content Management > Product Page > Rainbow > <?php echo $product_details['product_name']; ?></h1>
       </div>
           
       <div class="table-responsive-lg">
+        <?php include_once ("../component/modals/product-details-modals.php");?>
         <table class="table table-striped">
-          <h3>Rainbow Vacuum Cleaner</h3>
+          <h3><?php echo $product_details['product_name']; ?></h3>
           <thead>
             <tr>
               <th scope="col" class="h5">Component</th>
@@ -147,43 +160,37 @@ document.addEventListener("DOMContentLoaded", function(){
               <td class="tdproduct">Product Information</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#editProductModal">Edit</a></td>
-              <?php include ("../component/modals.php");?>
             </tr>            
             <tr>
               <td class="tdproduct">Features</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#editFeaturesModal">Edit</a></td>
-              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">Specification / Kit</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#editKitModal">Edit</a></td>
-              <?php include ("../component/modals.php");?>
             </tr>            
             <tr>
               <td class="tdproduct">Accessories</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#editAccessoriesModal">Edit</a></td>
-              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">Other Information</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#editOtherModal">Edit</a></td>
-              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">User Manual</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#">Edit</a></td>
-              <?php include ("../component/modals.php");?>
             </tr>
             <tr>
               <td class="tdproduct">Gallery</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#">Edit</a></td>
-              <?php include ("../component/modals.php");?>
+              
             </tr>
           </tbody>
         </table>
@@ -191,8 +198,8 @@ document.addEventListener("DOMContentLoaded", function(){
     </main>
   </div>
 </div>
-    <script src="/../greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="/greendenpeak/asset/js/modal-edit.js"></script> 
+    <script src="/greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/../greendenpeak/asset/js/dashboard.js"></script>
   </body>
 </html>

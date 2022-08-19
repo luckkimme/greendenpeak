@@ -1,3 +1,17 @@
+<?php
+  require_once('../../includes/connection.php');
+  require_once('../../includes/processor/admin-processor.php');
+  require_once('../../includes/view/admin_product.php');
+
+  if(isset($_GET['brand_id'])) {
+    $brand_id = intval($_GET['brand_id']);
+    $brand_name = get_brand_name_by_id($conn, $brand_id)['brand_name'];
+  } else {
+    header('Location: /greendenpeak/page/component/error.php');
+  }
+  
+?>
+
 <!DOCTYPE>
 <html lang="en">
   <head>
@@ -6,15 +20,12 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-    
+    <title>Greendenpeak | Admin</title>
 
     <!-- Bootstrap core CSS -->
 
-<link href="/../greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="/greendenpeak/asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -63,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     
     <!-- Custom styles for this template -->
-    <link href="/../greendenpeak/asset/css/dashboard.css?d=<?php echo time(); ?>" rel="stylesheet">
+    <link href="/greendenpeak/asset/css/dashboard.css?d=<?php echo time(); ?>" rel="stylesheet">
   </head>
   <body>
     
@@ -107,19 +118,19 @@ document.addEventListener("DOMContentLoaded", function(){
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="/../greendenpeak/page/admin/landing-cms.php">
+            <a class="nav-link" href="/greendenpeak/page/admin/landing-cms.php">
               <span data-feather="file"></span>
               Landing Page
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/../greendenpeak/page/admin/aboutus-cms.php">
+            <a class="nav-link" href="/greendenpeak/page/admin/aboutus-cms.php">
               <span data-feather="user-check"></span>
               About Us Page
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href=#>
+            <a class="nav-link active" href="/greendenpeak/page/admin/brand-cms.php">
               <span data-feather="shopping-cart"></span>
               Products Page
             </a>
@@ -130,36 +141,37 @@ document.addEventListener("DOMContentLoaded", function(){
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Content Management > Product Page</h1>
+        <h1 class="h2">Content Management > Product Page > <?php echo $brand_name?></h1>
       </div>
           
       <div class="table-responsive-lg">
-        <table class="table table-striped">
+        <table class="table table-striped"> 
           <thead>
             <tr>
-              <th scope="col" class="h4">Brand Names</th>
-              <th scope="col" class="alignment"><a type="button" 
-              class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newbrandmodal">+ New Brand</a></th>
-              <?php include ("../component/modals.php");?>
+              <th><a type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#addProductModal">+New Product</a></th>     
+              <?php include_once('../component/modals/product-modals.php');?>         
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="tdproduct">Rainbow</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/rainbow-cms.php" type="button" class="btn btn-secondary">View Products</a></td>
-            </tr>
-            <tr>
-              <td class="tdproduct">Thermostar</td>
-              <td class="alignment"><a href="/../greendenpeak/page/admin/thermostar-cms.php" type="button" class="btn btn-secondary">View Products</a></td>
-            </tr>
+          <?php
+            $products = get_products_by_brand($conn, $brand_id);
+            if($products && count($products) > 0) {
+              foreach($products as $product) {
+                echo create_product_item($product['product_id'], $product['product_name'], $brand_id);
+              } 
+            } else {
+              echo "No products added yet";
+            }
+          ?>
           </tbody>
         </table>
+        
       </div>
     </main>
   </div>
 </div>
-    <script src="/../greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="/greendenpeak/asset/js/modal-edit.js"></script>
+    <script src="/greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/../greendenpeak/asset/js/dashboard.js"></script>
   </body>
 </html>

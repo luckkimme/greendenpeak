@@ -1,8 +1,7 @@
 <?php 
 
-    function get_multiple_query($query, $conn){
+    function get_multiple_query(string $query, mysqli $conn){
         $result = $conn->query($query);
-        //echo $conn->error;
         $data = null;
         if($result && $result->num_rows > 0){
             $data = Array();
@@ -13,9 +12,8 @@
         return $data;
     }
 
-    function get_single_query($query, $conn){
+    function get_single_query(string $query,  mysqli $conn){
         $result = $conn->query($query);
-        //echo $conn->error;
         $data = null;
         if($result && $result->num_rows > 0)
             $data = $result->fetch_assoc();
@@ -23,7 +21,7 @@
         return $data;
     }
 
-    function post_query($query, $conn){
+    function post_query(string $query, mysqli $conn){
         $conn->query($query);
         $lastId = $conn->insert_id;
         echo $conn->error;
