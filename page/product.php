@@ -100,7 +100,7 @@
 	<body>
 		<main id="div-product">
 			<?php 
-		        include_once("component/navbar.php");
+		        include_once __DIR__ . '/component/navbar.php';
 		    ?>
             <div id="div-main-tab" class="nav-scroller fixed-top">
                 <nav id="div-main-nav" class="navbar nav-underline navbar-light bg-light px-3 fixed-top">
@@ -224,6 +224,6 @@
         <script src="../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script src="../asset/js/offcanvas.js"></script>
-        <?php include_once("component/footer.php"); ?>
+        <?php include_once __DIR__ . '/component/footer.php'; ?>
 	</body>
 </html>

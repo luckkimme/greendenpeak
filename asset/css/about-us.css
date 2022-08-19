@@ -22,11 +22,11 @@ body {
 }
 
 .bg-tiffblue{
-	background-color: #08B5B6;
+	background-color: #14c9cb;
 
 }
 .bg-lsg{
-	background-color: #02ABAB;
+	background-color: #14c9cb;
 }
 
 #txt-about {
@@ -89,4 +89,41 @@ svg {
 #accordionPanelsStayOpenExample {
 	width: 80%;
 	margin: 3% auto;
+}
+#p-history {
+	float: left;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	text-align: justify;
+}
+#p-history img {
+	float: right;
+	width: 50%;
+	display: inline-block;
+}
+.filler{
+	visibility: hidden;
+}
+.div-icon {
+	background-color: #14c9cb !important;
+}
+.txt-brand {
+	text-transform: capitalize;
+}
+.h-brand {
+	height: 200px;
+	font-weight: 500 !important;
+	text-transform: capitalize;
+}
+.p-brand-desc {
+	min-height: 250px !important;
+}
+.div-prod-service {
+	background-color: #14c9cb;
+}
+@media only screen and (max-width: 899px) {
+	#p-history img {
+		width: 100%;
+	}
 }
