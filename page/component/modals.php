@@ -406,3 +406,43 @@
         </div>
     </div>
 </div>
+
+<!-- Edit User Manual / Downloadables / Product Links -->
+<div class="modal fade" id="editUserManual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="header-user-manual" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="header-user-manual">Edit Links</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group form-floating">
+                    <select class="form-select" id="sel-user-manual" aria-label="Link Select">
+                        <option value="1" selected>Product Manual Name 1</option>
+                        <option value="2">Product Manual Name 2</option>
+                        <option value="3">Product Manual Name 3</option>
+                    </select>
+                    <label for="sel-user-manual">Select a link</label>
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#div-user-manual-collapse" aria-expanded="false" aria-controls="div-user-manual-collapse">Edit</button>
+                </div>
+                <div class="collapse my-2" id="div-user-manual-collapse">
+                    <div class="card card-body">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
+                            <label for="text-manual-name">Product Manual Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
+                            <label for="text-manual-name">Link Source</label>
+                        </div>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
