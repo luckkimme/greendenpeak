@@ -244,10 +244,10 @@
                         done:
 
                         $product_other .= '</ul></div>'; //end of ul div
-                        $product_other .= '<div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">';
+                        /* $product_other .= '<div class="d-grid gap-2 d-md-flex justify-content-md-start py-3">';
                         $product_other .= '<button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>';
                         $product_other .= '<button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>';
-                        $product_other .= '</div>'; //end of button div
+                        $product_other .= '</div>'; //end of button div */
                         $product_other .= '</div>'; //end of title div
                         $product_other .= '</div>'; //end of keyword item div
                     } else {

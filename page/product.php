@@ -168,8 +168,8 @@
                 </div>
 
                 <div id="user-manual" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-manual-tab">
-                    <h4>In need of assistance for using the Rainbow Vacuum Cleaner?</h4>
-                    <h5>You may download these user manuals for better user experience</h6>
+                    <h4 class="lh-1 mb-3 py-3 text-center">In need of assistance for using the Rainbow Vacuum Cleaner?</h4>
+                    <h5 class="text-center mx-5">You may download these user manuals for better user experience</h6>
                     <div class="container">
                         <div class="row g-3">
                             <div class="col-6">
