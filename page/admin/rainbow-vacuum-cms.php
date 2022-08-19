@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,8 +9,6 @@
     <title>Dashboard Template · Bootstrap v5.0</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-    
 
     <!-- Bootstrap core CSS -->
 
@@ -191,6 +189,38 @@ document.addEventListener("DOMContentLoaded", function(){
     </main>
   </div>
 </div>
+    <script>
+        const bullet = "\u2022";
+        const bulletWithSpace = `${bullet} `;
+        const enter = 13;
+
+        let descList = document.getElementById("proDescList");
+        if(descList) {
+            descList.addEventListener("keyup", insertBullet);
+        }
+
+        function insertBullet(event) {
+            const { keyCode, target } = event;
+            const { selectionStart, value } = target;
+            
+            if (keyCode === enter) {
+              target.value = [...value]
+                  .map((c, i) => i === selectionStart - 1
+                  ? `\n${bulletWithSpace}`
+                  : c
+                  )
+                  .join('');
+                  console.log(target.value);
+                  
+              target.selectionStart = selectionStart+bulletWithSpace.length;
+              target.selectionEnd = selectionStart+bulletWithSpace.length;
+            }
+            
+            if (value[0] !== bullet) {
+              target.value = `${bulletWithSpace}${value}`;
+            }
+        }
+    </script>
     <script src="/../greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/../greendenpeak/asset/js/dashboard.js"></script>

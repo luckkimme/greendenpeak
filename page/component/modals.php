@@ -1,3 +1,4 @@
+<script src="/asset/js/textarea-bullets.js">console.log('try');</script>
 <!-- Add New Brand Button Modal -->
 <div class="modal fade" id="newbrandmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -71,26 +72,26 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="form-floating">
+                <div class="form-floating my-3">
                     <input class="form-control"id="proName" placeholder="Product Name" required></input>
                     <label for="proName">Product Name</label>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <textarea class="form-control" id="proDesc" rows="3" placeholder="Product Description"></textarea>
-                    <label for="proDesc">Product Description</label>
+                <div class="form-floating my-3">
+                    <textarea class="form-control" id="proDesc" placeholder="Product Description"></textarea>
+                    <label for="proDesc">Product Description (Paragraph)</label>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
+                <div class="form-floating my-3">
+                    <textarea class="form-control" id="proDescList" onkeyup="handleInput(event)" placeholder="Product Description"></textarea>
+                    <label for="proDescList">Product Description (List)</label>
+                </div>
+                <div class="form-floating my-3">
                     <input class="form-control" id="Product Purchase Button Name" placeholder="Product Purchase Button Name"></input>
                     <label for="Product Purchase Button Name">Product Purchase Button Name</label>
                 </div>
-            </div>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
+                <p class="modal-titles text-center">Select a new Photo</p>
+                <div class="input-group my-3">
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save changes</button>
