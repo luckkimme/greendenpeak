@@ -1,8 +1,5 @@
 <?php 
-    include_once('includes/processor/upload-processor.php');
-    if(count($_FILES) > 0) {
-        upload_file($_FILES['product_img']['name'], $_FILES['product_img']['tmp_name'], '/greendenpeak/asset/img');
-    }
+    include_once('includes/view/admin-product.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +11,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="playground.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="product_img"/>
-        <button type="submit">Upload</button>
-    </form>
+    <?php
+        echo create_carousel_item('asdasdas','asdasdsa','sadsadsadsa','asdasdasdas',1);
+    ?>
 </body>
 </html>

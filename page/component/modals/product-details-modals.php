@@ -32,8 +32,9 @@
                 <div class="input-group modal-body">
                     <input type="text" name="product_img" value="<?php echo $product_details['product_img'];?>" hidden/>
                     <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_img" onchange="previewImage(this, 'product-information-img-preview')"/>
+                    <img id="product-information-img-preview" class="w-100 mx-auto d-block" src="<?php echo $product_details['product_img'];?>" alt="<?php echo $product_details['product_name'];?>" <?php if($product_details['product_img'] === null || $product_details['product_img'] === '') echo 'hidden';?> >
                 </div>
-                <img id="product-information-img-preview" class="w-100 mx-auto d-block" src="<?php echo $product_details['product_img'];?>" alt="<?php echo $product_details['product_name'];?>" <?php if($product_details['product_img'] === null || $product_details['product_img'] === '') echo 'hidden';?> >
+                
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" name="method" value="edit_product_information">Save changes</button>
                 </div>
@@ -44,171 +45,157 @@
 
 <!-- Edit Features Modal -->
 <div class="modal fade modal-fullscreen-md-down" id="editFeaturesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center" id="newBrandLabel"> Edit Features</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Main Title" placeholder="Main Title" name="feature_main_title" required></input>
-                    <label for="Main Title">Main Title</label>
+    <form action="/greendenpeak/includes/api/product-details.php" method="POST" enctype="multipart/form-data">
+        <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="newBrandLabel"> Edit Features</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <textarea class="form-control" id="Product Description" style="height: 100px" placeholder="Product Description" required></textarea>
-                    <label for="Product Description">Product Description</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Main Title" placeholder="Main Title" name="product_feature_main_title" value="<?php if($product_features) echo $product_features[0]['product_feature_main_title']?>" required></input>
+                        <label for="Main Title">Feature Title</label>
+                    </div>
                 </div>
-            </div>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <hr>
-            <p class="modal-titles text-center">Features Carousel</p>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Title" placeholder="Carousel Title" required></input>
-                    <label for="Carousel Title">Carousel Title</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="Product Description" style="height: 100px" placeholder="Product Description" name="product_feature_description" required><?php if($product_features) echo $product_features[0]['product_feature_description']?></textarea>
+                        <label for="Product Description">Feature Description</label>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <p class="modal-titles text-center">Carousel Item</p>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Item Title" placeholder="Carousel Item Title" required></input>
-                    <label for="Carousel Item Title">Carousel Item Title</label>
+                <p class="modal-titles text-center">Select a new Photo</p>
+                <div class="input-group modal-body">
+                    <input type="text" name="product_feature_main_img" value="
+                        <?php 
+                            $is_image_exist = false;
+                            if($product_features) {
+                                echo $product_features[0]['product_feature_main_img'];
+                                $is_image_exist = true;
+                            } 
+                        ?>" hidden />
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_feature_main_img" onchange="previewImage(this, 'features-preview-img')">
+                    <img id="features-preview-img" class="w-100" src="<?php if($is_image_exist) echo $product_features[0]['product_feature_main_img']?>" <?php if(!$is_image_exist) echo 'hidden'; ?>>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Description" placeholder="Carousel Description" required></input>
-                    <label for="Carousel Description">Carousel Description</label>
+                <hr>
+                <p class="modal-titles text-center">Features Carousel</p>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Carousel Title" placeholder="Carousel Title" name="product_feature_carousel_title" value="<?php echo $product_details['product_feature_carousel_title']?>" required></input>
+                        <label for="Carousel Title">Carousel Title</label>
+                    </div>
                 </div>
-            </div>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <div class="input-group modal-body">
-                <button type="button" class="btn btn-secondary btn-sm">Delete Item</button>
-            </div>
-            <hr>
-            <p class="modal-titles text-center">Carousel Item (1)</p>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Item (1)" placeholder="Carousel Item (1)" required></input>
-                    <label for="Carousel Item (1)">Carousel Item (1)</label>
+                <hr>
+                <div id="carousel-items">
+                    <?php
+                        if($product_carousel && count($product_carousel) > 0) {
+                            foreach($product_carousel as $product) {
+                                echo create_carousel_item(
+                                    $product['product_feature_carousel_subtitle'], 
+                                    $product['product_feature_carousel_desc'], 
+                                    $product['product_feature_carousel_img'], 
+                                    $product['product_feature_carousel_item_id'],
+                                    $product_id
+                                );
+                            }
+                        }
+                    ?>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Description (1)" placeholder="Carousel Description (1)" required></input>
-                    <label for="Carousel Description (1)">Carousel Description (1)</label>
+                <div class="input-group modal-body d-grid gap-2">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
+                    data-bs-target="#newFeature1" aria-expanded="false" aria-controls="collapseExample" onclick="addCarouselItem('carousel-items')">+New Carousel Item</button>
                 </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="method" value="edit_features" class="btn btn-primary">Ok</button>
+                </div>  
             </div>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <div class="input-group modal-body">
-                <button type="button" class="btn btn-secondary btn-sm">Delete Item</button>
-            </div>
-
-            <hr>
-            <div class="input-group modal-body d-grid gap-2">
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                data-bs-target="#newFeature1" aria-expanded="false" aria-controls="collapseExample">+New Carousel Item</button>
-            </div>
-            <div class="modal-body collapse" id="newFeature1">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Item Title" placeholder="Carousel Item Title" required></input>
-                    <label for="Carousel Item Title">Carousel Item Title</label>
-                </div>
-            </div>
-            <div class="modal-body collapse" id="newFeature1">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Description" placeholder="Carousel Description" required></input>
-                    <label for="Carousel Description">Carousel Description</label>
-                </div>
-            </div>
-            <p class="modal-titles text-center collapse" id="newFeature1">Select a new Photo</p>
-            <div class="input-group modal-body collapse" id="newFeature1">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <div class="input-group modal-body collapse" id="newFeature1">
-                <button type="button" class="btn btn-secondary btn-sm">Save Item</button>
-            </div>
-            <hr>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Ok</button>
-            </div>  
         </div>
-    </div>
+    </form>
+    
 </div>
 
 <!-- Edit Kit Modal -->
 <div class="modal fade" id="editKitModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            <form action="/greendenpeak/includes/api/product-details.php" method="POST" enctype="multipart/form-data">
             <div class="modal-header">
                 <h5 class="modal-title text-center" id="newBrandLabel"> Edit Specification / Kit</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Main Title" placeholder="Main Title" required></input>
-                    <label for="Main Title">Main Title</label>
+            <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Main Title" placeholder="Main Title" name="product_kit_title" value="<?php if($product_kit) echo $product_kit[0]['product_kit_title'];?>" required/>
+                        <label for="Main Title">Kit Title</label>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" required></textarea>
-                    <label for="Subtitle (optional)">Subtitle (optional)</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_subtitle">
+                            <?php if($product_kit) echo $product_kit[0]['product_kit_subtitle'] ?>
+                        </textarea>
+                        <label for="Subtitle (optional)">Subtitle (optional)</label>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Standard Kit Title" placeholder="Standard Kit Title" required></input>
-                    <label for="Standard Kit Title">Standard Kit Title</label>
+                <hr>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Standard Kit Title" placeholder="Standard Kit Title" name="product_kit_standard_title" value="<?php if($product_kit) echo $product_kit[0]['product_kit_standard_title'] ?>" required/>
+                        <label for="Standard Kit Title">Standard Kit Title</label>
+                    </div>
                 </div>
-            </div>
-            <div class="input-group modal-body d-grid gap-2">
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                data-bs-target="#newKit1" aria-expanded="false" aria-controls="collapseExample">+New Standard Kit Item</button>
-            </div>
-            <div class="input-group modal-body collapse" id="newKit1">
-                <div class="form-floating">
-                    <input class="form-control" style="width: 390px" id="Standard Kit Item" placeholder="Standard Kit Item" required></input>
-                    <label for="Standard Kit Item">Standard Kit Item</label>
+
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_standard_desc">
+                            <?php if($product_kit) echo $product_kit[0]['product_kit_standard_desc'] ?>
+                        </textarea>
+                        <label for="Subtitle (optional)">Standard Kit Description</label>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-secondary">Delete</button>
-            </div>
-            <hr>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Optional Kit Title" placeholder="Optional Kit Title" required></input>
-                    <label for="Optional Kit Title">Optional Kit Title</label>
+                <hr>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Optional Kit Title" placeholder="Optional Kit Title" name="product_kit_optional_title" value="<?php if($product_kit) echo $product_kit[0]['product_kit_optional_title'] ?>" required/>
+                        <label for="Optional Kit Title">Optional Kit Title</label>
+                    </div>
                 </div>
-            </div>
-            <div class="input-group modal-body d-grid gap-2">
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                data-bs-target="#newKit2" aria-expanded="false" aria-controls="collapseExample">+New Optional Kit Item</button>
-            </div>
-            <div class="input-group modal-body collapse" id="newKit2">
-                <div class="form-floating">
-                    <input class="form-control" style="width: 390px" id="Optional Kit Item" placeholder="Optional Kit Item" required></input>
-                    <label for="Optional Kit Item">Optional Kit Item</label>
+
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_optional_desc">
+                            <?php if($product_kit) echo $product_kit[0]['product_kit_optional_desc'] ?>
+                        </textarea>
+                        <label for="Subtitle (optional)">Optional Kit Description</label>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-secondary">Delete</button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                <hr>
+
+                <div class="input-group modal-body">
+                    <input type="text" name="product_kit_img" value="<?php if(isset($product_kit[0]['product_kit_img'])) echo $product_kit[0]['product_kit_img'];?>" hidden/>
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_kit_img" onchange="previewImage(this, 'kit-img-preview')" required/>
+                    <img id="kit-img-preview" class="w-100 mx-auto d-block" src="<?php 
+                    if(isset($product_kit) && $product_kit[0]['product_kit_img'] !== null && $product_kit[0]['product_kit_img'] !== '') 
+                        echo $product_kit[0]['product_kit_img'];
+                    else 
+                        echo " "
+                    ?>" alt=" <?php 
+                        if(isset($product_kit[0]['product_kit_title']))
+                            echo $product_kit[0]['product_kit_title'];
+                        else 
+                            echo " ";
+                    ?>" <?php if(!$product_kit || $product_kit[0]['product_kit_img'] === null || $product_kit[0]['product_kit_img'] === '') echo 'hidden'; ?> />
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" name="method" value="edit_kit">Ok</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

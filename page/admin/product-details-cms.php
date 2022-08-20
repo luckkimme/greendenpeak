@@ -1,10 +1,14 @@
 <?php 
   require_once('../../includes/connection.php');
   require_once('../../includes/processor/admin-processor.php');
+  require_once('../../includes/view/admin-product.php');
 
   if(isset($_GET['product_id'])) {
-    $product_id = $_GET['product_id'];
+    $product_id = intval($_GET['product_id']);
     $product_details = get_product_by_id($conn, $product_id);
+    $product_features = get_product_feature_by_id($conn, $product_id);
+    $product_carousel = get_product_carousel_by_id($conn, $product_id);
+    $product_kit = get_product_kit_by_id($conn, $product_id);
   } else {
     header('Location: /greendenpeak/page/component/error.php');
   }
@@ -146,7 +150,6 @@ document.addEventListener("DOMContentLoaded", function(){
       </div>
           
       <div class="table-responsive-lg">
-        <?php include_once ("../component/modals/product-details-modals.php");?>
         <table class="table table-striped">
           <h3><?php echo $product_details['product_name']; ?></h3>
           <thead>
@@ -190,13 +193,13 @@ document.addEventListener("DOMContentLoaded", function(){
               <td class="tdproduct">Gallery</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
               data-bs-toggle="modal" data-bs-target="#">Edit</a></td>
-              
             </tr>
           </tbody>
         </table>
       </div>
     </main>
   </div>
+  <?php include_once ("../component/modals/product-details-modals.php");?>
 </div>
     <script src="/greendenpeak/asset/js/modal-edit.js"></script> 
     <script src="/greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>

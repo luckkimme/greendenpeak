@@ -1,5 +1,5 @@
 <?php
-    function create_brand_item($brand_id, $brand_name) {
+    function create_brand_item(int $brand_id, string $brand_name) {
         return <<< EOL
             <tr>
                 <td class="tdproduct">$brand_name</td>
@@ -15,7 +15,7 @@
         EOL;
     }
 
-    function create_product_item($product_id, $product_name, $brand_id) {
+    function create_product_item(int $product_id, string $product_name, int $brand_id) {
         return <<< EOL
             <tr>
                 <td class="tdproduct">$product_name</td>
@@ -31,29 +31,31 @@
         EOL;
     }
 
-    function create_carousel_item($carousel_title, $carousel_desc, $carousel_img, ) {
+    function create_carousel_item(string $carousel_title, string $carousel_desc, string $carousel_img, string $carousel_id) {
+        $element_id = uniqid();
         return <<< EOL
-            <p class="modal-titles text-center">Carousel Item</p>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Item Title" placeholder="Carousel Item Title" name="carousel_title" value="$carousel_title" required/>
-                    <label for="Carousel Item Title">Carousel Item Title</label>
+            <div id="$element_id">
+                <p class="modal-titles text-center">Carousel Item</p>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Carousel Item Title" placeholder="Carousel Item Title" value="$carousel_title" disabled/>
+                        <label for="Carousel Item Title">Carousel Item Title</label>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Carousel Description" placeholder="Carousel Description" value="$carousel_desc" required/>
-                    <label for="Carousel Description">Carousel Description</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Carousel Description" placeholder="Carousel Description" value="$carousel_desc" disabled/>
+                        <label for="Carousel Description">Carousel Description</label>
+                    </div>
                 </div>
+                <div class="input-group modal-body">
+                    <img src="$carousel_img" class="w-100"/>
+                </div>
+                <div class="input-group modal-body">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="deleteCarouselItem($carousel_id, '$element_id')">Delete Item</button>
+                </div>
+                <hr>
             </div>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <div class="input-group modal-body">
-                <button type="button" class="btn btn-secondary btn-sm">Delete Item</button>
-            </div>
-            <hr>
         EOL;
     }
 ?>

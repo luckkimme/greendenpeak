@@ -4,8 +4,7 @@
 
     $is_method_set = isset($_POST['method']);
     $method = null;
-    $response = null;
-
+    
     if($is_method_set) {
         $method = $_POST['method'];
     }
@@ -22,13 +21,14 @@
     }
 
 
-    if($is_method_set && $method === 'create') {
-        $response = set_brand($conn, $brand_name);
-    } else if ($is_method_set && $method === 'edit') {
-        $response = update_brand($conn, $id, $brand_name);
-    } else if ($is_method_set && $method === 'delete') {
-        $response = delete_brand($conn, $id);
+    if($method === 'create') {
+        set_brand($conn, $brand_name);
+    } else if ($method === 'edit') {
+        update_brand($conn, $id, $brand_name);
+    } else if ($method === 'delete') {
+        delete_brand($conn, $id);
     }
 
     header('Location: /greendenpeak/page/admin/brand-cms.php');
+    exit();
 ?>

@@ -1,7 +1,7 @@
 <?php
   require_once('../../includes/connection.php');
   require_once('../../includes/processor/admin-processor.php');
-  require_once('../../includes/view/admin_product.php');
+  require_once('../../includes/view/admin-product.php');
 
   if(isset($_GET['brand_id'])) {
     $brand_id = intval($_GET['brand_id']);

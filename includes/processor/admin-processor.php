@@ -2,7 +2,7 @@
     require_once __DIR__ . '/../function/query.php';
 
     function get_all_brands(mysqli $conn) {
-        $query = 'SELECT * FROM `brand` WHERE `is_shown` = 1';
+        $query = 'SELECT * FROM `brand` WHERE `isShown` = 1';
         return get_multiple_query($query, $conn);
     }
 
@@ -58,34 +58,49 @@
         return post_query($query, $conn);
     }
 
-    function set_product_feature($conn, $feature_title, $feature_img, $productID) {
-        $query = "INSERT INTO `product_feature`(`product_feature_main_title`, `product_feature_main_img`, `fk_product_id`) VALUES ('{$feature_title}','{$feature_img}','{$productID}')";
+    function get_product_feature_by_id(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product_feature` WHERE `fk_product_id` = $product_id AND isShown = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function set_product_feature(mysqli $conn, string $feature_title, string $feature_desc, string $feature_img, int $productID) {
+        $feature_title = $conn->real_escape_string($feature_title);
+        $feature_desc = $conn->real_escape_string($feature_desc);
+        $feature_img = $conn->real_escape_string($feature_img);
+        $query = "INSERT INTO `product_feature`(`product_feature_main_title`, `product_feature_description`, `product_feature_main_img`, `fk_product_id`) VALUES ('$feature_title', '$feature_desc', '$feature_img','$productID')";
         $feature = post_query($query, $conn);
         return $feature;
     }
 
-    function update_product_feature($conn, $feature_title, $feature_img, $isShown, $productID) {
-        $query = "UPDATE `product_feature` SET `product_feature_main_title`='{$feature_title}',`product_feature_main_img`='{$feature_img}',`isShown`='{$isShown}' WHERE `fk_product_id` = {$productID}";
+    function update_product_feature(mysqli $conn, string $feature_title, string $feature_desc, string $feature_img, int $productID) {
+        $feature_title = $conn->real_escape_string($feature_title);
+        $feature_desc = $conn->real_escape_string($feature_desc);
+        $feature_img = $conn->real_escape_string($feature_img);
+        $query = "UPDATE `product_feature` SET `product_feature_main_title`='{$feature_title}', `product_feature_description` = '$feature_desc',`product_feature_main_img`='{$feature_img}' WHERE `fk_product_id` = {$productID}";
         $feature = post_query($query, $conn);
         return $feature;
     }
 
-    function set_feature_description($conn, $subtitle, $description, $featureID) {
-        $query = "INSERT INTO `product_feature_subtitle`(`product_feature_subtitle`, `product_feature_subtitle_desc`, `fk_product_feature_id`) VALUES ('{$subtitle}','{$description}','{$featureID}')";
-        $feature_desc = post_query($query, $conn);
-        return $feature_desc;
+    function get_product_carousel_by_id(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product_feature_carousel` WHERE `fk_product_id` = $product_id AND isShown = 1";
+        return get_multiple_query($query, $conn);
     }
 
-    function update_feature_description($conn, $subtitle, $description, $isShown, $featureID) {
-        $query = "UPDATE `product_feature_subtitle` SET `product_feature_subtitle`='{$subtitle}',`product_feature_subtitle_desc`='{$description}',`isShown`='{$isShown}' WHERE `fk_product_feature_id` = {$featureID}";
-        $feature_desc = post_query($query, $conn);
-        return $feature_desc;
+    function update_carousel_title(mysqli $conn, int $product_id, string $carousel_title) {
+        $carousel_title = $conn->real_escape_string($carousel_title);
+        $query = "UPDATE `product` SET `product_feature_carousel_title` = '$carousel_title' WHERE product_id = $product_id";
+        return post_query($query, $conn);
     }
 
-    function set_feature_carousel($conn, $carousel_item_subtitle, $carousel_item_desc, $carousel_item_img, $productID) {
-        $query = "INSERT INTO `product_feature_carousel`(`product_feature_carousel_subtitle`, `product_feature_carousel_desc`, `product_feature_carousel_img`, `fk_product_id`) VALUES ('{$carousel_item_subtitle}','{$carousel_item_desc}','{$carousel_item_img}','{$productID}')";
-        $feature_carousel = post_query($query, $conn);
-        return $feature_carousel;
+    function set_feature_carousel(mysqli $conn, array $carousel_item_subtitle, array $carousel_item_desc, array $carousel_item_img, int $productID) {
+        $query = '';
+        for($index = 0; $index < count($carousel_item_subtitle); $index++) {
+            $current_subtitle = $conn->real_escape_string($carousel_item_subtitle[$index]);
+            $current_desc = $conn->real_escape_string($carousel_item_desc[$index]);
+            $current_img = $conn->real_escape_string($carousel_item_img[$index]);
+            $query .= "INSERT INTO `product_feature_carousel`(`product_feature_carousel_subtitle`, `product_feature_carousel_desc`, `product_feature_carousel_img`, `fk_product_id`) VALUES ('$current_subtitle','$current_desc','$current_img', $productID); ";
+        }
+        return post_query($query, $conn);
     }
 
     function update_feature_carousel($conn, $carousel_item_subtitle, $carousel_item_desc, $carousel_item_img, $isShown, $productID){
@@ -94,16 +109,42 @@
         return $feature_carousel;
     }
 
-    function set_product_kit($conn, $kit_title, $kit_subtitle, $kit_standard_title, $kit_optional_title, $kit_img, $productID) {
-        $query = "INSERT INTO `product_kit`(`product_kit_title`, `product_kit_subtitle`, `product_kit_standard_title`, `product_kit_optional_title`, `product_kit_img`, `fk_product_id`) VALUES ('{$kit_title}', {$kit_subtitle}', {$kit_standard_title}','{$kit_optional_title}','{$kit_img}','{$productID}')";
-        $product_kit = post_query($query, $conn);
-        return $product_kit;
+    function delete_feature_carousel(mysqli $conn, int $carousel_id) {
+        $query = "UPDATE `product_feature_carousel` SET `isShown`='0' WHERE `product_feature_carousel_item_id` = $carousel_id";
+        return post_query($query, $conn);
     }
 
-    function update_product_kit($conn, $kit_title, $kit_subtitle, $kit_standard_title, $kit_optional_title, $kit_img, $isShown, $productID) {
-        $query = "INSERT INTO `product_kit`(`product_kit_title`, `product_kit_subtitle`, `product_kit_standard_title`, `product_kit_optional_title`, `product_kit_img`, `fk_product_id`) VALUES ('{$kit_title}', {$kit_subtitle}', {$kit_standard_title}','{$kit_optional_title}','{$kit_img}','{$productID}')";
-        $product_kit = post_query($query, $conn);
-        return $product_kit;
+    function get_product_kit_by_id(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product_kit` WHERE `fk_product_id` = $product_id";
+        return get_multiple_query($query, $conn);
+    }
+
+    function set_product_kit(mysqli $conn, string $kit_title, string $kit_subtitle, string $kit_standard_title, string $kit_standard_desc, string $kit_optional_title, string $kit_optional_desc, string $kit_img, int $productID) {
+        $kit_subtitle = $conn->real_escape_string($kit_subtitle);
+        $kit_standard_title = $conn->real_escape_string($kit_standard_title);
+        $kit_standard_desc = $conn->real_escape_string($kit_standard_desc);
+        $kit_optional_title = $conn->real_escape_string($kit_optional_title);
+        $kit_optional_desc = $conn->real_escape_string($kit_optional_desc);
+        $kit_img = $conn->real_escape_string($kit_img);
+        $query = "INSERT INTO `product_kit` (`product_kit_title`, `product_kit_subtitle`, `product_kit_standard_title`, `product_kit_standard_desc`, `product_kit_optional_title`, `product_kit_optional_desc`, `product_kit_img`, `fk_product_id`) VALUES ('$kit_title', '$kit_subtitle', '$kit_standard_title', '$kit_standard_desc', '$kit_optional_title', '$kit_optional_desc', '$kit_img', $productID)";
+        return post_query($query, $conn);
+    }
+
+    function update_product_kit(mysqli $conn, string $kit_title, string $kit_subtitle, string $kit_standard_title, string $kit_standard_desc, string $kit_optional_title, string $kit_optional_desc, string $kit_img, int $productID) {
+        $kit_title = $conn->real_escape_string($kit_title);
+        $kit_subtitle = $conn->real_escape_string($kit_subtitle);
+        $kit_standard_title = $conn->real_escape_string($kit_standard_title);
+        $kit_standard_desc = $conn->real_escape_string($kit_standard_desc);
+        $kit_optional_title = $conn->real_escape_string($kit_optional_title);
+        $kit_optional_desc = $conn->real_escape_string($kit_optional_desc);
+        $kit_img = $conn->real_escape_string($kit_img);
+        $query = "UPDATE `product_kit` SET `product_kit_title` = '$kit_title', `product_kit_subtitle` = '$kit_subtitle', `product_kit_standard_title` = '$kit_standard_title', `product_kit_standard_desc` = '$kit_standard_desc', `product_kit_optional_title` = '$kit_optional_title', `product_kit_optional_desc` = '$kit_optional_desc', `product_kit_img` = '$kit_img' WHERE `fk_product_id` = $productID";
+        return post_query($query, $conn);
+        
+    }
+
+    function check_fk_exist(mysqli $conn, int $id, string $table, string $column) {
+        return get_single_query("SELECT * FROM `$table` WHERE `$column` = $id ", $conn);
     }
     
 ?>

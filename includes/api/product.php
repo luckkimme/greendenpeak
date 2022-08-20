@@ -20,11 +20,12 @@
     }
 
 
-    if($is_method_set && $method === 'create') {
+    if($method === 'create') {
         set_product($conn, $product_name, $brand_id);
-    } else if ($is_method_set && $method === 'delete') {
+    } else if ($method === 'delete') {
         delete_product($conn, $id);
     }
 
     header("Location: /greendenpeak/page/admin/product-cms.php?brand_id=$brand_id");
+    exit();
 ?>
