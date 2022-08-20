@@ -27,4 +27,10 @@
         return $company;
     }
 
+    function get_company_img($conn) {
+        $query = 'SELECT * FROM `company_img`';
+        $company = get_single_query($query, $conn);
+        return $company;
+    }
+
 ?>
