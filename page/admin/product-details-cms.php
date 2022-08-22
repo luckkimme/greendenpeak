@@ -9,6 +9,9 @@
     $product_features = get_product_feature_by_id($conn, $product_id);
     $product_carousel = get_product_carousel_by_id($conn, $product_id);
     $product_kit = get_product_kit_by_id($conn, $product_id);
+    $product_accessories_details = get_product_accessories_details_by_id($conn, $product_id);
+    if($product_accessories_details) $product_accessories_items = get_product_accessories_items_by_id($conn, $product_accessories_details['product_accessory_id']);
+    $product_user_manual = get_product_user_manual_by_id($conn, $product_id);
   } else {
     header('Location: /greendenpeak/page/component/error.php');
   }
@@ -185,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function(){
             <tr>
               <td class="tdproduct">User Manual</td>
               <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
-              data-bs-toggle="modal" data-bs-target="#">Edit</a></td>
+              data-bs-toggle="modal" data-bs-target="#editUserManual">Edit</a></td>
             </tr>
             <tr>
               <td class="tdproduct">Gallery</td>

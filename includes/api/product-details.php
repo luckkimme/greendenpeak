@@ -61,6 +61,27 @@
         }
     }
 
+    if($method === 'delete_accessory') {
+        $accessory_item_id = $_POST['accessory_id'];
+    }
+
+    if($method === 'edit_accessory') {
+        $id = intval($_POST['product_id']);
+        $accessory_id = $_POST['accessory_id'] ? intval($_POST['accessory_id']) : null;
+        $accessory_title = $_POST['product_accessory_title'];
+        $accessory_desc = $_POST['product_accessory_subtitle'];
+
+        if(isset($_POST['accessory_title'])) {
+            $accessory_item_titles = $_POST['accessory_title'];
+            $accessory_item_desc = $_POST['accessory_desc'];
+            for($index = 0; $index < count($accessory_item_desc); $index++) {
+                $accessory_img[] = upload_file($_FILES['accessory_img']['name'][$index], $_FILES['accessory_img']['tmp_name'][$index], 'greendenpeak/asset/img/products');
+            }
+            $is_accessory_item_set = true;
+        }
+        
+    }
+
     if($method === 'edit_product_information') {
         update_product_information($conn, $id, $product_name, $product_desc, $product_img, $product_btn);
     } 
@@ -81,11 +102,27 @@
         if($is_carousel_set) set_feature_carousel($conn, $carousel_subtitles, $carousel_desc, $carousel_img, $id);
     }
 
-    else if($method ==='edit_kit') {
+    else if($method === 'edit_kit') {
         if(check_fk_exist($conn, $id, 'product_kit', 'fk_product_id')) {
             update_product_kit($conn, $kit_title, $kit_subtitle, $kit_standard_title, $kit_standard_desc, $kit_optional_title, $kit_optional_desc, $kit_img, $id);
         } else {
             set_product_kit($conn, $kit_title, $kit_subtitle, $kit_standard_title, $kit_standard_desc, $kit_optional_title, $kit_optional_desc, $kit_img, $id);
+        }
+    }
+
+    else if($method === 'delete_accessory') {
+        delete_accessory_item_by_id($conn, $accessory_item_id);
+    }
+
+    else if($method === 'edit_accessory') {
+        if(check_fk_exist($conn, $id, 'product_accessory', 'fk_product_id')) {
+            update_product_accessory($conn, $accessory_title, $accessory_desc, $accessory_id);
+        } else {
+            $accessory_id = set_product_accessory($conn, $accessory_title, $accessory_desc, $id);
+        }
+
+        if(isset($is_accessory_item_set)) {
+            set_accessory_items($conn, $accessory_item_titles, $accessory_item_desc, $accessory_img, $accessory_id);
         }
     }
 

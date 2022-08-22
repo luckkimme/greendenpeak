@@ -104,7 +104,7 @@
                 </div>
                 <div class="input-group modal-body d-grid gap-2">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                    data-bs-target="#newFeature1" aria-expanded="false" aria-controls="collapseExample" onclick="addCarouselItem('carousel-items')">+New Carousel Item</button>
+                    data-bs-target="#newFeature1" aria-expanded="false" aria-controls="collapseExample" onclick="addCarouselItem('carousel-items')">+ New Carousel Item</button>
                 </div>
                 
                 <div class="modal-footer">
@@ -114,7 +114,6 @@
             </div>
         </div>
     </form>
-    
 </div>
 
 <!-- Edit Kit Modal -->
@@ -160,7 +159,10 @@
                 <hr>
                 <div class="modal-body">
                     <div class="form-floating">
-                        <input class="form-control" id="Optional Kit Title" placeholder="Optional Kit Title" name="product_kit_optional_title" value="<?php if($product_kit) echo $product_kit[0]['product_kit_optional_title'] ?>" required/>
+                        <input class="form-control" id="Optional Kit Title" placeholder="Optional Kit Title" name="product_kit_optional_title" value="
+                        <?php 
+                            if($product_kit) echo $product_kit[0]['product_kit_optional_title'] 
+                        ?>" required/>
                         <label for="Optional Kit Title">Optional Kit Title</label>
                     </div>
                 </div>
@@ -177,7 +179,7 @@
 
                 <div class="input-group modal-body">
                     <input type="text" name="product_kit_img" value="<?php if(isset($product_kit[0]['product_kit_img'])) echo $product_kit[0]['product_kit_img'];?>" hidden/>
-                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_kit_img" onchange="previewImage(this, 'kit-img-preview')" required/>
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_kit_img" onchange="previewImage(this, 'kit-img-preview')" />
                     <img id="kit-img-preview" class="w-100 mx-auto d-block" src="<?php 
                     if(isset($product_kit) && $product_kit[0]['product_kit_img'] !== null && $product_kit[0]['product_kit_img'] !== '') 
                         echo $product_kit[0]['product_kit_img'];
@@ -201,73 +203,52 @@
 </div>
 
 <!-- Edit Accessories Modal -->
-<div class="modal fade" id="editAccessoriesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center" id="newBrandLabel"> Edit Accessories</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Main Title" placeholder="Main Title" required></input>
-                    <label for="Main Title">Main Title</label>
+<div class="modal fade modal-fullscreen-md-down" id="editAccessoriesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="/greendenpeak/includes/api/product-details.php" method="POST" enctype="multipart/form-data">
+        <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
+        <input type="text" name="accessory_id" value="<?php if($product_accessories_details) echo $product_accessories_details['product_accessory_id']; ?>" hidden />
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="newAccessoryLabel"> Edit Accessories</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <textarea class="form-control" id="Subtitle (optional)" placeholder="Subtitle (optional)" required></textarea>
-                    <label for="Subtitle (optional)">Subtitle (optional)</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Accessory Title" placeholder="Accessory Title" name="product_accessory_title" value="<?php if($product_accessories_details) echo $product_accessories_details['product_accessory_title']?>" required></input>
+                        <label for="Accessory Title">Accessory Title</label>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Accessory Item Title" placeholder="Accessory Item Title" required></input>
-                    <label for="Accessory Item Title">Accessory Item Title</label>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="Accessory Description" style="height: 100px" placeholder="Accessory Description" name="product_accessory_subtitle" required><?php if($product_accessories_details) echo $product_accessories_details['product_accessory_subtitle']?></textarea>
+                        <label for="Accessory Description">Accessory Description</label>
+                    </div>
                 </div>
-            </div>
-            <div class="input-group modal-body d-grid gap-2">
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                data-bs-target="#newAccessories1" aria-expanded="false" aria-controls="collapseExample">+New Paragraph</button>
-            </div>
-            <div class="input-group modal-body collapse" id="newAccessories1">
-                <div class="form-floating">
-                    <input class="form-control" style="width: 390px" id="Accessory Description (Paragraph)" placeholder="Accessory Description (Paragraph)" required></input>
-                    <label for="Accessory Description (Paragraph)">Accessory Description (Paragraph)</label>
+                <hr>
+                <div id="accessories-items">
+                    <?php
+                        if(isset($product_accessories_items) && count($product_accessories_items) > 0) {
+                            foreach($product_accessories_items as $accessory) {
+                                echo create_accessory_item($accessory['product_accessory_item_title'], $accessory['product_acc_desc'], $accessory['product_accessory_item_img'], $accessory['product_accessory_item_id']);
+                            }
+                        }
+                    ?>
                 </div>
-                <button type="button" class="btn btn-secondary">Delete</button>
-            </div>
-            <hr>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Accessory Item Title" placeholder="Accessory Item Title" required></input>
-                    <label for="Accessory Item Title">Accessory Item Title</label>
+                <div class="input-group modal-body d-grid gap-2">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
+                    data-bs-target="#newAccessory" aria-expanded="false" aria-controls="collapseExample" onclick="addAccessoryItem('accessories-items')">+ New Accessory Item</button>
                 </div>
-            </div>
-            <div class="input-group modal-body d-grid gap-2">
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                data-bs-target="#newAccessories2" aria-expanded="false" aria-controls="collapseExample">+New Description</button>
-            </div>
-            <div class="input-group modal-body collapse" id="newAccessories2">
-                <div class="form-floating">
-                    <input class="form-control" style="width: 390px" id="Accessory Description (List)" placeholder="Accessory Description (List)" required></input>
-                    <label for="Accessory Description (List)">Accessory Description (List)</label>
-                </div>
-                <button type="button" class="btn btn-secondary">Delete</button>
-            </div>
-            <hr>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="method" value="edit_accessory" class="btn btn-primary">Ok</button>
+                </div>  
             </div>
         </div>
-    </div>
+    </form>
 </div>
+
 
 <!-- Edit Other Info Modal -->
 <div class="modal fade" id="editOtherModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -325,6 +306,46 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit User Manual / Downloadables / Product Links -->
+<div class="modal fade" id="editUserManual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="header-user-manual" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="header-user-manual">Edit Links</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group form-floating">
+                    <select class="form-select" id="sel-user-manual" aria-label="Link Select">
+                        <option value="1" selected>Product Manual Name 1</option>
+                        <option value="2">Product Manual Name 2</option>
+                        <option value="3">Product Manual Name 3</option>
+                    </select>
+                    <label for="sel-user-manual">Select a link</label>
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#div-user-manual-collapse" aria-expanded="false" aria-controls="div-user-manual-collapse">Edit</button>
+                </div>
+                <div class="collapse my-2" id="div-user-manual-collapse">
+                    <div class="card card-body">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
+                            <label for="text-manual-name">Product Manual Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
+                            <label for="text-manual-name">Link Source</label>
+                        </div>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>

@@ -58,4 +58,32 @@
             </div>
         EOL;
     }
+
+    function create_accessory_item(string $accessory_title, string $accessory_desc, string $accessory_img, string $accessory_id) {
+        $element_id = uniqid();
+        return <<< EOL
+            <div id="$element_id">
+                <p class="modal-titles text-center">Accessory Item</p>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Accessory Item Title" placeholder="Accessory Item Title" value="$accessory_title" disabled/>
+                        <label for="Accessory Item Title">Accessory Item Title</label>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input class="form-control" id="Accessory Description" placeholder="Accessory Description" value="$accessory_desc" disabled/>
+                        <label for="Accessory Description">Accessory Description</label>
+                    </div>
+                </div>
+                <div class="input-group modal-body">
+                    <img src="$accessory_img" class="w-100"/>
+                </div>
+                <div class="input-group modal-body">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="deleteAccessoryItem($accessory_id, '$element_id')">Delete Item</button>
+                </div>
+                <hr>
+            </div>
+        EOL;
+    }
 ?>

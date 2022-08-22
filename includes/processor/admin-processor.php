@@ -140,11 +140,57 @@
         $kit_img = $conn->real_escape_string($kit_img);
         $query = "UPDATE `product_kit` SET `product_kit_title` = '$kit_title', `product_kit_subtitle` = '$kit_subtitle', `product_kit_standard_title` = '$kit_standard_title', `product_kit_standard_desc` = '$kit_standard_desc', `product_kit_optional_title` = '$kit_optional_title', `product_kit_optional_desc` = '$kit_optional_desc', `product_kit_img` = '$kit_img' WHERE `fk_product_id` = $productID";
         return post_query($query, $conn);
-        
+    }
+
+    function get_product_accessories_details_by_id(mysqli $conn, int $product_id){
+        $query = "SELECT * FROM `product_accessory` WHERE `fk_product_id` = $product_id";
+        return get_single_query($query, $conn);
+    }
+
+    function get_product_accessories_items_by_id(mysqli $conn, int $product_id){
+        $query = "SELECT * FROM `product_accessory_item` WHERE `fk_product_accessory_id` = $product_id AND `isShown` = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function set_product_accessory(mysqli $conn, string $accessory_title, string $accessory_subtitle,  int $product_id) {
+        $accessory_title = $conn->real_escape_string($accessory_title);
+        $accessory_subtitle = $conn->real_escape_string($accessory_subtitle);
+        $query = "INSERT INTO `product_accessory`(`product_accessory_title`, `product_accessory_subtitle`, `fk_product_id`) VALUES ('$accessory_title', '$accessory_subtitle', $product_id)";
+        return post_query($query, $conn);
+    } 
+
+    function update_product_accessory(mysqli $conn, string $accessory_title, string $accessory_subtitle, int $accessory_id) {
+        $accessory_title = $conn->real_escape_string($accessory_title);
+        $accessory_subtitle = $conn->real_escape_string($accessory_subtitle);
+        $query = "UPDATE `product_accessory` SET `product_accessory_title` = '$accessory_title', `product_accessory_subtitle` = '$accessory_subtitle' WHERE product_accessory_id = $accessory_id";
+        return post_query($query, $conn);
+    } 
+
+    function set_accessory_items(mysqli $conn, array $accessory_titles, array $accessory_subtitle, array $accessory_img, int $accessory_id) {
+        $query = '';
+        for($index = 0; $index < count($accessory_titles); $index++) {
+            $current_title = $conn->real_escape_string($accessory_titles[$index]);
+            $current_subtitle = $conn->real_escape_string($accessory_subtitle[$index]);
+            $current_img = $conn->real_escape_string($accessory_img[$index]);
+            $query .= "INSERT INTO `product_accessory_item` (`product_accessory_item_title`, `product_acc_desc`, `product_accessory_item_img`, `fk_product_accessory_id`) VALUES ('$current_title', '$current_subtitle', '$current_img', $accessory_id);";
+        }   
+        return post_query($query, $conn);
+    }
+
+    function delete_accessory_item_by_id(mysqli $conn, int $accessory_id){
+        $query = "UPDATE `product_accessory_item` SET `isShown` = 0 WHERE `product_accessory_item_id` = $accessory_id";
+        return post_query($query, $conn);
+    }
+
+    function get_product_user_manual_by_id(mysqli $conn, int $accessory_id) {
+        $query = "SELECT * FROM `product_user_manual` WHERE `fk_product_id` = $accessory_id";
+        return get_multiple_query($query, $conn);
     }
 
     function check_fk_exist(mysqli $conn, int $id, string $table, string $column) {
         return get_single_query("SELECT * FROM `$table` WHERE `$column` = $id ", $conn);
     }
+
+
     
 ?>
