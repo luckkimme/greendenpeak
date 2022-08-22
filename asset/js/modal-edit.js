@@ -14,6 +14,10 @@ function previewImage(fileInput, elementId) {
 }
 
 async function deleteCarouselItem(carouselId, elementId) {
+
+    let isConfirmed = confirm('Are you sure you want to delete?');
+    if(!isConfirmed) return;
+
     if(carouselId) {
         const formData = new FormData();
         formData.append('method', 'delete_carousel');
@@ -24,13 +28,17 @@ async function deleteCarouselItem(carouselId, elementId) {
                 body: formData
             }
         );
-        console.log(response.text());
+        
     }
     
     document.getElementById(elementId).remove();
 }
 
 async function deleteAccessoryItem(accessoryId, elementId) {
+    
+    let isConfirmed = confirm('Are you sure you want to delete?');
+    if(!isConfirmed) return;
+
     if(accessoryId) {
         const formData = new FormData();
         formData.append('method', 'delete_accessory');
@@ -41,7 +49,7 @@ async function deleteAccessoryItem(accessoryId, elementId) {
                 body: formData
             }
         );
-        console.log(response.text());
+        
     }
     
     document.getElementById(elementId).remove();
