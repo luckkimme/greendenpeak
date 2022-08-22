@@ -321,25 +321,37 @@
             </div>
             <div class="modal-body">
                 <div class="input-group form-floating">
+                    <!-- The product manuals / links are displayed in the options.
+                         If the edit button is clicked, the selected option will be displayed in the collapsed div and can be edited. -->
                     <select class="form-select" id="sel-user-manual" aria-label="Link Select">
                         <option value="1" selected>Product Manual Name 1</option>
                         <option value="2">Product Manual Name 2</option>
                         <option value="3">Product Manual Name 3</option>
                     </select>
                     <label for="sel-user-manual">Select a link</label>
-                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#div-user-manual-collapse" aria-expanded="false" aria-controls="div-user-manual-collapse">Edit</button>
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#div-user-manual-collapse-edit" aria-expanded="true" aria-controls="div-user-manual-collapse-edit">Edit</button>
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#div-user-manual-collapse-add" aria-expanded="true" aria-controls="div-user-manual-collapse-add">Add</button>
                 </div>
-                <div class="collapse my-2" id="div-user-manual-collapse">
+                <div class="collapse my-2" id="div-user-manual-collapse-edit">
                     <div class="card card-body">
+                        <h5>Edit Details</h5>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
                             <label for="text-manual-name">Product Manual Name</label>
                         </div>
+                        <input type="file" class="form-control mb-3" id="file-manual">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+                <div class="collapse my-2" id="div-user-manual-collapse-add">
+                    <div class="card card-body">
+                        <h5>Add New Link</h5>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
-                            <label for="text-manual-name">Link Source</label>
+                            <label for="text-manual-name">Product Manual Name</label>
                         </div>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <input type="file" class="form-control mb-3" id="file-manual">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
                     </div>
                 </div>
             </div>
