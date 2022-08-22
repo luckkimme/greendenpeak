@@ -334,7 +334,7 @@
                 </div>
                 <div class="collapse my-2" id="div-user-manual-collapse-edit">
                     <div class="card card-body">
-                        <h5>Edit Details</h5>
+                        <h5>Edit "Product Manual Name"</h5>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
                             <label for="text-manual-name">Product Manual Name</label>
