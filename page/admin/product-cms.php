@@ -12,7 +12,7 @@
   
 ?>
 
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -148,7 +148,8 @@ document.addEventListener("DOMContentLoaded", function(){
         <table class="table table-striped"> 
           <thead>
             <tr>
-              <th><a type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#addProductModal">+New Product</a></th>     
+              <th>Products of this brand</th>
+              <th><a type="button" class="btn btn-outline-secondary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#addProductModal">+New Product</a></th>     
               <?php include_once('../component/modals/product-modals.php');?>         
             </tr>
           </thead>
