@@ -31,7 +31,7 @@
                 <p class="modal-titles text-center">Select a new Photo</p>
                 <div class="input-group modal-body">
                     <input type="text" name="product_img" value="<?php echo $product_details['product_img'];?>" hidden/>
-                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_img" onchange="previewImage(this, 'product-information-img-preview')"/>
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_img" onchange="previewImage(this, 'product-information-img-preview')" accept="image/*"/>
                     <img id="product-information-img-preview" class="w-100 mx-auto d-block" src="<?php echo $product_details['product_img'];?>" alt="<?php echo $product_details['product_name'];?>" <?php if($product_details['product_img'] === null || $product_details['product_img'] === '') echo 'hidden';?> >
                 </div>
                 
@@ -75,7 +75,7 @@
                                 $is_image_exist = true;
                             } 
                         ?>" hidden />
-                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_feature_main_img" onchange="previewImage(this, 'features-preview-img')">
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_feature_main_img" onchange="previewImage(this, 'features-preview-img')" accept="image/*">
                     <img id="features-preview-img" class="w-100" src="<?php if($is_image_exist) echo $product_features[0]['product_feature_main_img']?>" <?php if(!$is_image_exist) echo 'hidden'; ?>>
                 </div>
                 <hr>
@@ -179,7 +179,7 @@
 
                 <div class="input-group modal-body">
                     <input type="text" name="product_kit_img" value="<?php if(isset($product_kit[0]['product_kit_img'])) echo $product_kit[0]['product_kit_img'];?>" hidden/>
-                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_kit_img" onchange="previewImage(this, 'kit-img-preview')" />
+                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_kit_img" onchange="previewImage(this, 'kit-img-preview')" accept="image/*" />
                     <img id="kit-img-preview" class="w-100 mx-auto d-block" src="<?php 
                     if(isset($product_kit) && $product_kit[0]['product_kit_img'] !== null && $product_kit[0]['product_kit_img'] !== '') 
                         echo $product_kit[0]['product_kit_img'];
@@ -343,12 +343,12 @@
                             <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
                             <input type="text" id="manual-id-field" name="manual_id" value="" hidden />
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="text-manual-name" name="manual_name" placeholder="Product Manual Name">
+                                <input type="text" class="form-control" id="text-manual-name" name="manual_name" accept=".pdf" placeholder="Product Manual Name">
                                 <label for="text-manual-name">Product Manual Name</label>
                             </div>
                             <p id="file-field"></p>
                             <input type="text" id="file-manual" name="manual_file" value="" hidden>
-                            <input type="file" class="form-control mb-3" name="manual_file">
+                            <input type="file" class="form-control mb-3" name="manual_file" accept=".pdf">
                             <button type="submit" class="btn btn-success" name="method" value="edit_manual">Edit</button>
                             <button type="submit" class="btn btn-danger" name="method" value="delete_manual" onclick="return confirm('Are you sure you want to delete')">Delete</button>
                         </form>
@@ -363,7 +363,7 @@
                                 <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name" name="manual_name">
                                 <label for="text-manual-name">Product Manual Name</label>
                             </div>
-                            <input type="file" class="form-control mb-3" id="file-manual" name="manual_file" required>
+                            <input type="file" class="form-control mb-3" id="file-manual" name="manual_file" accept=".pdf" required>
                             <button type="submit" class="btn btn-success mx-2" name="method" value="add_manual">Add</button>
                             <button type="button" class="btn btn-secondary" onclick="toggleBootstrapWindow('div-user-manual-collapse-add')">Cancel</button>
                         </form>
