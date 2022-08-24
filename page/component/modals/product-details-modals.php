@@ -323,41 +323,52 @@
                 <div class="input-group form-floating">
                     <!-- The product manuals / links are displayed in the options.
                          If the edit button is clicked, the selected option will be displayed in the collapsed div and can be edited. -->
-                    <select class="form-select" id="sel-user-manual" aria-label="Link Select">
-                        <option value="1" selected>Product Manual Name 1</option>
-                        <option value="2">Product Manual Name 2</option>
-                        <option value="3">Product Manual Name 3</option>
+                    <select class="form-select" id="sel-user-manual" aria-label="Link Select" onchange="toggleUserManualDetails(this,'manual-id-field', 'text-manual-name', 'file-field', 'file-manual', 'div-user-manual-collapse-edit')">
+                        <option value="0">None</option>
+                        <?php
+                             if($product_user_manual) {
+                                foreach($product_user_manual as $user_manual) {
+                                    echo create_user_manual_item($user_manual['product_manual_id'], $user_manual['product_manual_name']);
+                                }
+                             }
+                        ?>
                     </select>
                     <label for="sel-user-manual">Select a link</label>
-                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#div-user-manual-collapse-edit" aria-expanded="true" aria-controls="div-user-manual-collapse-edit">Edit</button>
                     <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#div-user-manual-collapse-add" aria-expanded="true" aria-controls="div-user-manual-collapse-add">Add</button>
                 </div>
                 <div class="collapse my-2" id="div-user-manual-collapse-edit">
                     <div class="card card-body">
-                        <h5>Edit "Product Manual Name"</h5>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
-                            <label for="text-manual-name">Product Manual Name</label>
-                        </div>
-                        <input type="file" class="form-control mb-3" id="file-manual">
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <form action="/greendenpeak/includes/api/product-details.php" method="POST" enctype="multipart/form-data">
+                            <h5>Edit Product Manual</h5>
+                            <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
+                            <input type="text" id="manual-id-field" name="manual_id" value="" hidden />
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="text-manual-name" name="manual_name" placeholder="Product Manual Name">
+                                <label for="text-manual-name">Product Manual Name</label>
+                            </div>
+                            <p id="file-field"></p>
+                            <input type="text" id="file-manual" name="manual_file" value="" hidden>
+                            <input type="file" class="form-control mb-3" name="manual_file">
+                            <button type="submit" class="btn btn-success" name="method" value="edit_manual">Edit</button>
+                            <button type="submit" class="btn btn-danger" name="method" value="delete_manual" onclick="return confirm('Are you sure you want to delete')">Delete</button>
+                        </form>
                     </div>
                 </div>
                 <div class="collapse my-2" id="div-user-manual-collapse-add">
                     <div class="card card-body">
-                        <h5>Add New Link</h5>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name">
-                            <label for="text-manual-name">Product Manual Name</label>
-                        </div>
-                        <input type="file" class="form-control mb-3" id="file-manual">
-                        <button type="button" class="btn btn-secondary">Cancel</button>
+                        <form action="/greendenpeak/includes/api/product-details.php" method="POST" enctype="multipart/form-data">
+                            <h5>Add New Link</h5>
+                            <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="text-manual-name" placeholder="Product Manual Name" name="manual_name">
+                                <label for="text-manual-name">Product Manual Name</label>
+                            </div>
+                            <input type="file" class="form-control mb-3" id="file-manual" name="manual_file" required>
+                            <button type="submit" class="btn btn-success mx-2" name="method" value="add_manual">Add</button>
+                            <button type="button" class="btn btn-secondary" onclick="toggleBootstrapWindow('div-user-manual-collapse-add')">Cancel</button>
+                        </form>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>

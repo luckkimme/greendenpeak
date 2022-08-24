@@ -121,3 +121,32 @@ function addAccessoryItem(accessoryDivId) {
     accessoryDiv.appendChild(accessoryItem);
 }
 
+async function toggleUserManualDetails(manualSelect, manualFieldId, nameFieldId, filePId, fileFieldId, editId) {
+    const manualField = document.getElementById(manualFieldId);
+    const nameField = document.getElementById(nameFieldId);
+    const fileP = document.getElementById(filePId);
+    const fileField = document.getElementById(fileFieldId);
+    const editField = document.getElementById(editId);
+    const manualId = manualSelect.value;
+
+    if(manualId == 0) {
+        editField.classList.remove('show');
+        return;
+    } 
+    
+    const response = await fetch(`/greendenpeak/includes/api/product-details.php?method=get_manual&manual_id=${manualId}`);
+    const data = await response.json();
+
+    if(data) {
+        manualField.value = manualId;
+        nameField.value = data['product_manual_name'];
+        fileP.innerText = data['product_manual_src'];
+        fileField.value = data['product_manual_src'];
+        editField.classList.add('show');
+    }
+}
+
+function toggleBootstrapWindow(tagId){
+    const chosenElement = document.getElementById(tagId);
+    chosenElement.classList.toggle('show');
+}

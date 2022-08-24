@@ -86,4 +86,10 @@
             </div>
         EOL;
     }
+
+    function create_user_manual_item(int $manual_id, string $manual_name) {
+        return <<< EOL
+            <option value="$manual_id">$manual_name</option> 
+        EOL;
+    }
 ?>

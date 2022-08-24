@@ -182,9 +182,33 @@
         return post_query($query, $conn);
     }
 
+    function set_product_manual(mysqli $conn, string $manual_name, string $manual_file, int $product_id) {
+        $manual_name = $conn->real_escape_string($manual_name);
+        $manual_file = $conn->real_escape_string($manual_file);
+        $query = "INSERT INTO `product_user_manual`(`product_manual_name`, `product_manual_src`, `fk_product_id`) VALUES('$manual_name', '$manual_file', $product_id)";
+        return post_query($query, $conn);
+    }
+
+    function edit_product_manual(mysqli $conn, string $manual_name, string $manual_file, int $manual_id) {
+        $manual_name = $conn->real_escape_string($manual_name);
+        $manual_file = $conn->real_escape_string($manual_file);
+        $query = "UPDATE `product_user_manual` SET `product_manual_name` = '$manual_name', `product_manual_src` = '$manual_file' WHERE `product_manual_id` = $manual_id";
+        return post_query($query, $conn);
+    }
+
     function get_product_user_manual_by_id(mysqli $conn, int $accessory_id) {
         $query = "SELECT * FROM `product_user_manual` WHERE `fk_product_id` = $accessory_id";
         return get_multiple_query($query, $conn);
+    }
+
+    function get_manual_item_by_id(mysqli $conn, int $manual_id) {
+        $query = "SELECT * FROM `product_user_manual` WHERE `product_manual_id` = $manual_id";
+        return get_single_query($query, $conn);
+    }
+
+    function delete_product_manual(mysqli $conn, int $manual_id) {
+        $query = "DELETE FROM `product_user_manual` WHERE `product_manual_id` = $manual_id";
+        return post_query($query, $conn);
     }
 
     function check_fk_exist(mysqli $conn, int $id, string $table, string $column) {
