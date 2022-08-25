@@ -182,8 +182,11 @@
                                                             </tr>
                                                         </tbody>
                                                     </table>
+                                                    <div class="d-flex justify-content-between">
+                                                        <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteCateg">Delete this Category</button>            
+                                                        <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addOtherInfo" aria-expanded="false" aria-controls="addOtherInfo">Add New Title</a>     
+                                                    </div>
                                                 </div>
-                                                <button class="btn btn-danger mx-3 mb-3">Delete this Category</button>
                                             </div>
                                         </div>
                                     </div>
@@ -219,6 +222,12 @@
         const enter = 13;
 
         let descList = document.getElementById("textDescList");
+        let addDescList = document.getElementById("addTextDescList");
+
+        if(addDescList) {
+            addDescList.addEventListener("keyup", insertBullet);
+        }
+
         if(descList) {
             descList.addEventListener("keyup", insertBullet);
         }
