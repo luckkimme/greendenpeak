@@ -189,8 +189,8 @@
                 </tr>
                 <tr>
                   <td class="tdproduct">Gallery</td>
-                  <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
-                  data-bs-toggle="modal" data-bs-target="#">Edit</a></td>
+                  <td class="alignment"><a type="button" class="btn btn-secondary button-padding"
+                  href="/greendenpeak/page/admin/product-gallery-cms.php">Edit</a></td>
                 </tr>
               </tbody>
             </table>
