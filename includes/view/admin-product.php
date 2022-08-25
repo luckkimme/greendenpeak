@@ -106,15 +106,11 @@
     function create_other_info_row(array $detail) {
         $item_id = $detail['product_info_item_id'];
         $item_title = $detail['product_info_item_title'];
-        $item_subtitle = $detail['product_info_item_subtitle'];
-        $item_desc = $detail['product_other_info_desc'];
-        $item_desc_list = $detail['product_other_info_desc_list'];
-        $item_img = $detail['product_other_info_desc'];
         return <<< EOL
             <tr>
                 <td>$item_title</td>
                 <td><a type="button" class="btn btn-secondary button-padding float-end" 
-                data-bs-toggle="modal" data-bs-target="#editOtherInfo" aria-expanded="false" aria-controls="editOtherInfo" onclick="changeOtherInfoDetails($item_id, '$item_title', '$item_subtitle', '$item_desc', '$item_desc_list', '$item_img')">Edit</a></td>
+                data-bs-toggle="modal" data-bs-target="#editOtherInfo" aria-expanded="false" aria-controls="editOtherInfo" onclick="setOtherInfoItemEdit($item_id)">Edit</a></td>
             </tr>
         EOL;
     }
@@ -154,7 +150,7 @@
                         </table>
                     </div>
                     <button class="btn btn-danger mx-3 mb-3" onclick="deleteCategory($other_info_id,'$tag_id')">Delete this Category</button>
-                    <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addOtherInfo" aria-expanded="false" aria-controls="addOtherInfo">Add New Title</a>     
+                    <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addOtherInfo" aria-expanded="false" aria-controls="addOtherInfo" onclick="setTextFieldById('category-id-field', $other_info_id)">Add New Title</a>     
                 </div>
             </div>
             EOL;
