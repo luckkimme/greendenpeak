@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2022 at 08:13 AM
+-- Generation Time: Aug 25, 2022 at 02:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `brand` (
   `brand_id` int(11) NOT NULL,
   `brand_name` varchar(50) NOT NULL,
+  `description` varchar(1000) DEFAULT NULL,
   `isShown` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,10 +38,10 @@ CREATE TABLE `brand` (
 -- Dumping data for table `brand`
 --
 
-INSERT INTO `brand` (`brand_id`, `brand_name`, `isShown`) VALUES
-(1, 'rainbow', 1),
-(2, 'thermostar', 1),
-(3, 'no brand', 1);
+INSERT INTO `brand` (`brand_id`, `brand_name`, `description`, `isShown`) VALUES
+(1, 'rainbow', 'Rainbow Cleaning System with standard attachments and other miscellaneous items', 1),
+(2, 'thermostar', 'Thermostar Dry Steam System. This comes with standard attachments and other related items', 1),
+(3, 'doulos cleaning services', 'Full use of services from Doulos Cleaning Services, which is also owned by founder, Dennis Salamanca since 2014', 1);
 
 -- --------------------------------------------------------
 
@@ -70,6 +71,29 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`company_id`, `email`, `phone_no`, `tel_no`, `address`, `company_name`, `company_logo`, `company_vision`, `company_mission`, `company_slogan`, `company_history`, `company_core_values`, `company_founder`) VALUES
 (1, 'info@greendenpeak.com', '09175451254', '(02)7502-1405', 'Rm 1. Naguilian Rd, Rainbow Bldg.\nBrgy. MRR Queen of Peace,\nBaguio City, Benguet', 'Greendenpeak, OPC', '/greendenpeak/asset/img/logo/logo-brand.png', 'We envisioned our company to become\r\nthe leading cleaning service provider and\r\nsupplier of high-quality cleaning\r\nequipment.', 'We aim to provide our clients with\r\nthe highest level of quality service in\r\nthe cleaning industry and to provide\r\ntop-of-the-line products and\r\nunequaled customer service in the\r\ncleaning equipment industry.', 'Built to last. Clean and convenient\r\nat the same time', 'Founded by Dennis Tupas Salamanca in 2019, Greendenpeak,\r\nOPC is committed to delivering top-of-the-line cleaning\r\nequipment and quality cleaning services. While focusing on\r\nonly two products, Rainbow Cleaning System and Thermostar\r\nDry Steam System, the founder added cleaning services using\r\nthese two cleaning equipment to attain the quality cleaning\r\nservice the customers deserve.\r\n\r\nDennis Tupas Salamanca joined Rainbow Pacific Philippines in\r\n2006 as a dealer. Eventually, he became a senior dealer, then\r\nan executive dealer. Being one of the best in the sales\r\ndepartment, he became a team leader, afterward, a group\r\nmanager. In 2019, he became an official branch distributor,\r\nand he founded a company under Greendenpeak, OPC.\r\nGreendenpeak, OPC is an official branch distributor under\r\nRainbow Pacific Philippines. Its office is in Baguio City,\r\nBenguet, and it caters to all customers nationwide.', 'We uphold our core values of honesty,\r\nintegrity, professionalism, hard work,\r\ndedication, and achievement.', 'Dennis Tupas Salamanca');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company_img`
+--
+
+CREATE TABLE `company_img` (
+  `id` int(11) NOT NULL,
+  `img_name` varchar(150) DEFAULT NULL,
+  `img_src` varchar(200) NOT NULL,
+  `isShown` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `company_img`
+--
+
+INSERT INTO `company_img` (`id`, `img_name`, `img_src`, `isShown`) VALUES
+(1, NULL, '/greendenpeak/asset/img/about-us/history.jpg', 1),
+(2, NULL, '/greendenpeak/asset/img/about-us/rainbow-cleaning-systems-logo-1.png', 1),
+(3, NULL, '/greendenpeak/asset/img/about-us/thermostar-logo.png', 1),
+(4, NULL, '/greendenpeak/asset/img/about-us/DCS LOGO - No Background.png', 1);
 
 -- --------------------------------------------------------
 
@@ -180,7 +204,8 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_desc_list`, `product_img`, `product_purchase_btn_name`, `product_feature_carousel_title`, `isShown`, `fk_brand_id`) VALUES
 (1, 'Rainbow Vacuum', 'Great technology for dust-free cleaning for all surfaces with the power of water.', 'NO Vacuum Bags\r\nWith HEPA Filter\r\nWater-Based Filtration\r\nEco-friendly\r\nCertified Air Cleaner\r\nOdor Elimination\r\nAllergen Reduction', '/greendenpeak/asset/img/products/rainbow/rainbow-vacuum-no-bg.png', 'Get Yours Now!', 'The Power of Water', 1, 1),
 (2, 'Thermostar', 'At least 180°C micro dry steam perfect for DIY heat sterilization and disinfection on surfaces.', 'Beds, upholstery, mattresses, carpets and sofas\r\nFlat surfaces in the living room, children’s rooms and offices\r\nBathrooms and toilets\r\nKitchen\r\nGlass doors, windows and blinds\r\nGardens\r\nCars and bicycles', '/greendenpeak/asset/img/products/thermostar/thermostar.png', 'Get Yours Now!', NULL, 1, 2),
-(3, 'testing', 'my test', NULL, 'testing.jpg', 'Get Yours Now!', 'Product Features', 1, 1);
+(3, 'testing', 'my test', NULL, 'testing.jpg', 'Get Yours Now!', 'Product Features', 0, 1),
+(4, 'test', 'some description           ', NULL, '/greendenpeak/asset/img/products/6304c71ee1f88Cover-Photo.png', 'test', NULL, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -480,10 +505,18 @@ INSERT INTO `product_feature_carousel` (`product_feature_carousel_item_id`, `pro
 CREATE TABLE `product_img` (
   `id` int(11) NOT NULL,
   `img_name` varchar(150) DEFAULT NULL,
+  `img_desc` varchar(500) DEFAULT NULL,
   `img_src` varchar(200) NOT NULL,
   `isShown` tinyint(4) NOT NULL DEFAULT 1,
   `fk_product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_img`
+--
+
+INSERT INTO `product_img` (`id`, `img_name`, `img_desc`, `img_src`, `isShown`, `fk_product_id`) VALUES
+(1, 'sample', NULL, '/greendenpeak/asset/img/products/rainbow/rainbow-srx-churn.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -882,11 +915,19 @@ INSERT INTO `product_version_desc_list` (`product_version_desc_list_id`, `produc
 
 CREATE TABLE `product_video` (
   `product_vid_id` int(11) NOT NULL,
-  `product_vid_name` varchar(100) NOT NULL,
+  `product_vid_name` varchar(100) DEFAULT NULL,
+  `product_vid_desc` varchar(500) DEFAULT NULL,
   `product_vid_src` varchar(200) NOT NULL,
   `isShown` tinyint(1) NOT NULL DEFAULT 1,
   `fk_product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_video`
+--
+
+INSERT INTO `product_video` (`product_vid_id`, `product_vid_name`, `product_vid_desc`, `product_vid_src`, `isShown`, `fk_product_id`) VALUES
+(1, 'Thermostar Dry Steam System', NULL, 'https://www.youtube.com/embed/bK-MbkKhGyw', 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -903,6 +944,12 @@ ALTER TABLE `brand`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`company_id`);
+
+--
+-- Indexes for table `company_img`
+--
+ALTER TABLE `company_img`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `company_link`
@@ -1114,6 +1161,12 @@ ALTER TABLE `company`
   MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `company_img`
+--
+ALTER TABLE `company_img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `company_link`
 --
 ALTER TABLE `company_link`
@@ -1141,7 +1194,7 @@ ALTER TABLE `index_carousel`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_accessory`
@@ -1213,7 +1266,7 @@ ALTER TABLE `product_feature_carousel`
 -- AUTO_INCREMENT for table `product_img`
 --
 ALTER TABLE `product_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_kit`
@@ -1279,7 +1332,7 @@ ALTER TABLE `product_version_desc_list`
 -- AUTO_INCREMENT for table `product_video`
 --
 ALTER TABLE `product_video`
-  MODIFY `product_vid_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_vid_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -1367,7 +1420,7 @@ ALTER TABLE `product_feature_carousel`
 -- Constraints for table `product_img`
 --
 ALTER TABLE `product_img`
-  ADD CONSTRAINT `product_img_ibfk_1` FOREIGN KEY (`fk_product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `product_img_ibfk_1` FOREIGN KEY (`fk_product_id`) REFERENCES `product` (`product_id`);
 
 --
 -- Constraints for table `product_kit`
