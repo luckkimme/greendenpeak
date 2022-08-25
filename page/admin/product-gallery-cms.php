@@ -134,43 +134,63 @@
                 </div>
                     
                 <div>
-                    <h5>Gallery</h5>
+                    <div class="d-flex flex-row justify-content-between">
+                        <h5>Gallery</h5>
+                        <div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addImg">
+                                Add New Image
+                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVid">
+                                Add New Video
+                            </button>
+                        </div>
+                    </div>
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-img-tab" data-bs-toggle="tab" data-bs-target="#nav-img" type="button" role="tab" aria-controls="nav-img" aria-selected="true">Images</button>
                             <button class="nav-link" id="nav-vid-tab" data-bs-toggle="tab" data-bs-target="#nav-vid" type="button" role="tab" aria-controls="nav-vid" aria-selected="false">Videos</button>
                         </div>
                     </nav>
-                    <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-content py-3" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-img" role="tabpanel" aria-labelledby="nav-img-tab">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <td class="col-3">Image</td>
-                                            <td class="col-7">Title</td>
-                                            <td class="col-2">Action</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><img src=""></td>
-                                            <td>test</td>
-                                            <td class="d-flex flex-row">            
-                                                <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addOtherInfo" aria-expanded="false" aria-controls="addOtherInfo">Edit Image</a> 
-                                                <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteCateg">Delete</button>    
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="row row-cols-2 row-cols-md-3 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                    <img src="../../asset/img/products/rainbow/rainbow-srx-churn.jpg">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Image Name</h5>
+                                        </div>
+                                        <div class="card-footer d-flex flex-row justify-content-between">
+                                            <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteImg">Delete</button>
+                                            <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editImg" aria-expanded="false" aria-controls="editImg">Edit Image</a> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="tab-pane fade" id="nav-vid" role="tabpanel" aria-labelledby="nav-vid-tab">
+                            <div class="row row-cols-2 row-cols-md-3 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <iframe class="w-100" height="200" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                                            src="https://www.youtube.com/embed/bK-MbkKhGyw">
+                                        </iframe>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Video Name</h5>
+                                        </div>
+                                        <div class="card-footer d-flex flex-row justify-content-between">
+                                            <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteVid">Delete</button>
+                                            <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editVid" aria-expanded="false" aria-controls="editVid">Edit Video</a> 
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="nav-vid" role="tabpanel" aria-labelledby="nav-vid-tab">egeg</div>
                     </div>
                 </div>
             </main>
       </div>
-      <?php include_once ("../component/modals/product-details-modals.php");?>
+      <?php include_once ("../component/modals/gallery-modals.php");?>
     </div>
     <script src="/greendenpeak/asset/js/modal-edit.js"></script> 
     <script src="/greendenpeak/asset/bootstrap-5.0.2/dist/js/bootstrap.min.js"></script>
