@@ -190,7 +190,7 @@
                 <tr>
                   <td class="tdproduct">Gallery</td>
                   <td class="alignment"><a type="button" class="btn btn-secondary button-padding"
-                  href="/greendenpeak/page/admin/product-gallery-cms.php">Edit</a></td>
+                  href="/greendenpeak/page/admin/product-gallery-cms.php?product_id=<?php echo $product_id?>">Edit</a></td>
                 </tr>
               </tbody>
             </table>

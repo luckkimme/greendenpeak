@@ -6,7 +6,7 @@
                 <h5 class="modal-title" id="addImgLabel">Add New Image</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="POST">
+            <form action="/greendenpeak/includes/api/gallery.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="product_id" value="<?php echo $product_id?>" hidden>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
@@ -18,13 +18,12 @@
                         <label for="newImgDesc">Description</label>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" name="" id="" value="" hidden/>
-                        <input type="file" name="" class="form-control" id="" aria-describedby="" aria-label="Upload" placeholder="Select a new Picture" name="" accept="image/*" onchange=""/>
+                        <input type="file" name="img_src" class="form-control" aria-describedby="" aria-label="Upload" placeholder="Select a new Picture" name="" accept="image/*" onchange="previewImage(this,'add-img')" required/>
                         <img id="add-img" class="w-100 mx-auto d-block" src="" />
                     </div>  
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" name="method" value="">Submit</button>
+                    <button type="submit" class="btn btn-primary" name="method" value="add_img">Submit</button>
                 </div>
             </form> 
         </div>

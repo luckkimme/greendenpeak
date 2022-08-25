@@ -3,6 +3,14 @@
     require_once('../../includes/processor/admin-processor.php');
     require_once('../../includes/view/admin-product.php');
 
+    if(isset($_GET['product_id'])) {
+        $product_id = intval($_GET['product_id']);
+        $product_details = get_product_by_id($conn, $product_id);
+        $product_img = get_all_img($conn, $product_id);
+        $product_vid = get_all_vid($conn, $product_id);
+    } else {
+        header('Location: /greendenpeak/page/component/error.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +138,7 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h3">Content Management > Product Page > Rainbow</h1>
+                    <h1 class="h3">Content Management > Product Page > <?php echo $product_details['product_name'];?></h1>
                 </div>
                     
                 <div>
@@ -155,34 +163,30 @@
                         <div class="tab-pane fade show active" id="nav-img" role="tabpanel" aria-labelledby="nav-img-tab">
                             <div class="row row-cols-2 row-cols-md-3 g-4">
                                 <div class="col">
-                                    <div class="card h-100">
-                                    <img src="../../asset/img/products/rainbow/rainbow-srx-churn.jpg">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Image Name</h5>
-                                        </div>
-                                        <div class="card-footer d-flex flex-row justify-content-between">
-                                            <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteImg">Delete</button>
-                                            <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editImg" aria-expanded="false" aria-controls="editImg">Edit Image</a> 
-                                        </div>
-                                    </div>
+                                    <?php
+                                        if($product_img) {
+                                            foreach($product_img as $img) {
+                                                echo create_img_item($vid['img_name'], $vid['img_src'], intval($vid['id']));    
+                                            }
+                                        } else {    
+                                            echo "No images added yet";
+                                        }
+                                    ?>
                                 </div>
                             </div>    
                         </div>
                         <div class="tab-pane fade" id="nav-vid" role="tabpanel" aria-labelledby="nav-vid-tab">
                             <div class="row row-cols-2 row-cols-md-3 g-4">
                                 <div class="col">
-                                    <div class="card h-100">
-                                        <iframe class="w-100" height="200" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                                            src="https://www.youtube.com/embed/bK-MbkKhGyw">
-                                        </iframe>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Video Name</h5>
-                                        </div>
-                                        <div class="card-footer d-flex flex-row justify-content-between">
-                                            <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteVid">Delete</button>
-                                            <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editVid" aria-expanded="false" aria-controls="editVid">Edit Video</a> 
-                                        </div>
-                                    </div>
+                                    <?php
+                                        if($product_vid) {
+                                            foreach($product_vid as $vid) {
+                                                echo create_video_item($vid['product_vid_name'], $vid['product_vid_src'], intval($vid['product_vid_id']));    
+                                            }
+                                        } else {    
+                                            echo "No videos added yet";
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>

@@ -261,9 +261,69 @@
         $query = "UPDATE `product_other_info` SET `isShown` = 0 WHERE `product_other_info_id` = $category_id";
         return post_query($query, $conn);
     }
+
     function check_fk_exist(mysqli $conn, int $id, string $table, string $column) {
         return get_single_query("SELECT * FROM `$table` WHERE `$column` = $id ", $conn);
     }
+
+    function set_product_img(mysqli $conn, string $img_name, string $img_src, int $product_id) {
+        $img_name = $conn->real_escape_string($img_name);
+        $img_src = $conn->real_escape_string($img_src);
+        $query = "INSERT INTO `product_img`(`img_name`, `img_src`, `fk_product_id`) VALUES('$img_name', '$img_src', $product_id)";
+        return post_query($query, $conn);
+    }
+
+    function update_product_img(mysqli $conn, $img_name, $img_src, $img_id) {
+        $img_name = $conn->real_escape_string($img_name);
+        $img_src = $conn->real_escape_string($img_src);
+        $query = "UPDATE `product_img` SET `img_name` = '$img_name', `img_src` = '$img_src' WHERE `id` = $img_id";
+        return post_query($query, $conn);
+    }
+
+    function delete_product_img(mysqli $conn, int $img_id) {
+        $query = "UPDATE `product_img` SET `isShown` = 0 WHERE `id` = $img_id";
+        return post_query($query, $conn);
+    }
+
+    function get_img_by_id(mysqli $conn, int $img_id) {
+        $query = "SELECT * FROM `product_img` WHERE `id` = $img_id AND `isShown` = 1";
+        return get_single_query($query, $conn);
+    }
+
+    function get_all_img(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product_img` WHERE `fk_product_id` = $product_id AND `isShown` = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function set_product_vid(mysqli $conn, string $vid_name, string $vid_src, int $product_id) {
+        $vid_name = $conn->real_escape_string($vid_name);
+        $vid_src = $conn->real_escape_string($vid_src);
+        $query = "INSERT INTO `product_video`(`product_vid_name`, `product_vid_src`, `fk_product_id`) VALUES('$vid_name','$vid_src', $product_id)";
+        return post_query($query, $conn);
+    }
+
+    function update_product_vid(mysqli $conn, string $vid_name, string $vid_src, int $vid_id) {
+        $vid_name = $conn->real_escape_string($vid_name);
+        $vid_src = $conn->real_escape_string($vid_src);
+        $query = "UPDATE `product_video` SET `product_vid_name` = '$vid_name', `product_vid_src` = '$vid_src' WHERE `product_vid_id` = $vid_id";
+        return post_query($query, $conn);
+    }
+
+    function delete_product_vid(mysqli $conn, int $vid_id) {
+        $query = "UPDATE `product_video` SET `isShown` = 0 WHERE `product_vid_id` = $vid_id";
+        return post_query($query, $conn);
+    }
+
+    function get_vid_by_id(mysqli $conn, int $vid_id){
+        $query = "SELECT * FROM `product_video` WHERE `product_vid_id` = $vid_id AND `isShown` = 1";
+        return get_single_query($query, $conn);
+    }
+
+    function get_all_vid(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product_video` WHERE `isShown` = 1";
+        return get_multiple_query($query, $conn);
+    }
+
 
 
     
