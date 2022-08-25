@@ -92,4 +92,82 @@
             <option value="$manual_id">$manual_name</option> 
         EOL;
     }
+
+    function create_other_info_header(string $other_info_title, string $tag_id_target) {
+        return <<< EOL
+        <h2 class="accordion-header" id="heading$tag_id_target">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse$tag_id_target" aria-expanded="true" aria-controls="collapse$tag_id_target">
+                $other_info_title
+            </button>
+        </h2>
+        EOL;
+    }
+
+    function create_other_info_row(array $detail) {
+        $item_id = $detail['product_info_item_id'];
+        $item_title = $detail['product_info_item_title'];
+        $item_subtitle = $detail['product_info_item_subtitle'];
+        $item_desc = $detail['product_other_info_desc'];
+        $item_desc_list = $detail['product_other_info_desc_list'];
+        $item_img = $detail['product_other_info_desc'];
+        return <<< EOL
+            <tr>
+                <td>$item_title</td>
+                <td><a type="button" class="btn btn-secondary button-padding float-end" 
+                data-bs-toggle="modal" data-bs-target="#editOtherInfo" aria-expanded="false" aria-controls="editOtherInfo" onclick="changeOtherInfoDetails($item_id, '$item_title', '$item_subtitle', '$item_desc', '$item_desc_list', '$item_img')">Edit</a></td>
+            </tr>
+        EOL;
+    }
+
+    function create_other_info(array $other_info, ?array $other_info_items) {
+        $other_info_item_template = '';
+
+        foreach($other_info as $info) {
+            $tag_id = uniqid();
+            $other_info_id = $info['product_other_info_id'];
+            $other_info_header = create_other_info_header($info['product_other_info_title'], $tag_id);
+            $other_info_items_row = '';
+
+            if($other_info_items) {
+                foreach($other_info_items as $detail) {
+                    if($detail['fk_other_info_item_id'] === $info['product_other_info_id']) {
+                        $other_info_items_row .= create_other_info_row($detail);
+                    }
+                }
+            }
+
+            $other_info_item_template .= <<< EOL
+            <div id="$tag_id">
+                $other_info_header
+                <div id="collapse$tag_id" class="accordion-collapse collapse" aria-labelledby="heading$tag_id" data-bs-parent="#accordionExample">
+                    <div class="accordion-body table-responsive-lg w-100">
+                        <table class="table table-striped w-100">
+                            <thead>
+                                <tr>
+                                    <th><h1 class="h5 float-start">Title</h1></th>
+                                    <th><h1 class="h5 float-end">Action<h1></th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                $other_info_items_row
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-danger mx-3 mb-3" onclick="deleteCategory($other_info_id,'$tag_id')">Delete this Category</button>
+                </div>
+            </div>
+            EOL;
+        }
+        
+
+        return <<< EOL
+            <tr>
+                <td class="w-100">
+                    <div class="accordion" id="accordionExample">
+                            $other_info_item_template
+                    </div>
+                </td>
+            </tr>
+        EOL;
+    }
 ?>

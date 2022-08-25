@@ -180,7 +180,7 @@
                 <tr>
                   <td class="tdproduct">Other Information</td>
                   <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
-                  href="/greendenpeak/page/admin/product-other-info-cms.php">Edit</a></td>
+                  href="/greendenpeak/page/admin/product-other-info-cms.php?product_id=<?php echo $product_id?>">Edit</a></td>
                 </tr>
                 <tr>
                   <td class="tdproduct">User Manual</td>

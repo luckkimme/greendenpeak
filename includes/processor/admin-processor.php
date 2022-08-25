@@ -211,6 +211,26 @@
         return post_query($query, $conn);
     }
 
+    function get_other_info_by_id(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product_other_info` WHERE `fk_product_id` = $product_id AND isShown = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function get_other_info_items_by_ids(mysqli $conn, string $other_info_ids) {
+        $query = "SELECT * FROM `product_other_info_item` WHERE `fk_other_info_item_id` IN ($other_info_ids) AND isShown = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function set_other_info_category(mysqli $conn, string $categ_name, int $product_id) {
+        $categ_name = $conn->real_escape_string($categ_name);
+        $query = "INSERT INTO `product_other_info`(`product_other_info_title`, `fk_product_id`) VALUES('$categ_name', $product_id)";
+        return post_query($query, $conn);
+    }
+
+    function delete_other_info_category(mysqli $conn, int $category_id) {
+        $query = "UPDATE `product_other_info` SET `isShown` = 0 WHERE `product_other_info_id` = $category_id";
+        return post_query($query, $conn);
+    }
     function check_fk_exist(mysqli $conn, int $id, string $table, string $column) {
         return get_single_query("SELECT * FROM `$table` WHERE `$column` = $id ", $conn);
     }
