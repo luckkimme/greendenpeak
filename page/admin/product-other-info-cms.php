@@ -190,6 +190,12 @@
         const enter = 13;
 
         let descList = document.getElementById("textDescList");
+        let addDescList = document.getElementById("addTextDescList");
+
+        if(addDescList) {
+            addDescList.addEventListener("keyup", insertBullet);
+        }
+
         if(descList) {
             descList.addEventListener("keyup", insertBullet);
         }
@@ -214,21 +220,6 @@
             if (value[0] !== bullet) {
               target.value = `${bulletWithSpace}${value}`;
             }
-        }
-
-        async function deleteCategory(categoryId, tagId){
-
-            if(!confirm('Are you sure you want to delete this category?')) return;
-
-            const formData = new FormData();
-            formData.append('method', 'delete_category')
-            formData.append('category_id', categoryId);
-            await fetch('/greendenpeak/includes/api/other-info.php',{
-                method: 'POST',
-                body: formData
-            });
-            document.getElementById(tagId).remove();
-            
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="/../greendenpeak/asset/js/dashboard.js"></script>

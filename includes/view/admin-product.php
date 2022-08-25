@@ -154,6 +154,7 @@
                         </table>
                     </div>
                     <button class="btn btn-danger mx-3 mb-3" onclick="deleteCategory($other_info_id,'$tag_id')">Delete this Category</button>
+                    <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addOtherInfo" aria-expanded="false" aria-controls="addOtherInfo">Add New Title</a>     
                 </div>
             </div>
             EOL;
