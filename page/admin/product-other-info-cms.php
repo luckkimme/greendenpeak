@@ -1,7 +1,22 @@
 <?php 
-  require_once('../../includes/connection.php');
-  require_once('../../includes/processor/admin-processor.php');
-  require_once('../../includes/view/admin-product.php');
+    require_once('../../includes/connection.php');
+    require_once('../../includes/processor/admin-processor.php');
+    require_once('../../includes/view/admin-product.php');
+
+    if(isset($_GET['product_id'])) {
+        $product_id = intval($_GET['product_id']);
+        $product_details = get_product_by_id($conn, $product_id);
+        $other_info = get_other_info_by_id($conn, $product_id);
+    } else {
+        header('Location: /greendenpeak/page/component/error.php');
+    }
+
+    if($other_info) {
+        foreach($other_info as $info) {
+            $other_info_ids[] = $info['product_other_info_id'];
+        }
+        $other_info_items = get_other_info_items_by_ids($conn, implode(',', $other_info_ids));
+    }
 
 ?>
 
@@ -131,14 +146,14 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h3">Content Management > Product Page > Rainbow</h1>
+                    <h1 class="h3">Content Management > Product Page > <?php echo $product_details['product_name']?></h1>
                 </div>
                 
                 <div class="table-responsive-lg">
                     <table class="table table-striped">
                         <div>
                             <h3 class="float-start">Other Information</h3>
-                            <a type="button" class="btn btn-outline-secondary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#newcategorymodal">+New Category</a>
+                            <a type="button" class="btn btn-outline-secondary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#newcategorymodal">+ New Category</a>
                         </div>
                         <thead>
                             <tr>
@@ -149,63 +164,16 @@
                             <tr>
                                 <td class="w-100">
                                     <div class="accordion" id="accordionExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingOne">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                    Certification
-                                                </button>
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body table-responsive-lg w-100">
-                                                    <table class="table table-striped w-100">
-                                                        <thead>
-                                                            <tr>
-                                                                <th><h1 class="h5 float-start">Title</h1></th>
-                                                                <th><h1 class="h5 float-end">Action<h1></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>AHAM Verifide</td>
-                                                                <td><a type="button" class="btn btn-secondary button-padding float-end" 
-                                                                data-bs-toggle="modal" data-bs-target="#editOtherInfo" aria-expanded="false" aria-controls="editOtherInfo">Edit</a></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Certified Asthma & Allergy Friendly</td>
-                                                                <td><a type="button" class="btn btn-secondary button-padding float-end" 
-                                                                data-bs-toggle="modal" data-bs-target="#editOtherInfo" aria-expanded="false" aria-controls="editOtherInfo">Edit</a></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>The Carpet and Rug Institute</td>
-                                                                <td><a type="button" class="btn btn-secondary button-padding float-end" 
-                                                                data-bs-toggle="modal" data-bs-target="#editOtherInfo" aria-expanded="false" aria-controls="editOtherInfo">Edit</a></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="d-flex justify-content-between">
-                                                        <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteCateg">Delete this Category</button>            
-                                                        <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addOtherInfo" aria-expanded="false" aria-controls="addOtherInfo">Add New Title</a>     
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                            if($other_info) {
+                                                echo create_other_info($other_info, $other_info_items);
+                                            } else {
+                                                echo "No Categories Added Yet";
+                                            }
+                                        ?>
                                     </div>
                                 </td>
                             </tr>
-                            
-                            <!-- <tr>
-                                <td class="tdproduct">Certification</td>
-                                <td class="alignment"><a type="button" class="btn btn-secondary button-padding" 
-                                data-bs-toggle="collapse" data-bs-target="#collapse-other-info-item" aria-expanded="false" aria-controls="collapse-other-info-item">Edit</a></td>
-                            </tr>
-                            <tr class="collapse" id="collapse-other-info-item">
-                                <td class="card card-body">test</td>
-                                <td class="alignment">test</td>
-                            </tr>
-                            <tr class="collapse" id="collapse-other-info-item">
-                                <td class="card card-body">test</td>
-                                <td class="alignment">test</td>
-                            </tr> -->
                             
                         </tbody>
                     </table>

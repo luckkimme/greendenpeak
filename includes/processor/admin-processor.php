@@ -211,6 +211,56 @@
         return post_query($query, $conn);
     }
 
+    function get_other_info_by_id(mysqli $conn, int $product_id) {
+        $query = "SELECT * FROM `product_other_info` WHERE `fk_product_id` = $product_id AND `isShown` = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function get_other_info_items_by_ids(mysqli $conn, string $other_info_ids) {
+        $query = "SELECT * FROM `product_other_info_item` WHERE `fk_other_info_item_id` IN ($other_info_ids) AND `isShown` = 1";
+        return get_multiple_query($query, $conn);
+    }
+
+    function get_other_info_item_by_id(mysqli $conn, int $item_id) {
+        $query = "SELECT * FROM `product_other_info_item` WHERE `product_info_item_id` = $item_id AND `isShown` = 1";
+        return get_single_query($query, $conn);
+    }
+
+    function set_other_info_category(mysqli $conn, string $categ_name, int $product_id) {
+        $categ_name = $conn->real_escape_string($categ_name);
+        $query = "INSERT INTO `product_other_info`(`product_other_info_title`, `fk_product_id`) VALUES('$categ_name', $product_id)";
+        return post_query($query, $conn);
+    }
+
+    function set_other_info_item(mysqli $conn, string $other_info_title, string $other_info_subtitle, string $other_info_desc, string $other_info_desc_list, string $other_info_img, int $category_id) {
+        $other_info_title = $conn->real_escape_string($other_info_title);
+        $other_info_subtitle = $conn->real_escape_string($other_info_subtitle);
+        $other_info_desc = $conn->real_escape_string($other_info_desc);
+        $other_info_desc_list = $conn->real_escape_string($other_info_desc_list);
+        $other_info_img = $conn->real_escape_string($other_info_img);
+        $query = "INSERT INTO `product_other_info_item`(`product_info_item_title`, `product_info_item_subtitle`, `product_other_info_desc`, `product_other_info_desc_list`, `product_info_item_img`, `fk_other_info_item_id`) VALUES('$other_info_title', '$other_info_subtitle', '$other_info_desc', '$other_info_desc_list', '$other_info_img', $category_id)";
+        return post_query($query, $conn);
+    }
+
+    function update_other_info_item(mysqli $conn, string $other_info_title, string $other_info_subtitle, string $other_info_desc, string $other_info_desc_list, string $other_info_img, int $item_id) {
+        $other_info_title = $conn->real_escape_string($other_info_title);
+        $other_info_subtitle = $conn->real_escape_string($other_info_subtitle);
+        $other_info_desc = $conn->real_escape_string($other_info_desc);
+        $other_info_desc_list = $conn->real_escape_string($other_info_desc_list);
+        $other_info_img = $conn->real_escape_string($other_info_img);
+        $query = "UPDATE `product_other_info_item` SET `product_info_item_title` = '$other_info_title', `product_info_item_subtitle` = '$other_info_subtitle', `product_other_info_desc`= '$other_info_desc', `product_other_info_desc_list` = '$other_info_desc_list', `product_info_item_img` = '$other_info_img' WHERE `product_info_item_id` = $item_id";
+        return post_query($query, $conn);
+    }
+
+    function delete_other_info_item(mysqli $conn, int $item_id) {
+        $query = "UPDATE `product_other_info_item` SET `isShown` = 0 WHERE `product_info_item_id` = $item_id"; 
+        return post_query($query, $conn);
+    }
+
+    function delete_other_info_category(mysqli $conn, int $category_id) {
+        $query = "UPDATE `product_other_info` SET `isShown` = 0 WHERE `product_other_info_id` = $category_id";
+        return post_query($query, $conn);
+    }
     function check_fk_exist(mysqli $conn, int $id, string $table, string $column) {
         return get_single_query("SELECT * FROM `$table` WHERE `$column` = $id ", $conn);
     }

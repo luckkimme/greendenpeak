@@ -249,68 +249,6 @@
     </form>
 </div>
 
-
-<!-- Edit Other Info Modal -->
-<div class="modal fade" id="editOtherModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center" id="newBrandLabel"> Edit Other Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Main Title (Keyword From Database" placeholder="Main Title (Keyword From Database" required></input>
-                    <label for="Main Title (Keyword From Database">Main Title (Keyword From Database</label>
-                </div>
-            </div>
-            <hr>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Other Information Title" placeholder="Other Information Title" required></input>
-                    <label for="Other Information Title">Other Information Title</label>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="form-floating">
-                    <input class="form-control" id="Other Information Subtitle" placeholder="Other Information Subtitle" required></input>
-                    <label for="Other Information Subtitle">Other Information Subtitle</label>
-                </div>
-            </div>
-            <div class="input-group modal-body d-grid gap-2">
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                data-bs-target="#newOther1" aria-expanded="false" aria-controls="collapseExample">+New Paragraph for Description</button>
-            </div>
-            <div class="modal-body collapse" id="newOther1">
-                <div class="form-floating">
-                    <input class="form-control" id="Description (Paragraph)" placeholder="Description (Paragraph)" required></input>
-                    <label for="Description (Paragraph)">Description (Paragraph)</label>
-                </div>
-            </div>
-            <hr>
-            <div class="input-group modal-body d-grid gap-2">
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="collapse" 
-                data-bs-target="#newOther2" aria-expanded="false" aria-controls="collapseExample">+New list item for Description</button>
-            </div>
-            <div class="modal-body collapse" id="newOther2">
-                <div class="form-floating">
-                    <input class="form-control" id="Description (List)" placeholder="Description (List)" required></input>
-                    <label for="Description (List)">Description (List)</label>
-                </div>
-            </div>
-            <hr>
-            <p class="modal-titles text-center">Select a new Photo</p>
-            <div class="input-group modal-body">
-                <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Edit User Manual / Downloadables / Product Links -->
 <div class="modal fade" id="editUserManual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="header-user-manual" aria-hidden="true">
     <div class="modal-dialog">

@@ -150,3 +150,45 @@ function toggleBootstrapWindow(tagId){
     const chosenElement = document.getElementById(tagId);
     chosenElement.classList.toggle('show');
 }
+
+async function deleteCategory(categoryId, tagId){
+
+    if(!confirm('Are you sure you want to delete this category?')) return;
+
+    const formData = new FormData();
+    formData.append('method', 'delete_category')
+    formData.append('category_id', categoryId);
+    await fetch('/greendenpeak/includes/api/other-info.php',{
+        method: 'POST',
+        body: formData
+    });
+    document.getElementById(tagId).remove();
+
+}
+
+function setTextFieldById(tagId, value) {
+    const textField = document.getElementById(tagId);
+    textField.value = value;
+}
+
+async function setOtherInfoItemEdit(itemId) {
+    const itemIdField = document.getElementById('item-id-field');
+    const titleField = document.getElementById('edit-other-info-title');
+    const subtitleField = document.getElementById('edit-other-info-subtitle');
+    const descField = document.getElementById('edit-other-info-desc');
+    const descListField = document.getElementById('edit-other-info-desc-list');
+    const imgField = document.getElementById('edit-other-info-img');
+    const imgTag = document.getElementById('edit-other-info-img-preview');
+
+    const response = await fetch(`/greendenpeak/includes/api/other-info.php?method=get_item&item_id=${itemId}`);
+    const data = await response.json();
+
+    itemIdField.value = itemId;
+    titleField.value = data['product_info_item_title'];
+    subtitleField.value = data['product_info_item_subtitle'];
+    descField.value = data['product_other_info_desc'];
+    descListField.value = data['product_other_info_desc_list'];
+    imgField.value = data['product_info_item_img'];
+    imgTag.src = data['product_info_item_img'];
+    imgTag.hidden = false;
+}
