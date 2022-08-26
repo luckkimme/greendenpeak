@@ -3,9 +3,16 @@
   require_once('../../includes/processor/admin-processor.php');
   require_once('../../includes/view/admin-product.php');
 
-  if(isset($_GET['product_id'])) {
+  if(isset($_GET['product_id']) && intval($_GET['product_id'])) {
     $product_id = intval($_GET['product_id']);
     $product_details = get_product_by_id($conn, $product_id);
+
+    // Goes to error page if product does not exist
+    if(!$product_details) {
+      header('Location: /greendenpeak/page/component/error.php');
+      exit();
+    }
+
     $product_features = get_product_feature_by_id($conn, $product_id);
     $product_carousel = get_product_carousel_by_id($conn, $product_id);
     $product_kit = get_product_kit_by_id($conn, $product_id);

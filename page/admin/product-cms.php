@@ -3,9 +3,16 @@
   require_once('../../includes/processor/admin-processor.php');
   require_once('../../includes/view/admin-product.php');
 
-  if(isset($_GET['brand_id'])) {
+  if(isset($_GET['brand_id']) && intval($_GET['brand_id'])) {
     $brand_id = intval($_GET['brand_id']);
     $brand_name = get_brand_name_by_id($conn, $brand_id)['brand_name'];
+
+    // Goes to error page when brand name does not exist
+    if(!$brand_name){
+      header('Location: /greendenpeak/page/component/error.php');
+      exit();
+    } 
+
   } else {
     header('Location: /greendenpeak/page/component/error.php');
   }
