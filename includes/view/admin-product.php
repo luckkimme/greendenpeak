@@ -176,7 +176,7 @@
                 <h5 class="card-title">$img_name</h5>
             </div>
             <div class="card-footer d-flex flex-row justify-content-between">
-                <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteImg">Delete</button>
+                <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteImg" onclick="setIdField($img_id, 'delete-img-field')">Delete</button>
                 <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editImg" aria-expanded="false" aria-controls="editImg" onclick="setEditImageModal($img_id)">Edit Image</a> 
             </div>
         </div>
@@ -193,7 +193,7 @@
                 <h5 class="card-title">$vid_name</h5>
             </div>
             <div class="card-footer d-flex flex-row justify-content-between">
-                <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteVid">Delete</button>
+                <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteVid" onclick="setIdField($vid_id, 'delete-vid-field')">Delete</button>
                 <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editVid" aria-expanded="false" aria-controls="editVid" onclick="setEditVideoModal($vid_id)">Edit Video</a> 
             </div>
         </div>

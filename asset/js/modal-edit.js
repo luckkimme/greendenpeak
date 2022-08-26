@@ -192,3 +192,49 @@ async function setOtherInfoItemEdit(itemId) {
     imgTag.src = data['product_info_item_img'];
     imgTag.hidden = false;
 }
+
+async function setEditImageModal(imageId) {
+    const imageIdField = document.getElementById('img-id-field');
+    const imageTitleField = document.getElementById('edit-img-title');
+    const imageDescField = document.getElementById('edit-img-desc');
+    const imageSrcField = document.getElementById('edit-img-src');
+    const imagePreview = document.getElementById('edit-img-preview');
+
+    const response = await fetch(`/greendenpeak/includes/api/gallery.php?method=get_img&img_id=${imageId}`);
+    const data = await response.json();
+
+    imageIdField.value = imageId;
+    imageTitleField.value = data['img_name'];
+    imageDescField.innerText = data['img_desc'];
+    imageSrcField.value = data['img_src'];
+    imagePreview.src = data['img_src'];
+}
+
+async function setEditVideoModal(videoId) {
+    const videoIdField = document.getElementById('vid-id-field');
+    const videoTitleField = document.getElementById('edit-vid-title');
+    const videoDescField = document.getElementById('edit-vid-desc');
+    const videoSrcField = document.getElementById('edit-vid-src');
+    const videoPreview = document.getElementById('edit-video-preview');
+
+    const response = await fetch(`/greendenpeak/includes/api/gallery.php?method=get_vid&vid_id=${videoId}`);
+    const data = await response.json();
+
+    videoIdField.value = videoId;
+    videoTitleField.value = data['product_vid_name'];
+    videoDescField.innerText = data['product_vid_desc'];
+    videoSrcField.value = data['product_vid_src'];
+    videoPreview.src = data['product_vid_src'];
+}
+
+function previewYTVideo(ytLink, iframeId) {
+    const ytIframe = document.getElementById(iframeId);
+    ytIframe.src = ytLink;
+
+    if(ytIframe.hidden) ytIframe.hidden = false;
+}
+
+function setIdField(dataId, tagId) {
+    const idField = document.getElementById(tagId);
+    idField.value = dataId;
+}

@@ -166,7 +166,7 @@
                                     <?php
                                         if($product_img) {
                                             foreach($product_img as $img) {
-                                                echo create_img_item($vid['img_name'], $vid['img_src'], intval($vid['id']));    
+                                                echo create_img_item($img['img_name'], $img['img_src'], intval($img['id']));    
                                             }
                                         } else {    
                                             echo "No images added yet";

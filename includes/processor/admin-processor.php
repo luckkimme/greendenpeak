@@ -266,17 +266,17 @@
         return get_single_query("SELECT * FROM `$table` WHERE `$column` = $id ", $conn);
     }
 
-    function set_product_img(mysqli $conn, string $img_name, string $img_src, int $product_id) {
+    function set_product_img(mysqli $conn, string $img_name,  string $img_desc, string $img_src, int $product_id) {
         $img_name = $conn->real_escape_string($img_name);
         $img_src = $conn->real_escape_string($img_src);
-        $query = "INSERT INTO `product_img`(`img_name`, `img_src`, `fk_product_id`) VALUES('$img_name', '$img_src', $product_id)";
+        $query = "INSERT INTO `product_img`(`img_name`, `img_desc`, `img_src`, `fk_product_id`) VALUES('$img_name', '$img_desc', '$img_src', $product_id)";
         return post_query($query, $conn);
     }
 
-    function update_product_img(mysqli $conn, $img_name, $img_src, $img_id) {
+    function update_product_img(mysqli $conn, string $img_name, string $img_desc, string $img_src, int $img_id) {
         $img_name = $conn->real_escape_string($img_name);
         $img_src = $conn->real_escape_string($img_src);
-        $query = "UPDATE `product_img` SET `img_name` = '$img_name', `img_src` = '$img_src' WHERE `id` = $img_id";
+        $query = "UPDATE `product_img` SET `img_name` = '$img_name', `img_desc` = '$img_desc', `img_src` = '$img_src' WHERE `id` = $img_id";
         return post_query($query, $conn);
     }
 
@@ -295,17 +295,18 @@
         return get_multiple_query($query, $conn);
     }
 
-    function set_product_vid(mysqli $conn, string $vid_name, string $vid_src, int $product_id) {
+    function set_product_vid(mysqli $conn, string $vid_name, string $vid_desc, string $vid_src, int $product_id) {
         $vid_name = $conn->real_escape_string($vid_name);
+        $vid_desc = $conn->real_escape_string($vid_desc);
         $vid_src = $conn->real_escape_string($vid_src);
-        $query = "INSERT INTO `product_video`(`product_vid_name`, `product_vid_src`, `fk_product_id`) VALUES('$vid_name','$vid_src', $product_id)";
+        $query = "INSERT INTO `product_video`(`product_vid_name`, `product_vid_desc`, `product_vid_src`, `fk_product_id`) VALUES('$vid_name', '$vid_desc', '$vid_src', $product_id)";
         return post_query($query, $conn);
     }
 
-    function update_product_vid(mysqli $conn, string $vid_name, string $vid_src, int $vid_id) {
+    function update_product_vid(mysqli $conn, string $vid_name, string $vid_desc,  string $vid_src, int $vid_id) {
         $vid_name = $conn->real_escape_string($vid_name);
         $vid_src = $conn->real_escape_string($vid_src);
-        $query = "UPDATE `product_video` SET `product_vid_name` = '$vid_name', `product_vid_src` = '$vid_src' WHERE `product_vid_id` = $vid_id";
+        $query = "UPDATE `product_video` SET `product_vid_name` = '$vid_name', `product_vid_desc` = '$vid_desc',  `product_vid_src` = '$vid_src' WHERE `product_vid_id` = $vid_id";
         return post_query($query, $conn);
     }
 
@@ -320,7 +321,7 @@
     }
 
     function get_all_vid(mysqli $conn, int $product_id) {
-        $query = "SELECT * FROM `product_video` WHERE `isShown` = 1";
+        $query = "SELECT * FROM `product_video` WHERE `fk_product_id` = $product_id AND `isShown` = 1";
         return get_multiple_query($query, $conn);
     }
 
