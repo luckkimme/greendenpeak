@@ -110,91 +110,11 @@ body {
     #div-main-tab {
         background-color: red !important;
     }
-}     
-                /*
-    #product-features {
-        min-height: calc(170vh + 8rem) !important;
-    }
-        #product-feature-container {
-            height: auto !important;
-        }
-            .div-feature {
-                height: calc(85vh - 2.75rem);
-                max-height: auto;
-            }
-                .div-feature-desc {
-                    height: 100% !important;
-                }   
-                    .div-feature-desc h1 {
-                        font-size: 2rem;
-                    }
-                    .div-feature-desc p {
-                        font-size: 1rem;
-                    }
-                    .div-feature-desc img {
-                        height: 95%;
-                        width: auto;
-                    }
+
+    #div-carousel-product-feature, .carousel-inner, .carousel-item {
         
-        #div-carousel-product-feature {
-            height: calc(85vh - 2.75rem) !important;
-        }   
-            #div-carousel-product-feature .carousel-inner, #div-carousel-product-feature .carousel-item {
-                height: 100%;
-            }
-    #specifications {
-        width: 100%;
-        min-height: calc(85vh + 5rem) !important;
-        height: calc(85vh + 5rem);
-        max-height: auto;
-        margin: 0;
-    }   /*
-        #div-product-kit .row {
-        }   
-        #div-product-kit h1 {
-            font-size: 1.5rem;
-        }
-            .div-kit-list {
-                border-top: 3px solid #14C9CB;
-            }
-                .div-kit-list p {
-                    font-size: 1rem;
-                    margin: 0;
-                }
-                .div-kit-list ul {
-                    padding: 0 5rem;
-                }
-                    .div-kit-list li {
-                        font-size: 0.8rem;
-                    }
-    #optional-accessories {
-        width: 100%;
-        height: 100%;
-        max-height: max-content;
-        min-height: calc(85vh + 5rem) !important;
     }
-        #product-accessories {
-            height: max-content;
-        }
-            #product-accessories .card {
-                font-size: 0.8rem;
-            }
-    #other-info {
-        width: 100%;
-        height: 100%;
-        max-height: max-content;
-        min-height: calc(85vh + 5rem) !important;
-    }
-        .div-other-info-container {
-            border-bottom: 3px solid #14C9CB;
-        }
-            .div-other-info-container h1 {
-                font-size: 1.5rem;
-            }
-            .div-other-info-container p {
-                font-size: 1rem;
-            }
-                .div-other-info-list ul {
+}                   .div-other-info-list ul {
                     margin: 0;
                 }
                     .div-other-info-list li {
