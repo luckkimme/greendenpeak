@@ -53,6 +53,13 @@
         $product_other_info_desc = get_other_info_item_desc($conn, $productID);
         $product_other_info_desc_list = get_other_info_item_desc_list($conn, $productID);
 
+        //gallery
+        $product_img = get_product_img($conn, $productID);
+        $product_vid = get_product_vid($conn, $productID);
+
+        //user manual
+        $product_user_manual = get_user_manual($conn, $productID);
+
         /* echo "<br><br><br><br><br><br>";
         var_dump($product_other_title); */
         //end of other info
@@ -126,7 +133,7 @@
                             <button class="nav-link" id="btn-other-info-tab" data-bs-toggle="pill" data-bs-target="#other-info" type="button" role="tab" aria-controls="other-info" aria-selected="false">other information</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="btn-reviews-tab" data-bs-toggle="pill" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">reviews</button>
+                            <button class="nav-link" id="btn-gallery-tab" data-bs-toggle="pill" data-bs-target="#gallery" type="button" role="tab" aria-controls="gallery" aria-selected="false">gallery</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="btn-manual-tab" data-bs-toggle="pill" data-bs-target="#user-manual" type="button" role="tab" aria-controls="user-manual" aria-selected="false">user manual</button>
@@ -138,7 +145,7 @@
                 <div class="tab-pane fade show active" id="product" role="tabpanel" aria-labelledby="btn-product-tab">
                     <div id="product-info" class="container col-xxl-8 px-4">
                         <div class="row flex-lg-row-reverse align-items-center g-5 pt-3 div-product-desc">
-                            <?php echo display_product_info($product_info, $productDescList); ?>
+                            <?php echo display_product_info($product_info); ?>
                         </div>
                     </div>
                 </div>
@@ -161,61 +168,34 @@
                     <?php include_once("component/product-other-info.php"); ?>
                 </div>
 
-                <div id="reviews" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-review-tab">
-                    <h4 id="scrollspyHeading5">Fifth heading</h4>
-                    <p>Where can I get some?
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                <div id="gallery" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-gallery-tab">
+                    <?php include_once("component/product-gallery.php"); ?>
                 </div>
 
                 <div id="user-manual" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-manual-tab">
                     <h4 class="lh-1 mb-3 py-3 text-center">In need of assistance for using the Rainbow Vacuum Cleaner?</h4>
-                    <h5 class="text-center mx-5">You may download these user manuals for better user experience</h6>
+                    <h5 class="text-center mx-5">Check out the links below:</h6>
                     <div class="container">
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <div class="p-3 border bg-light">
-                                    <h6>rainbow srx - Manual</h6>
-                                    <a href="../asset/img/placeholder/k.png" target="_blank" class="btn btn-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-                                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
-                                        </svg>
-                                        download
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-3 border bg-light">
-                                    <h6>rainbow e2 black - manual</h6>
-                                    <a href="../asset/img/placeholder/k.png" target="_blank" class="btn btn-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-                                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
-                                        </svg>
-                                        download
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-3 border bg-light">
-                                    <h6>rainbow e2 silver - manual</h6>
-                                    <a href="../asset/img/placeholder/k.png" target="_blank" class="btn btn-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-                                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
-                                        </svg>
-                                        download
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-3 border bg-light">
-                                    <h6>rainbow e2 gold - manual</h6>
-                                    <a href="../asset/img/placeholder/k.png" target="_blank" class="btn btn-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-                                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
-                                        </svg>
-                                        download
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="row row-cols-1 row-cols-md-4 g-4 py-3">
+                        <?php 
+                            $product_manual = "";
+                            if($product_user_manual) {
+                                foreach($product_user_manual as $manual) {
+                                    $product_manual .= '<div class="col">';
+                                    $product_manual .= '<div class="p-3 h-100 border bg-light link-container">';
+                                    $product_manual .= '<h6>' . $manual['product_manual_name'] . '</h6>';
+                                    $product_manual .= '<a href="' . $manual['product_manual_src'] . '" target="_blank" class="btn btn-primary">';
+                                    $product_manual .= '<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">';
+                                    $product_manual .= '<path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>';
+                                    $product_manual .= '</svg>';
+                                    $product_manual .= 'Download</a></div></div>';
+                                }
+                                echo $product_manual;
+                            }
+                            else {
+                                echo "There are no Manuals for this product.";
+                            }
+                        ?>
                         </div>
                     </div>
                 </div>
@@ -224,6 +204,61 @@
         <script src="../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script src="../asset/js/offcanvas.js"></script>
+
+        <script>
+            //show image in modal
+            var img = document.querySelectorAll('.btnImgID'); 
+
+            for (i = 0; i < img.length; ++i) {
+                img[i].addEventListener("click", displayImgInfo);
+
+                function displayImgInfo() {
+                    //alert(this.value);
+                    var str = this.value;
+                    
+                    var imgName = str.substring( 0, str.indexOf("*"));
+                    var imgDesc = str.substring(str.indexOf("*") + 1, str.indexOf("+"));
+                    var imgSrc = str.substring(str.indexOf("+") + 1, str.indexOf(";"));
+                    //alert(imgName + "\n" + imgDesc + "\n" + imgSrc);
+
+                    var title = document.getElementById("showImgLabel");
+                    var desc = document.getElementById("showImgDesc");
+                    var img = document.getElementById("showImgSrc");
+
+                    title.innerHTML = imgName;
+                    desc.innerHTML = imgDesc;
+                    img.src = imgSrc;
+
+                }
+            };
+
+            //show video in modal
+            var vid = document.querySelectorAll('.btnVidID'); 
+
+            for (i = 0; i < vid.length; ++i) {
+                vid[i].addEventListener("click", displayVidInfo);
+
+                function displayVidInfo() {
+                    //alert(this.value);
+                    var str = this.value;
+                    
+                    var vidName = str.substring( 0, str.indexOf("*"));
+                    var vidDesc = str.substring(str.indexOf("*") + 1, str.indexOf("+"));
+                    var vidSrc = str.substring(str.indexOf("+") + 1, str.indexOf(";"));
+                    //alert(imgName + "\n" + imgDesc + "\n" + imgSrc);
+
+                    var title = document.getElementById("showVidLabel");
+                    var desc = document.getElementById("showVidDesc");
+                    var vid = document.getElementById("showVidSrc");
+
+                    title.innerHTML = vidName;
+                    desc.innerHTML = vidDesc;
+                    vid.src = vidSrc;
+
+                }
+            };
+        </script>
+
         <?php include_once __DIR__ . '/component/footer.php'; ?>
 	</body>
 </html>

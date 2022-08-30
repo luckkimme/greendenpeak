@@ -82,13 +82,54 @@ body {
                     width: 100%;
                     list-style: disc outside;
                 }
+            #product-features {
+            }
+                    .feature-container p {
+                        white-space: pre-wrap !important;
+                        width: 100%;
+                    }
+                    #div-carousel-product-feature, .carousel-inner, .carousel-item {
+                        height: calc(85vh - 2.75rem) !important;
+                        position: relative !important;
+                    }
+                    .carousel-caption {
+                        color: black !important;
+                        bottom: 2.5rem !important;
+                        padding-top: 0.25rem !important;
+                        padding-bottom: 0 !important;
+                        border-radius: 1rem;
+                        background-color: rgba(20, 201, 203, 60%);
+                    }
+                    .carousel-caption h3, .carousel-caption h5, .carousel-caption p {
+                    }
+                    .carousel-inner {
+                    }
+                    .carousel-item {
+                    }
+            .kit-list-items {
+                white-space: pre-wrap;
+            }
             #div-product-kit ul {
                 display: grid;
                 grid-template-columns: 50% 50%;
                 grid-column-gap: 30px;
             }
+            .accessory-desc, .accessory-desc-list {
+                white-space: pre-wrap;
+                display: block;
+                line-height: 2em;
+            }
             .p-accessory-img {
                 height: 30%;
+            }
+            .other-info-desc, .other-info-desc-list {
+                white-space: pre-wrap;
+            }
+            #showImgLabel {
+                text-transform: capitalize;
+            }
+            .link-container {
+                text-align: center;
             }
 .btn-page:link, .btn-page:visited {
     background-color: #14C9CB !important;
@@ -108,24 +149,9 @@ body {
 @media only screen and (max-width: 899px) {
     
     #div-main-tab {
-        background-color: red !important;
     }
 
     #div-carousel-product-feature, .carousel-inner, .carousel-item {
-        
+        height: auto !important;
     }
-}                   .div-other-info-list ul {
-                    margin: 0;
-                }
-                    .div-other-info-list li {
-                        font-size: 0.8rem !important;
-                    }
-    #user-manual h4, #user-manual h5 {
-        width: 100%;
-        text-align: center;
-    }
-        #user-manual svg {
-            height: 1.5rem;
-            width: 1.5rem;
-        }
-        */
+}   

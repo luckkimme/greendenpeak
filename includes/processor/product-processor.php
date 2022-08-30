@@ -10,14 +10,13 @@
 
     function get_products($conn) {
         $product_name = '';
-        $query = 'SELECT p.product_id, p.product_name, p.product_desc, p.product_img, p.fk_brand_id FROM product p JOIN brand b ON p.fk_brand_id = b.brand_id';
+        $query = 'SELECT * FROM product p JOIN brand b ON p.fk_brand_id = b.brand_id';
         $product_name = get_multiple_query($query, $conn);
         return $product_name;
     }
 
     function get_product_info($conn, $productID) {
-        $query = "SELECT p.product_id, p.product_name, p.product_desc, p.product_desc_list, p.product_img, p.product_purchase_btn_name, p.product_feature_carousel_title, b.brand_name   
-                  FROM `product` p JOIN `brand` b ON p.fk_brand_id = b.brand_id 
+        $query = "SELECT * FROM `product` p JOIN `brand` b ON p.fk_brand_id = b.brand_id 
                   WHERE product_id = " . $productID;
         $productInfo = get_single_query($query, $conn);
         return $productInfo;
@@ -32,8 +31,7 @@
     }
 
     function get_product_feature($conn, $productID) {
-        $query = "SELECT pf.product_feature_main_title, pf.product_feature_main_img, pf.product_feature_description
-                  FROM `product_feature` pf
+        $query = "SELECT * FROM `product_feature` pf
                   LEFT JOIN `product` p ON pf.fk_product_id = p.product_id 
                   WHERE pf.isShown = 1 AND p.product_id =" . $productID;
         $productFeature = get_single_query($query, $conn);
@@ -59,8 +57,7 @@
     }
 
     function get_product_kit($conn, $productID) {
-        $query = "SELECT pk.product_kit_id, pk.product_kit_title, pk.product_kit_subtitle, pk.product_kit_standard_title, pk.product_kit_standard_desc, pk.product_kit_optional_title, pk.product_kit_optional_desc, pk.product_kit_img
-                  FROM `product_kit` pk
+        $query = "SELECT * FROM `product_kit` pk
                   LEFT JOIN `product` p ON pk.fk_product_id = p.product_id 
                   WHERE p.product_id =" . $productID;
         $productKit = get_single_query($query, $conn);
@@ -88,8 +85,7 @@
     }
 
     function get_accessories($conn, $productID) {
-        $query = "SELECT pa.product_accessory_id, pa.product_accessory_title, pa.product_accessory_subtitle
-                  FROM `product_accessory` pa 
+        $query = "SELECT * FROM `product_accessory` pa 
                   LEFT JOIN `product` p ON pa.fk_product_id = p.product_id
                   WHERE p.product_id = " . $productID;
         $productAccessoryTitle = get_single_query($query, $conn);
@@ -147,8 +143,7 @@
     }
 
     function get_other_info_item($conn, $productID) {
-        $query = "SELECT pitem.product_info_item_id, pitem.product_info_item_title, pitem.product_other_info_desc, pitem.product_other_info_desc_list, pitem.product_info_item_img, pitem.product_info_item_subtitle, pitem.fk_other_info_item_id
-                  FROM `product_other_info_item` pitem 
+        $query = "SELECT * FROM `product_other_info_item` pitem 
                   LEFT JOIN `product_other_info` poi ON pitem.fk_other_info_item_id = poi.product_other_info_id 
                   LEFT JOIN `product` p ON poi.fk_product_id = p.product_id
                   WHERE pitem.isShown = 1 AND p.product_id = " . $productID;
@@ -176,5 +171,29 @@
                   WHERE pidl.isShown AND p.product_id = " . $productID;
         $productOtherInfoDescList = get_multiple_query($query, $conn);
         return $productOtherInfoDescList;          
+    }
+
+    function get_product_img($conn, $productID) {
+        $query = "SELECT * FROM `product_img` pimg 
+                  LEFT JOIN `product` p ON pimg.fk_product_id = p.product_id
+                  WHERE pimg.isShown = 1 AND p.product_id = " . $productID;
+        $productIMG = get_multiple_query($query, $conn);
+        return $productIMG;
+    }
+
+    function get_product_vid($conn, $productID) {
+        $query = "SELECT * FROM `product_video` pv
+                  LEFT JOIN `product` p ON pv.fk_product_id = p.product_id
+                  WHERE pv.isShown = 1 AND p.product_id = " . $productID;
+        $productVid = get_multiple_query($query, $conn);
+        return $productVid;
+    }
+
+    function get_user_manual($conn, $productID) {
+        $query = "SELECT * FROM `product_user_manual` pum 
+                  LEFT JOIN `product` p ON pum.fk_product_id = p.product_id
+                  WHERE p.product_id = " . $productID;
+        $productUserManual = get_multiple_query($query, $conn);
+        return $productUserManual;
     }
 ?>
