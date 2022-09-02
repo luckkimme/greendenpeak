@@ -1,14 +1,11 @@
 <?php 
-  //Include scripts
-  require_once __DIR__ . '/../../includes/processor/index-processor.php';
+    //Include scripts
+    require_once __DIR__ . '/../../includes/processor/index-processor.php';
 
-  $company = get_company_info($conn);
+    $company = get_company_info($conn);
 
 ?>
-<footer
-          class="text-center text-lg-start text-white"
-          style="background-color: #08B5B6"
-          >
+<footer class="text-center text-lg-start text-white" style="background-color: #08B5B6">
     <!-- Grid container -->
     <div class="container p-4 pb-0">
       <!-- Section: Links -->
@@ -33,9 +30,6 @@
             <p class="text-white"> Thermostar Dry Steam System - Philippines</p>
             <p class="text-white"> Doulos Cleaning Services</p>
           </div>
-          <!-- Grid column -->
-
-          <hr class="w-100 clearfix d-md-none" />
 
           <!-- Grid column -->
           <hr class="w-100 clearfix d-md-none" />
@@ -48,7 +42,9 @@
             <p><i class="bi bi-phone-fill mr-3"></i> <?php echo $company['phone_no']; ?></p>
             <p><i class="bi bi-telephone-fill mr-3"></i> <?php echo $company['tel_no']; ?></p>
           </div>
+
           <!-- Grid column -->
+          <hr class="w-100 clearfix d-md-none" />
 
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -56,36 +52,35 @@
 
             <!-- Facebook -->
             <a
-               class="btn btn-primary btn-circle btn-md"
-               style="background-color: #3b5998"
-               href="https://www.facebook.com/greendenpeak"
-               target="_blank" 
-               rel="noopener"
-               role="button"
-               ><i class="bi bi-facebook"></i
-              ></a>
+              class="btn btn-primary btn-circle btn-md"
+              style="background-color: #3b5998"
+              href="https://www.facebook.com/greendenpeak"
+              target="_blank" 
+              rel="noopener"
+              role="button">
+              <i class="bi bi-facebook"></i>
+            </a>
 
             <!-- Youtube -->
             <a
-               class="btn btn-primary btn-circle btn-md"
-               style="background-color: #dd4b39"
-               href="https://www.youtube.com/channel/UC68HGEpj8YENuCbjicb9frA"
-               target="_blank" 
-               rel="noopener"
-               role="button"
-               ><i class="bi bi-youtube"></i
-              ></a>
+              class="btn btn-primary btn-circle btn-md"
+              style="background-color: #dd4b39"
+              href="https://www.youtube.com/channel/UC68HGEpj8YENuCbjicb9frA"
+              target="_blank" 
+              rel="noopener"
+              role="button"><i class="bi bi-youtube"></i>
+            </a>
 
             <!-- Instagram -->
             <a
-               class="btn btn-primary btn-circle btn-md"
-               style="background-color: #E4405F"
-               href="https://www.instagram.com/greendenpeak/"
-               target="_blank" 
-               rel="noopener"
-               role="button"
-               ><i class="bi bi-instagram"></i
-              ></a>
+              class="btn btn-primary btn-circle btn-md"
+              style="background-color: #E4405F"
+              href="https://www.instagram.com/greendenpeak/"
+              target="_blank" 
+              rel="noopener"
+              role="button">
+              <i class="bi bi-instagram"></i>
+            </a>
           </div>
         </div>
         <!--Grid row-->
@@ -96,10 +91,10 @@
 
     <!-- Copyright -->
     <div
-         class="text-center p-3 mt-3"
-         style="background-color: #02ABAB"
-         >
-      © 2020 Greendenpeak - All Rights Reserved
+        class="text-center p-3 mt-3"
+        style="background-color: #02ABAB"
+        >
+      © 2020 <?php echo $company['company_name']; ?> - All Rights Reserved
     </div>
     <!-- Copyright -->
   </footer>
