@@ -2,8 +2,26 @@
     //Include scripts
     require_once __DIR__ . '/../../includes/processor/index-processor.php';
 
+    //Get Company details from database
     $company = get_company_info($conn);
+    $company_link = get_company_links($conn);
 
+    //set links for each social media
+    $facebook = "";
+    $youtube = "";
+    $instagram = "";
+
+    foreach($company_link as $link) {
+      switch($link['link_name']) {
+        case 'facebook':
+          $facebook = $link['link'];
+        case 'youtube':
+          $youtube = $link['link'];
+        case 'instagram':
+          $instagram = $link['link'];
+        default: break;
+      }
+    }
 ?>
 <footer class="text-center text-lg-start text-white" style="background-color: #08B5B6">
     <!-- Grid container -->
@@ -54,7 +72,7 @@
             <a
               class="btn btn-primary btn-circle btn-md"
               style="background-color: #3b5998"
-              href="https://www.facebook.com/greendenpeak"
+              href="<?php echo $facebook; ?>"
               target="_blank" 
               rel="noopener"
               role="button">
@@ -65,7 +83,7 @@
             <a
               class="btn btn-primary btn-circle btn-md"
               style="background-color: #dd4b39"
-              href="https://www.youtube.com/channel/UC68HGEpj8YENuCbjicb9frA"
+              href="<?php echo $youtube; ?>"
               target="_blank" 
               rel="noopener"
               role="button"><i class="bi bi-youtube"></i>
@@ -75,7 +93,7 @@
             <a
               class="btn btn-primary btn-circle btn-md"
               style="background-color: #E4405F"
-              href="https://www.instagram.com/greendenpeak/"
+              href="<?php echo $instagram; ?>"
               target="_blank" 
               rel="noopener"
               role="button">
@@ -90,10 +108,7 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div
-        class="text-center p-3 mt-3"
-        style="background-color: #02ABAB"
-        >
+    <div class="text-center p-3 mt-3" style="background-color: #02ABAB">
       © 2020 <?php echo $company['company_name']; ?> - All Rights Reserved
     </div>
     <!-- Copyright -->
