@@ -165,19 +165,21 @@
                     </div>
                 </td>
             </tr>
-        EOL;
+        EOL; 
     }
 
     function create_img_item(string $img_name, string $img_src, int $img_id) {
         return <<< EOL
-        <div class="card h-100">
-            <img src="$img_src">
-            <div class="card-body">
-                <h5 class="card-title">$img_name</h5>
-            </div>
-            <div class="card-footer d-flex flex-row justify-content-between">
-                <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteImg" onclick="setIdField($img_id, 'delete-img-field')">Delete</button>
-                <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editImg" aria-expanded="false" aria-controls="editImg" onclick="setEditImageModal($img_id)">Edit Image</a> 
+        <div class="col">
+            <div class="card h-100">
+                <img src="$img_src">
+                <div class="card-body">
+                    <h5 class="card-title">$img_name</h5>
+                </div>
+                <div class="card-footer d-flex flex-row justify-content-between">
+                    <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteImg" onclick="setIdField($img_id, 'delete-img-field')">Delete</button>
+                    <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editImg" aria-expanded="false" aria-controls="editImg" onclick="setEditImageModal($img_id)">Edit Image</a> 
+                </div>
             </div>
         </div>
         EOL;
@@ -185,16 +187,18 @@
 
     function create_video_item(string $vid_name, string $vid_src, int $vid_id) {
         return <<< EOL
-        <div class="card h-100">
-            <iframe class="w-100" height="200" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-                src="$vid_src">
-            </iframe>
-            <div class="card-body">
-                <h5 class="card-title">$vid_name</h5>
-            </div>
-            <div class="card-footer d-flex flex-row justify-content-between">
-                <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteVid" onclick="setIdField($vid_id, 'delete-vid-field')">Delete</button>
-                <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editVid" aria-expanded="false" aria-controls="editVid" onclick="setEditVideoModal($vid_id)">Edit Video</a> 
+        <div class="col">
+            <div class="card h-100">
+                <iframe class="w-100" height="200" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    src="$vid_src">
+                </iframe>
+                <div class="card-body">
+                    <h5 class="card-title">$vid_name</h5>
+                </div>
+                <div class="card-footer d-flex flex-row justify-content-between">
+                    <button class="btn btn-danger mb-3" type="button" data-bs-toggle="modal" data-bs-target="#deleteVid" onclick="setIdField($vid_id, 'delete-vid-field')">Delete</button>
+                    <a type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editVid" aria-expanded="false" aria-controls="editVid" onclick="setEditVideoModal($vid_id)">Edit Video</a> 
+                </div>
             </div>
         </div>
         EOL;

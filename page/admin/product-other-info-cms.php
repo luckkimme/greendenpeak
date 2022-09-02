@@ -95,19 +95,19 @@
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <a class="nav-link px-3" href="#">Sign out</a>
             </div>
-        </div>
+        </div> -->
     </header>
 
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
-                    <ul class="nav flex-column pb-3 border-bottom">
+                    <!-- <ul class="nav flex-column pb-3 border-bottom">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/../greendenpeak/page/index.php"> <span data-feather="home"></span> Dashboard </a>
                         </li>
@@ -121,7 +121,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#"> <span data-feather="bar-chart-2"></span> Reports </a>
                         </li>
-                    </ul>
+                    </ul> -->
 
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span class="h7">Content Management</span>
@@ -129,7 +129,7 @@
                         </a>
                     </h6>
                     <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="/greendenpeak/page/admin/landing-cms.php">
                             <span data-feather="file"></span>
                             Landing Page
@@ -140,7 +140,7 @@
                             <span data-feather="user-check"></span>
                             About Us Page
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link active" href="/greendenpeak/page/admin/brand-cms.php">
                             <span data-feather="shopping-cart"></span>

@@ -1,6 +1,10 @@
 <div id="div-other-info">
     <!-- <div class="b-example-divider-v2"></div> -->
-    <?php echo display_product_other_info_per_keyword($product_other_title, $product_other_info, $product_other_info_desc, $product_other_info_desc_list); ?>
+    <?php 
+        if($product_other_title) {
+            echo display_product_other_info_per_keyword($product_other_title, $product_other_info, $product_other_info_desc, $product_other_info_desc_list);
+        }
+    ?>
     <!-- <div class="container col-xxl-8 ">
         <h1 class="display-5 fw-bold lh-1 mb-3 py-3">Certification</h1>
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5 div-other-info-container">

@@ -24,7 +24,7 @@
 
 <!-- Edit Product Other Information per Item -->
 <div class="modal fade overflow-y-scroll" id="editOtherInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editOtherInfoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editOtherInfoLabel">Edit Other Information</h5>
@@ -68,7 +68,7 @@
 
 <!-- ADD Product Other Information per Item -->
 <div class="modal fade" id="addOtherInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOtherInfoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addOtherInfoLabel">Add Other Information</h5>

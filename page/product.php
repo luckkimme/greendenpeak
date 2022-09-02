@@ -122,8 +122,33 @@
                                 echo '<button class="nav-link" id="btn-feature-tab" data-bs-toggle="pill" data-bs-target="#product-features" type="button" role="tab" aria-controls="product-features" aria-selected="false">product features</button>';
                                 echo '</li>';
                             } 
+                            if($product_kit) {
+                                echo   '<li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="btn-specification-tab" data-bs-toggle="pill" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">specifications / kit</button>
+                                        </li>';
+                            }
+                            if($product_accessory) {
+                                echo    '<li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="btn-accessory-tab" data-bs-toggle="pill" data-bs-target="#optional-accessories" type="button" role="tab" aria-controls="optional-accessories" aria-selected="false">optional accessories</button>
+                                        </li>';
+                            }
+                            if($product_other_title) {
+                                echo    '<li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="btn-other-info-tab" data-bs-toggle="pill" data-bs-target="#other-info" type="button" role="tab" aria-controls="other-info" aria-selected="false">other information</button>
+                                        </li>';
+                            }
+                            if($product_img || $product_vid) {
+                                echo    '<li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="btn-gallery-tab" data-bs-toggle="pill" data-bs-target="#gallery" type="button" role="tab" aria-controls="gallery" aria-selected="false">gallery</button>
+                                        </li>';
+                            }
+                            if($product_user_manual) {
+                                echo    '<li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="btn-manual-tab" data-bs-toggle="pill" data-bs-target="#user-manual" type="button" role="tab" aria-controls="user-manual" aria-selected="false">user manual</button>
+                                        </li>';
+                            }
                         ?>
-                        <li class="nav-item" role="presentation">
+                       <!--  <li class="nav-item" role="presentation">
                             <button class="nav-link" id="btn-specification-tab" data-bs-toggle="pill" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">specifications / kit</button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -134,10 +159,10 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="btn-gallery-tab" data-bs-toggle="pill" data-bs-target="#gallery" type="button" role="tab" aria-controls="gallery" aria-selected="false">gallery</button>
-                        </li>
+                        </li> 
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="btn-manual-tab" data-bs-toggle="pill" data-bs-target="#user-manual" type="button" role="tab" aria-controls="user-manual" aria-selected="false">user manual</button>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -155,23 +180,40 @@
                                 include_once("component/product-feature.php");
                         echo '</div>';
                     } 
+
+                    if($product_kit) {
+                        echo '<div id="specifications" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-specification-tab">';
+                                include_once("component/product-kit.php");
+                        echo '</div>';
+                    }
+
+                    if($product_accessory) {
+                        echo '<div id="optional-accessories" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-accessory-tab">';
+                                include_once("component/product-accessories.php");
+                        echo '</div>';
+                    }
+
+                    if($product_other_title) {
+                        echo '<div id="other-info" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-other-info-tab">';
+                                include_once("component/product-other-info.php");
+                        echo '</div>';
+                    }
+
+                    if($product_vid || $product_img) {
+                        echo '<div id="gallery" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-gallery-tab">';
+                                include_once("component/product-gallery.php");
+                        echo '</div>';
+                    }
                 ?>
-                <div id="specifications" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-specification-tab">
-                    <?php include_once("component/product-kit.php"); ?>
-                </div> 
                 
-                <div id="optional-accessories" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-accessory-tab">
-                    <?php include_once("component/product-accessories.php"); ?>    
-                </div>
-                
-                <div id="other-info" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-other-info-tab">
+                <!-- <div id="other-info" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-other-info-tab">
                     <?php include_once("component/product-other-info.php"); ?>
                 </div>
 
                 <div id="gallery" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-gallery-tab">
                     <?php include_once("component/product-gallery.php"); ?>
-                </div>
-
+                </div> -->
+                    
                 <div id="user-manual" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-manual-tab">
                     <h4 class="lh-1 mb-3 py-3 text-center">In need of assistance for using the Rainbow Vacuum Cleaner?</h4>
                     <h5 class="text-center mx-5">Check out the links below:</h6>
