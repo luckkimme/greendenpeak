@@ -122,6 +122,9 @@ svg {
 .div-prod-service {
 	background-color: #14c9cb;
 }
+.nav-link-about {
+	text-decoration: none;
+}
 @media only screen and (max-width: 899px) {
 	#p-history img {
 		width: 100%;

@@ -7,7 +7,7 @@
     require_once __DIR__ . '/../../includes/processor/product-processor.php';
     require_once __DIR__ . '/../../includes/processor/index-processor.php';
 
-    //Product Brands
+    //Get product data from database
     $brand = get_brand($conn);
     $product = get_products($conn);
     $company = get_company_info($conn);
@@ -53,20 +53,30 @@
     
 		<!-- Custom styles for this template -->
 		<link href="../../asset/css/product-and-services.css" rel="stylesheet">
-
 	</head>
 	<body>
+		<!-- include the menu bar -->
   		<?php 
 	        include_once __DIR__ . '/navbar.php';
 	    ?>
-		<div class="container px-4 py-5" id="hanging-icons">
+
+		<!-- navigation for going back to main about uus page -->
+		<div class="container px-4 py-2">
+			<a href="../about-us.php" class="nav-link-about">< Go Back</a></li>
+		</div>
+
+		<!-- Page Heading -->
+		<div class="container px-4 pb-5" id="hanging-icons">
 			<h2 class="pb-2 border-bottom">Products and Services</h2>
 		</div>
-	    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+
+		<!-- Display the information from the database -->
+	    <div class="container px-5">
+			<div class="row pb-5 gap-3">
 			<?php 
 				foreach($brand as $b) {
-					echo '<div class="div-prod-service me-md-3 pt-3 px-3 pt-md-5 px-md-5 mb-4 text-center text-white overflow-hidden">';
-					echo '<div class="my-3 py-3">';
+					echo '<div class="div-prod-service col container text-center text-white">';
+					echo '<div class="my-2 py-3">';
 					echo '<h2 class="display-5 h-brand">' . $b['brand_name'] . '</h2>';
 					echo '<p class="lead p-brand-desc">' . $b['description'] . '</p>';
 					echo '</div>';
@@ -94,11 +104,25 @@
 				</div>
 				<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
 			</div> -->
+			</div>
 		</div>
-
+		<!-- script for bootstrap -->
 		<script src="../../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+		<!-- script for offcanvas navbar -->
 		<script src="../../asset/js/offcanvas.js"></script>
+		<!-- Get Jquery -->
+		<script type="text/javascript" src="../asset/js/jquery.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
+		<!-- set the active link in menu bar -->
+		<script>
+			$(document).ready(function(){
+				$("#nav-main ul li a").removeClass("active");
+				$("#nav-about").addClass("active");
+			})
+		</script>
+
+		<!-- include footer for this page -->
 		<?php include_once __DIR__ . '/footer.php'; ?>
 	</body>
 </html>

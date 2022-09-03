@@ -53,15 +53,24 @@
     
 		<!-- Custom styles for this template -->
 		<link href="../../asset/css/features.css" rel="stylesheet">
-
 	</head>
 	<body>
+		<!-- include the menu bar -->
   		<?php 
 	        include_once __DIR__ . '/navbar.php';
 	    ?>
+
+		<!-- navigation for going back to main about uus page -->
+		<div class="container px-4 py-2">
+			<a href="../about-us.php" class="nav-link-about">< Go Back</a></li>
+		</div>
+
 	    <div class="container px-4 py-5" id="hanging-icons">
+			<!-- company name header -->
 			<h2 class="pb-2 border-bottom"><?php echo $company['company_name']; ?></h2>
+			
 			<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+				<!-- vision -->
 				<div class="col d-flex align-items-start">
 					<div class="icon-square text-dark flex-shrink-0 me-3 div-icon">
 						<i class="bi bi-graph-up-arrow"></i>
@@ -71,6 +80,7 @@
 						<p><?php echo $company['company_vision']; ?></p>
 					</div>
 				</div>
+				<!-- mission -->
 				<div class="col d-flex align-items-start">
 					<div class="icon-square text-dark flex-shrink-0 me-3 div-icon">
 						<i class="bi bi-bullseye"></i>
@@ -80,6 +90,7 @@
 						<p><?php echo $company['company_mission']; ?></p>
 					</div>
 				</div>
+				<!-- core values -->
 				<div class="col d-flex align-items-start">
 					<div class="icon-square text-dark flex-shrink-0 me-3 div-icon">
 						<i class="bi bi-star-fill"></i>
@@ -91,9 +102,23 @@
 				</div>
 			</div>
 		</div>
+		<!-- script for bootstrap -->
 		<script src="../../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+		<!-- script for offcanvas navbar -->
 		<script src="../../asset/js/offcanvas.js"></script>
+		<!-- Get Jquery -->
+		<script type="text/javascript" src="../asset/js/jquery.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
+		<!-- set the active link in menu bar -->
+		<script>
+			$(document).ready(function(){
+				$("#nav-main ul li a").removeClass("active");
+				$("#nav-about").addClass("active");
+			})
+		</script>
+
+		<!-- include footer for the page -->
 		<?php include_once __DIR__ . '/footer.php'; ?>
 	</body>
 </html>
