@@ -104,7 +104,7 @@ function addAccessoryItem(accessoryDivId) {
         </div>
         <div class="modal-body">
             <div class="form-floating">
-                <input class="form-control" id="Accessory Description" placeholder="Accessory Description" name="accessory_desc[]" required/>
+                <textarea class="form-control" style="white-space:pre-wrap;" id="Accessory Description" placeholder="Accessory Description" name="accessory_desc[]" required></textarea>
                 <label for="Accessory Description">Accessory Description</label>
             </div>
         </div>
