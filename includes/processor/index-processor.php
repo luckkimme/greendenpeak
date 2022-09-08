@@ -33,4 +33,10 @@
         return $company;
     }
 
+    function get_company_links($conn) {
+        $query = 'SELECT * FROM `company_link`';
+        $link = get_multiple_query($query, $conn);
+        return $link;
+    }
+
 ?>

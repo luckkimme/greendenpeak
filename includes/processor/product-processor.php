@@ -2,15 +2,24 @@
     require_once __DIR__ . "/../function/query.php";
     require_once __DIR__ . "/../connection.php";
 
+    function get_available($conn) {
+        $query = 'SELECT * FROM `brand` b
+                  LEFT JOIN `product` p ON b.brand_id = p.fk_brand_id
+                  WHERE p.isShown = 1 AND p.fk_brand_id = b.brand_id';
+        $x = get_multiple_query($query, $conn);
+        return $x;
+    }
+
     function get_brand($conn) {
-        $query = 'SELECT * FROM brand';
+        $query = 'SELECT * FROM brand WHERE isShown = 1';
         $brand = get_multiple_query($query, $conn);
         return $brand;
     }
 
     function get_products($conn) {
         $product_name = '';
-        $query = 'SELECT * FROM product p JOIN brand b ON p.fk_brand_id = b.brand_id';
+        $query = 'SELECT * FROM product p JOIN brand b ON p.fk_brand_id = b.brand_id
+                  WHERE p.isShown = 1';
         $product_name = get_multiple_query($query, $conn);
         return $product_name;
     }
@@ -20,14 +29,6 @@
                   WHERE product_id = " . $productID;
         $productInfo = get_single_query($query, $conn);
         return $productInfo;
-    }
-
-    function get_product_info_desc_list($conn, $productID) {
-        $query = "SELECT pl.product_desc_list_item_name AS li
-                  FROM `product_desc_list` pl
-                  LEFT JOIN `product` p ON pl.fk_product_id = p.product_id WHERE pl.isShown = 1 AND p.product_id =" . $productID;
-        $productInfoDesc = get_multiple_query($query, $conn);
-        return $productInfoDesc;
     }
 
     function get_product_feature($conn, $productID) {
@@ -62,26 +63,6 @@
                   WHERE p.product_id =" . $productID;
         $productKit = get_single_query($query, $conn);
         return $productKit;
-    }
-
-    function get_product_kit_standard($conn, $productID) {
-        $query = "SELECT pks.product_kit_standard_id, pks.product_kit_standard_item_name
-                  FROM `product_kit_standard` pks
-                  LEFT JOIN `product_kit` pk ON pks.fk_product_kit_id = pk.product_kit_id 
-                  LEFT JOIN `product` p ON pk.fk_product_id = p.product_id
-                  WHERE pks.isShown = 1 AND p.product_id =" . $productID;
-        $productKitStandard = get_multiple_query($query, $conn);
-        return $productKitStandard;
-    }
-
-    function get_product_kit_optional($conn, $productID) {
-        $query = "SELECT pko.product_kit_optional_id, pko.product_kit_optional_item_name
-                  FROM `product_kit_optional` pko
-                  LEFT JOIN `product_kit` pk ON pko.fk_product_kit_id = pk.product_kit_id 
-                  LEFT JOIN `product` p ON pk.fk_product_id = p.product_id
-                  WHERE pko.isShown = 1 AND p.product_id =" . $productID;
-        $productKitOptional = get_multiple_query($query, $conn);
-        return $productKitOptional;
     }
 
     function get_accessories($conn, $productID) {

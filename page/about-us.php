@@ -7,8 +7,11 @@
     require_once __DIR__ . '/../includes/processor/index-processor.php';
 
     //Get Product Brands from Database
+    $available = get_available($conn);
     $brand = get_brand($conn);
     $product = get_products($conn);
+
+    //Get Company Information from Database
     $company = get_company_info($conn);
 
     //View Scripts

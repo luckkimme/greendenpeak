@@ -35,19 +35,19 @@
                 <input id="item-id-field" type="text" name="item_id" value="" hidden>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input type="text" id="edit-other-info-title" class="form-control" id="titleOtherInfo" placeholder="Other Info Item Title" name="other_info_title" required />
+                        <input type="text" id="edit-other-info-title" class="form-control" placeholder="Other Info Item Title" name="other_info_title" required />
                         <label for="titleOtherInfo">Title</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" id="edit-other-info-subtitle" class="form-control" id="subtitleOtherInfo" placeholder="Other Info Item Subtitle" name="other_info_subtitle" required />
+                        <input type="text" id="edit-other-info-subtitle" class="form-control" placeholder="Other Info Item Subtitle" name="other_info_subtitle" required />
                         <label for="subtitleOtherInfo">SubTitle</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea id="edit-other-info-desc" class="form-control" placeholder="Description" id="textDesc" name="other_info_desc" required ></textarea>
+                        <textarea id="edit-other-info-desc" class="form-control" placeholder="Description" name="other_info_desc" required ></textarea>
                         <label for="textDesc">Description <small>(In Paragraph)</small></label>
                     </div>
                     <div class="form-floating mb-3">
-                        <textarea id="edit-other-info-desc-list" class="form-control col-md-12" placeholder="Description" id="textDescList" name="other_info_desc_list" required></textarea>
+                        <textarea id="edit-other-info-desc-list" class="form-control col-md-12" placeholder="Description" name="other_info_desc_list" required></textarea>
                         <label for="textDesc">Description <small>(In List)</small></label>
                     </div>
                     <div class="input-group">

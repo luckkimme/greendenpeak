@@ -20,7 +20,7 @@
             <tr>
                 <td class="tdproduct">$product_name</td>
                 <td class="alignment">
-                    <a href="/greendenpeak/page/admin/product-details-cms.php?product_id=$product_id" type="button" class="btn btn-secondary button-padding">Edit</a>
+                    <a href="/greendenpeak/page/admin/product-details-cms.php?product_id=$product_id" type="button" class="btn btn-secondary button-padding">Manage</a>
                     <form class="d-inline" method="POST" action="/greendenpeak/includes/api/product.php">
                         <input type="text" name="brand_id" value="$brand_id" hidden>
                         <input type="text" name="product_id" value="$product_id" hidden>
@@ -82,7 +82,7 @@
                 <div class="input-group modal-body">
                     <button type="button" class="btn btn-secondary btn-sm" onclick="deleteAccessoryItem($accessory_id, '$element_id')">Delete Item</button>
                 </div>
-                <hr>
+                <hr class="w-100">
             </div>
         EOL;
     }

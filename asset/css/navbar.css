@@ -30,3 +30,34 @@ body {
                     .div-navbar-offcanvas .nav-item {
                         margin-left: 10px;
                     }
+        .nav-menu:focus, .nav-menu:active {
+            background-color: #14C9CB !important;
+        }
+        .div-collapse-nav-item a{
+            font-size: 1rem !important;
+            padding-left: 30px !important;
+        }
+            .nav-collapse-list {
+                list-style-type: none;
+                margin: 0 !important;
+            }
+
+.arrow {
+    border: solid #6c757d;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+@media only screen and (max-width: 299px) {
+    .navbar-brand-main {
+        font-weight: 600;
+        font-size: 12px;
+    }
+        .navbar-brand-main img {
+            height: 3rem;
+        }
+}

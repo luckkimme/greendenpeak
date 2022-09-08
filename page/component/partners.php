@@ -73,37 +73,16 @@
 		<!-- Display the information from the database -->
 	    <div class="container px-5">
 			<div class="row pb-5 gap-3">
-			<?php 
-				foreach($brand as $b) {
-					echo '<div class="div-prod-service col container text-center text-white">';
-					echo '<div class="my-2 py-3">';
-					echo '<h2 class="display-5 h-brand">' . $b['brand_name'] . '</h2>';
-					echo '<p class="lead p-brand-desc">' . $b['description'] . '</p>';
-					echo '</div>';
-					echo '</div>';
-				}
-			?>
-			<!-- <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-				<div class="my-3 py-3">
-					<h2 class="display-5">Another headline</h2>
-					<p class="lead">And an even wittier subheading.</p>
-				</div>
-				<div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-			</div>
-			<div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-				<div class="my-3 p-3">
-					<h2 class="display-5">Another headline</h2>
-					<p class="lead">And an even wittier subheading.</p>
-				</div>
-				<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-			</div>
-			<div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-				<div class="my-3 p-3">
-					<h2 class="display-5">Another headline</h2>
-					<p class="lead">And an even wittier subheading.</p>
-				</div>
-				<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-			</div> -->
+				<?php 
+					foreach($brand as $b) {
+						echo '<div class="div-prod-service col container text-center text-white">';
+						echo '<div class="my-2 py-3">';
+						echo '<h2 class="display-5 h-brand">' . $b['brand_name'] . '</h2>';
+						echo '<p class="lead p-brand-desc">' . $b['description'] . '</p>';
+						echo '</div>';
+						echo '</div>';
+					}
+				?>
 			</div>
 		</div>
 		<!-- script for bootstrap -->

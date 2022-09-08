@@ -11,9 +11,6 @@
             <div class="justify-content-md-start div-kit-list">
                 <p class="lead"><?php echo $product_kit['product_kit_standard_title']; ?></p>
                 <p class="kit-list-items"><?php echo $product_kit['product_kit_standard_desc']; ?></p>
-                <!-- <ul class="row ul-kit">
-                    <?php //echo display_product_kit_standard_items($product_kit_standard); ?>
-                </ul> -->
             </div>
             <?php  
                 if (!($product_kit['product_kit_optional_title'] == NULL)) {
@@ -23,7 +20,6 @@
                         <p class="kit-list-items"><?php echo $product_kit['product_kit_optional_desc']; ?></p>
                     </div>
             <?php
-                    //echo display_product_kit_optional_items($product_kit, $product_kit_optional);
                 } else {
                     //there is no optional kit
                 }

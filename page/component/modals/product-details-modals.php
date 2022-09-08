@@ -16,10 +16,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-floating">
-                        <textarea class="form-control" id="proDesc" rows="3" placeholder="Product Description" name="product_desc">
-                            <?php echo $product_details['product_desc'] ?? ''; ?>
-                        </textarea>
-                        <label for="proDesc">Product Description</label>
+                        <textarea class="form-control" id="proDesc" rows="3" placeholder="Product Description" name="product_desc"><?php echo $product_details['product_desc'] ?? ''; ?></textarea>
+                        <label for="proDesc">Product Description (Paragraph)</label>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="proDescList" rows="5" placeholder="Product Description" name="product_desc_list"><?php echo $product_details['product_desc_list'] ?? ''; ?></textarea>
+                        <label for="proDesc">Product Description (List)</label>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -127,70 +131,53 @@
             </div>
             <input type="text" name="product_id" value="<?php echo $product_id; ?>" hidden />
                 <div class="modal-body">
-                    <div class="form-floating">
+                    <div class="form-floating mb-3">
                         <input class="form-control" id="Main Title" placeholder="Main Title" name="product_kit_title" value="<?php if($product_kit) echo $product_kit[0]['product_kit_title'];?>" required/>
                         <label for="Main Title">Kit Title</label>
                     </div>
-                </div>
-                <div class="modal-body">
-                    <div class="form-floating">
-                        <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_subtitle">
-                            <?php if($product_kit) echo $product_kit[0]['product_kit_subtitle'] ?>
-                        </textarea>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_subtitle"><?php if($product_kit) echo $product_kit[0]['product_kit_subtitle'] ?></textarea>
                         <label for="Subtitle (optional)">Subtitle (optional)</label>
                     </div>
-                </div>
-                <hr>
-                <div class="modal-body">
-                    <div class="form-floating">
+                    <hr class="w-100">
+                    <div class="form-floating mb-3">
                         <input class="form-control" id="Standard Kit Title" placeholder="Standard Kit Title" name="product_kit_standard_title" value="<?php if($product_kit) echo $product_kit[0]['product_kit_standard_title'] ?>" required/>
                         <label for="Standard Kit Title">Standard Kit Title</label>
                     </div>
-                </div>
-
-                <div class="modal-body">
                     <div class="form-floating">
-                        <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_standard_desc">
-                            <?php if($product_kit) echo $product_kit[0]['product_kit_standard_desc'] ?>
-                        </textarea>
+                        <textarea class="form-control" id="kit_standard_desc" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_standard_desc"><?php if($product_kit) echo $product_kit[0]['product_kit_standard_desc'] ?></textarea>
                         <label for="Subtitle (optional)">Standard Kit Description</label>
                     </div>
-                </div>
-                <hr>
-                <div class="modal-body">
-                    <div class="form-floating">
+                    <hr class="w-100">
+                    <div class="form-floating mb-3">
                         <input class="form-control" id="Optional Kit Title" placeholder="Optional Kit Title" name="product_kit_optional_title" value="
                         <?php 
                             if($product_kit) echo $product_kit[0]['product_kit_optional_title'] 
                         ?>" required/>
                         <label for="Optional Kit Title">Optional Kit Title</label>
                     </div>
-                </div>
-
-                <div class="modal-body">
-                    <div class="form-floating">
-                        <textarea class="form-control" id="Subtitle (optional)" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_optional_desc">
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="kit_optional_desc" style="height: 100px" placeholder="Subtitle (optional)" name="product_kit_optional_desc">
                             <?php if($product_kit) echo $product_kit[0]['product_kit_optional_desc'] ?>
                         </textarea>
                         <label for="Subtitle (optional)">Optional Kit Description</label>
                     </div>
-                </div>
-                <hr>
-
-                <div class="input-group modal-body">
-                    <input type="text" name="product_kit_img" value="<?php if(isset($product_kit[0]['product_kit_img'])) echo $product_kit[0]['product_kit_img'];?>" hidden/>
-                    <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_kit_img" onchange="previewImage(this, 'kit-img-preview')" accept="image/*" />
-                    <img id="kit-img-preview" class="w-100 mx-auto d-block" src="<?php 
-                    if(isset($product_kit) && $product_kit[0]['product_kit_img'] !== null && $product_kit[0]['product_kit_img'] !== '') 
-                        echo $product_kit[0]['product_kit_img'];
-                    else 
-                        echo " "
-                    ?>" alt=" <?php 
-                        if(isset($product_kit[0]['product_kit_title']))
-                            echo $product_kit[0]['product_kit_title'];
+                    <hr class="w-100">
+                    <div class="input-group mb-3">
+                        <input type="text" name="product_kit_img" value="<?php if(isset($product_kit[0]['product_kit_img'])) echo $product_kit[0]['product_kit_img'];?>" hidden/>
+                        <input type="file" class="form-control" id="inputGroupFile" aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="Select a new Picture" name="product_kit_img" onchange="previewImage(this, 'kit-img-preview')" accept="image/*" />
+                        <img id="kit-img-preview" class="w-100 mx-auto d-block" src="<?php 
+                        if(isset($product_kit) && $product_kit[0]['product_kit_img'] !== null && $product_kit[0]['product_kit_img'] !== '') 
+                            echo $product_kit[0]['product_kit_img'];
                         else 
-                            echo " ";
-                    ?>" <?php if(!$product_kit || $product_kit[0]['product_kit_img'] === null || $product_kit[0]['product_kit_img'] === '') echo 'hidden'; ?> />
+                            echo " "
+                        ?>" alt=" <?php 
+                            if(isset($product_kit[0]['product_kit_title']))
+                                echo $product_kit[0]['product_kit_title'];
+                            else 
+                                echo " ";
+                        ?>" <?php if(!$product_kit || $product_kit[0]['product_kit_img'] === null || $product_kit[0]['product_kit_img'] === '') echo 'hidden'; ?> />
+                    </div>
                 </div>
                 
                 <div class="modal-footer">
@@ -225,7 +212,7 @@
                         <label for="Accessory Description">Accessory Description</label>
                     </div>
                 </div>
-                <hr>
+                <hr class="w-100">
                 <div id="accessories-items">
                     <?php
                         if(isset($product_accessories_items) && count($product_accessories_items) > 0) {
@@ -287,7 +274,7 @@
                             <p id="file-field"></p>
                             <input type="text" id="file-manual" name="manual_file" value="" hidden>
                             <input type="file" class="form-control mb-3" name="manual_file" accept=".pdf">
-                            <button type="submit" class="btn btn-success" name="method" value="edit_manual">Edit</button>
+                            <button type="submit" class="btn btn-success" name="method" value="edit_manual">Save</button>
                             <button type="submit" class="btn btn-danger" name="method" value="delete_manual" onclick="return confirm('Are you sure you want to delete')">Delete</button>
                         </form>
                     </div>

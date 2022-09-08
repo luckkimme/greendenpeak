@@ -18,13 +18,14 @@
         $id = intval($_POST['product_id']);
         $product_name = $_POST['product_name'];
         $product_desc = $_POST['product_desc'];
+        $product_desc_list = $_POST['product_desc_list'];
         $product_btn = $_POST['product_btn'];
         $product_img = $_POST['product_img'];
         if($_FILES['product_img']['error'] !== 4) {
             $product_img = upload_file($_FILES['product_img']['name'] , $_FILES['product_img']['tmp_name'], 'greendenpeak/asset/img/products');
         }
 
-        update_product_information($conn, $id, $product_name, $product_desc, $product_img, $product_btn);
+        update_product_information($conn, $id, $product_name, $product_desc, $product_desc_list, $product_img, $product_btn);
     } 
     
     else if($method === 'delete_carousel') {

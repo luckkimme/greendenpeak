@@ -4,10 +4,10 @@
 
     //Includes Scripts
     require_once __DIR__ . '/../includes/connection.php';
-    require_once __DIR__ . '/../includes/function/db.php';
     require_once __DIR__ . '/../includes/processor/product-processor.php';
 
     //Product Brands for the navbar
+    $available = get_available($conn);
     $brand = get_brand($conn);
     $product = get_products($conn);
 
@@ -29,7 +29,6 @@
     //Get Product Information to display
         //basic information
         $product_info = get_product_info($conn, $productID);
-        $productDescList = get_product_info_desc_list($conn, $productID);
 
         //features
         $product_feature = get_product_feature($conn, $productID);
@@ -38,20 +37,14 @@
 
         //kit
         $product_kit = get_product_kit($conn, $productID);
-        $product_kit_standard = get_product_kit_standard($conn, $productID);
-        $product_kit_optional = get_product_kit_optional($conn, $productID);
 
         //accessory
         $product_accessory_title = get_accessories($conn, $productID);
         $product_accessory = get_accessory_item($conn, $productID);
-        $product_accessory_desc = get_accessory_item_desc($conn, $productID);
-        $product_accessory_desc_list = get_accessory_item_desc_list($conn, $productID);
 
         //other info
         $product_other_title = get_other_info($conn, $productID);
         $product_other_info = get_other_info_item($conn, $productID);
-        $product_other_info_desc = get_other_info_item_desc($conn, $productID);
-        $product_other_info_desc_list = get_other_info_item_desc_list($conn, $productID);
 
         //gallery
         $product_img = get_product_img($conn, $productID);
@@ -102,7 +95,6 @@
         <link href="../asset/css/offcanvas.css?d=<?php echo time(); ?>" rel="stylesheet">
         <!-- Custom styles for offcanvas navbar -->
         <link href="../asset/css/heroes.css?d=<?php echo time(); ?>" rel="stylesheet">
-    
     </head>
 	<body>
 		<main id="div-product">
@@ -215,7 +207,7 @@
                 </div> -->
                     
                 <div id="user-manual" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-manual-tab">
-                    <h4 class="lh-1 mb-3 py-3 text-center">In need of assistance for using the Rainbow Vacuum Cleaner?</h4>
+                    <h4 class="lh-1 mb-3 py-3 text-center">In need of assistance for using the <?php echo $product_info['product_name']?></h4>
                     <h5 class="text-center mx-5">Check out the links below:</h6>
                     <div class="container">
                         <div class="row row-cols-1 row-cols-md-4 g-4 py-3">
@@ -244,6 +236,14 @@
             </div>
         </main>
         <script src="../asset/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="asset/js/jquery.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#nav-main ul li a").removeClass("active");
+                $("#nav-product").addClass("active");
+            })
+        </script>
 
         <script src="../asset/js/offcanvas.js"></script>
 

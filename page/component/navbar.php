@@ -11,19 +11,19 @@
         <div class="navbar-collapse offcanvas-collapse div-navbar-offcanvas">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/greendenpeak/index.php">home</a>
+                    <a class="nav-link" aria-current="page" href="/greendenpeak/index.php" id="nav-home">home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/greendenpeak/page/about-us.php">about us</a>
+                    <a class="nav-link" aria-current="page" href="/greendenpeak/page/about-us.php" id="nav-about">about us</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" href="#">products</a>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" href="#" id="nav-product">products</a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <?php display_brand_products($brand, $product); ?>
+                        <?php display_brand_products($available, $brand, $product); ?>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/greendenpeak/page/contact-us.php">contact us</a>
+                    <a class="nav-link" href="/greendenpeak/page/contact-us.php" id="nav-contact">contact us</a>
                 </li>
             </ul>
         </div>

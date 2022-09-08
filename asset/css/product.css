@@ -116,6 +116,7 @@ body {
             }
             .accessory-desc, .accessory-desc-list {
                 white-space: pre-wrap;
+                text-align: justify;
                 display: block;
                 line-height: 2em;
             }
@@ -130,22 +131,22 @@ body {
             }
             .link-container {
                 text-align: center;
-            }
-.btn-page:link, .btn-page:visited {
+            } 
+.btn-page:link, .btn-page:visited, #product-accessories a:link, #product-accessories a:visited, #user-manual a:link, #user-manual a:visited {
     background-color: #14C9CB !important;
     border: 1px solid #14C9CB !important;
 }
-.btn-page:hover, .btn-page:active {
+.btn-page:hover, .btn-page:active, #product-accessories a:hover, #product-accessories a:active, #user-manual a:hover, #user-manual a:active {
     background-color: #0EBFC0 !important;
 }
-@media only screen and (max-width: 1059px) {
+@media only screen and (max-width: 1089px) {
     #div-main-tab {
         font-size: 10px !important;
     }
     .product-brand {
         display: none !important;
     }
-}       
+}   
 @media only screen and (max-width: 899px) {
     
     #div-main-tab {

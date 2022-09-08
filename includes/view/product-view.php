@@ -2,31 +2,50 @@
 
     //require_once __DIR__ . '/../processor/product-processor.php';
 
-    function display_brand_products($brand, $product_name) {
+    function display_brand_products($available, $brand, $product) {
         $productBrand = '';
-        $productName = '';
-        $productID = '';
-        $brandName = '';
         
-        foreach($brand as $pBrand) {
+        //checking brands with available products
+        foreach($brand as $b) {
+            $currBrand = $b['brand_id'];
+            foreach($available as $a) {
+                if($a['brand_id'] == $currBrand){
+                    $productBrand ='<a tabindex="0" class="dropdown-item nav-menu" role="button"';
+                    $productBrand .='data-bs-toggle="collapse" aria-expanded="false" aria-controls="nav-collapse-' . $b['brand_name'] . '" href="#nav-collapse-' . $b['brand_name'] . '" title="Click to view ' . $b['brand_name'] . '">';
+                    $productBrand .= $b['brand_name'] . '<span class="nav-down-arrow float-end"><i class="arrow down"></i></span></a>';
+                    $productBrand .='<div class="collapse div-collapse-nav-item" id="nav-collapse-' . $b['brand_name'] . '">';
+                    
+                    foreach($product as $p) {
+                        if($currBrand == $p['fk_brand_id']) {
+                            $productBrand .= '<span><a class="dropdown-item nav-menu" href="/greendenpeak/page/product.php?productID=' . $p['product_id'] .'">';
+                            $productBrand .= $p['product_name'] . '</a></span>';
+                        }
+                    } 
+                    $productBrand .='</div>';
+                    
+                    echo $productBrand;
+                }
+            }
+        }
+        
+        /* foreach($brand as $pBrand) {
             $currBrand = $pBrand['brand_id'];
-            $productBrand = '<li class="dropdown">';
-            $productBrand .='<a tabindex="0" class="dropdown-item dropdown-toggle" role="button"';
-            $productBrand .='data-bs-toggle="dropdown" data-bs-trigger="focus" title="Click to view ' . $pBrand['brand_name'] . '">';
-            $productBrand .= $pBrand['brand_name'] . '</a>';
-            $productBrand .='<ul class="dropdown-menu">';
+            $productBrand ='<a tabindex="0" class="dropdown-item" role="button"';
+            $productBrand .='data-bs-toggle="collapse" aria-expanded="false" aria-controls="nav-collapse-' . $pBrand['brand_name'] . '" href="#nav-collapse-' . $pBrand['brand_name'] . '" title="Click to view ' . $pBrand['brand_name'] . '">';
+            $productBrand .= $pBrand['brand_name'] . '<span class="nav-down-arrow float-end">&#x25BC;</span></a>';
+            $productBrand .='<div class="collapse div-collapse-nav-item" id="nav-collapse-' . $pBrand['brand_name'] . '">';
             
-            foreach($product_name as $pName) {
+            foreach($product as $pName) {
                 if($currBrand == $pName['fk_brand_id']) {
-                    $productBrand .= '<li><a class="dropdown-item" href="/greendenpeak/page/product.php?productID=' . $pName['product_id'] .'">';
-                    $productBrand .= $pName['product_name'] . '</a></li>';
+                    $productBrand .= '<span>&#x26AB;<a class="dropdown-item" href="/greendenpeak/page/product.php?productID=' . $pName['product_id'] .'">';
+                    $productBrand .= $pName['product_name'] . '</a></span>';
                 }
             } 
-            $productBrand .='</ul></li>';
+            $productBrand .='</div>';
             
             echo $productBrand;
         }
-        return 0;
+        return 0; */
     }
 
     function display_product_info($product) {
@@ -37,7 +56,7 @@
         $product_img_src = $product['product_img'];
         $prodInfo = '';
 
-        $prodInfo ='<div class="col-12 col-sm-8 col-lg-6 justify-content-center div-p-img">';
+        $prodInfo ='<div class="col-12 col-sm-12 col-lg-6 justify-content-center div-p-img">';
         $prodInfo .='<img src="' . $product_img_src . '" class="d-block mx-lg-auto mx-auto img-fluid" alt="Product Image" loading="lazy">';
         $prodInfo .='</div><div class="col-lg-6 pt-3 div-product-desc">';
         $prodInfo .='<h1 class="display-5 fw-bold lh-1 mb-3">' . $product_name . '</h1>';
@@ -139,7 +158,7 @@
                 $carouselItem.= '<div class="carousel-item">';
                 $carouselItem.= '<img src="' . $feature['product_feature_carousel_img'] . '" class="d-block w-100" alt="Carousel Image">';
                 $carouselItem.= '<div class="carousel-caption d-md-block">';
-                $carouselItem.= '<h3>' . $carousel_title . '</h3>';
+                //$carouselItem.= '<h3>' . $carousel_title . '</h3>';
                 $carouselItem.= '<h5>' . $feature['product_feature_carousel_subtitle'] . '</h5>';
                 $carouselItem.= '<p>' . $feature['product_feature_carousel_desc'] . '</p></div></div>';
             } else if($i == 0) {
@@ -147,7 +166,7 @@
                 $carouselItem = '<div class="carousel-item active">';
                 $carouselItem.= '<img src="' . $feature['product_feature_carousel_img'] . '" class="d-block w-100" alt="Carousel Image">';
                 $carouselItem.= '<div class="carousel-caption d-none d-md-block">';
-                $carouselItem.= '<h3>' . $carousel_title . '</h3>';
+                //$carouselItem.= '<h3>' . $carousel_title . '</h3>';
                 $carouselItem.= '<h5>' . $feature['product_feature_carousel_subtitle'] . '</h5>';
                 $carouselItem.= '<p>' . $feature['product_feature_carousel_desc'] . '</p></div></div>';
             }
