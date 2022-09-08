@@ -200,7 +200,7 @@
         return $product_kit_optional_item;
     }
 
-    function display_product_accessory($product_accessory, $product_accessory_desc, $product_accessory_desc_list) {
+    function display_product_accessory($product_accessory) {
         $product_accessory_item = '';
 
         foreach($product_accessory as $accessory_item) {
@@ -276,7 +276,7 @@
         return $product_accessory_item;
     } */
     
-    function display_product_other_info_per_keyword($product_other_title, $product_other_info, $product_other_info_desc, $product_other_info_desc_list) {
+    function display_product_other_info_per_keyword($product_other_title, $product_other_info) {
         $product_other = '';
 
         foreach($product_other_title as $title) {
