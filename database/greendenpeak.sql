@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2022 at 11:44 AM
+-- Generation Time: Nov 26, 2022 at 06:15 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -41,7 +41,8 @@ CREATE TABLE `brand` (
 INSERT INTO `brand` (`brand_id`, `brand_name`, `description`, `isShown`) VALUES
 (1, 'Rainbow', 'Rainbow Cleaning System with standard attachments and other miscellaneous items', 1),
 (2, 'Thermostar', 'Thermostar Dry Steam System. This comes with standard attachments and other related items', 1),
-(3, 'Doulos Cleaning Services', 'Full use of services from Doulos Cleaning Services, which is also owned by founder, Dennis Salamanca since 2014', 1);
+(3, 'Doulos Cleaning Services', 'Full use of services from Doulos Cleaning Services, which is also owned by founder, Dennis Salamanca since 2014', 1),
+(4, 'test', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,7 @@ CREATE TABLE `company` (
   `company_core_values` varchar(2000) NOT NULL,
   `company_founder` varchar(1000) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -73,7 +74,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`company_id`, `email`, `phone_no`, `tel_no`, `address`, `company_name`, `company_logo`, `company_vision`, `company_mission`, `company_slogan`, `company_history`, `company_history_img`, `company_core_values`, `company_founder`, `username`, `password`) VALUES
-(1, 'info@greendenpeak.com', '09175451254', '(02)7502-1405', 'Rm 1. Naguilian Rd, Rainbow Bldg.Brgy. MRR Queen of Peace,Baguio City, Benguet', 'Greendenpeak, OPC', '/greendenpeak/asset/img/logo/logo-brand.png', 'We envisioned our company to become\r\nthe leading cleaning service provider and\r\nsupplier of high-quality cleaning\r\nequipment.', 'We aim to provide our clients with\r\nthe highest level of quality service in\r\nthe cleaning industry and to provide\r\ntop-of-the-line products and\r\nunequaled customer service in the\r\ncleaning equipment industry.', 'Built to last. Clean and convenient\r\nat the same time', 'Founded by Dennis Tupas Salamanca in 2019, Greendenpeak,\r\nOPC is committed to delivering top-of-the-line cleaning\r\nequipment and quality cleaning services. While focusing on\r\nonly two products, Rainbow Cleaning System and Thermostar\r\nDry Steam System, the founder added cleaning services using\r\nthese two cleaning equipment to attain the quality cleaning\r\nservice the customers deserve.\r\n\r\nDennis Tupas Salamanca joined Rainbow Pacific Philippines in\r\n2006 as a dealer. Eventually, he became a senior dealer, then\r\nan executive dealer. Being one of the best in the sales\r\ndepartment, he became a team leader, afterward, a group\r\nmanager. In 2019, he became an official branch distributor,\r\nand he founded a company under Greendenpeak, OPC.\r\nGreendenpeak, OPC is an official branch distributor under\r\nRainbow Pacific Philippines. Its office is in Baguio City,\r\nBenguet, and it caters to all customers nationwide.', '/greendenpeak/asset/img/about-us/6329648852070history.jpg', 'We uphold our core values of honesty,\r\nintegrity, professionalism, hard work,\r\ndedication, and achievement.', 'Dennis Tupas Salamanca', 'admin', '$2y$10$fpKp1HxY88uaaqO5kb7l3..S6ZvHAI7Hb3z9MnWzH6V');
+(1, 'info@greendenpeak.com', '09175451254', '(02)7502-1405', 'Rm 1. Naguilian Rd, Rainbow Bldg.Brgy. MRR Queen of Peace,Baguio City, Benguet', 'Greendenpeak, OPC', '/greendenpeak/asset/img/logo/logo-brand.png', 'We envisioned our company to become\nthe leading cleaning service provider and\nsupplier of high-quality cleaning\nequipment.', 'We aim to provide our clients with\nthe highest level of quality service in\nthe cleaning industry and to provide\ntop-of-the-line products and\nunequaled customer service in the\ncleaning equipment industry.', 'Built to last. Clean and convenient\nat the same time', 'Founded by Dennis Tupas Salamanca in 2019, Greendenpeak,\nOPC is committed to delivering top-of-the-line cleaning\nequipment and quality cleaning services. While focusing on\nonly two products, Rainbow Cleaning System and Thermostar\nDry Steam System, the founder added cleaning services using\nthese two cleaning equipment to attain the quality cleaning\nservice the customers deserve.\n\nDennis Tupas Salamanca joined Rainbow Pacific Philippines in\n2006 as a dealer. Eventually, he became a senior dealer, then\nan executive dealer. Being one of the best in the sales\ndepartment, he became a team leader, afterward, a group\nmanager. In 2019, he became an official branch distributor,\nand he founded a company under Greendenpeak, OPC.\nGreendenpeak, OPC is an official branch distributor under\nRainbow Pacific Philippines. Its office is in Baguio City,\nBenguet, and it caters to all customers nationwide.', '/greendenpeak/asset/img/about-us/6329648852070history.jpg', 'We uphold our core values of honesty,\nintegrity, professionalism, hard work,\ndedication, and achievement.', 'Dennis Tupas Salamanca', 'admin', '$2y$10$XptkrWPu.nD8VH.WarZvoebMDDVBVDL.bsYeOg5i/hPsO82zAeEzu');
 
 -- --------------------------------------------------------
 
@@ -166,10 +167,11 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_desc`, `product_desc_list`, `product_img`, `product_purchase_btn_name`, `product_feature_carousel_title`, `isShown`, `fk_brand_id`) VALUES
-(1, 'Rainbow Cleaning System', 'Great technology for dust-free cleaning for all surfaces with the power of water.', '• NO Vacuum Bags\r\n• With HEPA Filter\r\n• Water-Based Filtration\r\n• Eco-friendly\r\n• Certified Air Cleaner\r\n• Odor Elimination\r\n• Allergen Reduction', '/greendenpeak/asset/img/products/rainbow/rainbow-vacuum-no-bg.png', 'Get Yours Now!', 'The Power of Water', 1, 1),
+(1, 'Rainbow Cleaning System', 'Great technology for dust-free cleaning for all surfaces with the power of water.', '• NO Vacuum Bags\r\n• With HEPA Filter\r\n• Water-Based Filtration\r\n• Eco-friendly\r\n• Certified Air Cleaner\r\n• Odor Elimination\r\n• Allergen Reduction', '/greendenpeak/asset/img/products/63789e247547brainbow-vacuum-no-bg.png', 'Get Yours Now!', 'The Power of Water', 1, 1),
 (2, 'Thermostar Dry Steam System', 'At least 180°C micro dry steam perfect for DIY heat sterilization and disinfection on surfaces.', 'Beds, upholstery, mattresses, carpets and sofas\r\nFlat surfaces in the living room, children’s rooms and offices\r\nBathrooms and toilets\r\nKitchen\r\nGlass doors, windows and blinds\r\nGardens\r\nCars and bicycles', '/greendenpeak/asset/img/products/thermostar/thermostar.png', 'Get Yours Now!', NULL, 1, 2),
 (3, 'testing', 'my test', NULL, 'testing.jpg', 'Get Yours Now!', 'Product Features', 0, 1),
-(4, 'test', 'some description           ', NULL, '/greendenpeak/asset/img/products/6304c71ee1f88Cover-Photo.png', 'test', NULL, 0, 3);
+(4, 'test', 'some description           ', NULL, '/greendenpeak/asset/img/products/6304c71ee1f88Cover-Photo.png', 'test', NULL, 0, 3),
+(5, 'test', NULL, NULL, NULL, NULL, NULL, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -569,7 +571,7 @@ ALTER TABLE `product_video`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -599,7 +601,7 @@ ALTER TABLE `index_carousel`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `product_accessory`
