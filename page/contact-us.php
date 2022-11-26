@@ -25,6 +25,9 @@
 		<meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><?php echo $company['company_name']; ?></title>
+        <link rel="icon" href="<?php echo $company['company_logo']; ?>">
+
 	    <link href="../asset/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	    <link href="../asset/css/contact-us.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
@@ -63,7 +66,7 @@
             <p><i class="bi bi-phone-fill mr-3"></i> <?php echo $company['phone_no']; ?></p>
             <p><i class="bi bi-telephone-fill mr-3"></i> <?php echo $company['tel_no']; ?></p>
 		</div>
-		<form action="/greendenpeak/page/sendemail.php" method="post">
+		<form action="sendemail.php" method="post">
 			<div id="div-contact-select">
 				<div class="h3">Select the reason for contacting us</div>
 					<select class="form-select form-select-lg mb-3" id="reasonForContact" onchange="selectedReason()" name="purpose" aria-label=".form-select-lg example">

@@ -21,8 +21,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $company['company_name']; ?></title>
+    <link rel="icon" href="<?php echo $company['company_logo']; ?>">
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
     <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
     <link href="../asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">
@@ -66,7 +70,7 @@
                 <div class="container-fluid py-2">
                     <h1 class="display-5 fw-bold">Company History</h1>
                     <p id="p-history" class="h-100 mt-3">
-                        <img src="../asset/img/about-us/history.jpg" class="mb-2 ms-3">
+                        <img src="<?php echo $company['company_history_img']; ?>" class="mb-2 ms-3">
                         <?php echo $company['company_history']; ?>
                     </p>
                     <input type="text" class="filler">
@@ -78,7 +82,7 @@
                     <div class="h-100 p-5 text-white bg-lsg rounded-3">
                         <h2>“<?php echo $company['company_slogan']; ?>”</h2>
                         <p>Know what we stand for and what we consider important, our mission, vision, and core values.</p>
-                        <a class="btn btn-outline-light" href='/greendenpeak/page/component/mission.php'>Find Out More!</a>
+                        <a class="btn btn-outline-light" href='component/mission.php'>Find Out More!</a>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
@@ -92,7 +96,7 @@
                                 }
                             ?>
                         </ul>
-                        <a class="btn btn-outline-light" href='/greendenpeak/page/component/partners.php'>Find Out More!</a>
+                        <a class="btn btn-outline-light" href='component/partners.php'>Find Out More!</a>
                     </div>
                 </div>
             </div>

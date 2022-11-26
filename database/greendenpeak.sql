@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2022 at 03:12 PM
+-- Generation Time: Oct 12, 2022 at 11:44 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -61,16 +61,19 @@ CREATE TABLE `company` (
   `company_mission` varchar(5000) NOT NULL,
   `company_slogan` varchar(500) NOT NULL,
   `company_history` varchar(2000) NOT NULL,
+  `company_history_img` varchar(150) NOT NULL,
   `company_core_values` varchar(2000) NOT NULL,
-  `company_founder` varchar(1000) NOT NULL
+  `company_founder` varchar(1000) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`company_id`, `email`, `phone_no`, `tel_no`, `address`, `company_name`, `company_logo`, `company_vision`, `company_mission`, `company_slogan`, `company_history`, `company_core_values`, `company_founder`) VALUES
-(1, 'info@greendenpeak.com', '09175451254', '(02)7502-1405', 'Rm 1. Naguilian Rd, Rainbow Bldg.\nBrgy. MRR Queen of Peace,\nBaguio City, Benguet', 'Greendenpeak, OPC', '/greendenpeak/asset/img/logo/logo-brand.png', 'We envisioned our company to become\r\nthe leading cleaning service provider and\r\nsupplier of high-quality cleaning\r\nequipment.', 'We aim to provide our clients with\r\nthe highest level of quality service in\r\nthe cleaning industry and to provide\r\ntop-of-the-line products and\r\nunequaled customer service in the\r\ncleaning equipment industry.', 'Built to last. Clean and convenient\r\nat the same time', 'Founded by Dennis Tupas Salamanca in 2019, Greendenpeak,\r\nOPC is committed to delivering top-of-the-line cleaning\r\nequipment and quality cleaning services. While focusing on\r\nonly two products, Rainbow Cleaning System and Thermostar\r\nDry Steam System, the founder added cleaning services using\r\nthese two cleaning equipment to attain the quality cleaning\r\nservice the customers deserve.\r\n\r\nDennis Tupas Salamanca joined Rainbow Pacific Philippines in\r\n2006 as a dealer. Eventually, he became a senior dealer, then\r\nan executive dealer. Being one of the best in the sales\r\ndepartment, he became a team leader, afterward, a group\r\nmanager. In 2019, he became an official branch distributor,\r\nand he founded a company under Greendenpeak, OPC.\r\nGreendenpeak, OPC is an official branch distributor under\r\nRainbow Pacific Philippines. Its office is in Baguio City,\r\nBenguet, and it caters to all customers nationwide.', 'We uphold our core values of honesty,\r\nintegrity, professionalism, hard work,\r\ndedication, and achievement.', 'Dennis Tupas Salamanca');
+INSERT INTO `company` (`company_id`, `email`, `phone_no`, `tel_no`, `address`, `company_name`, `company_logo`, `company_vision`, `company_mission`, `company_slogan`, `company_history`, `company_history_img`, `company_core_values`, `company_founder`, `username`, `password`) VALUES
+(1, 'info@greendenpeak.com', '09175451254', '(02)7502-1405', 'Rm 1. Naguilian Rd, Rainbow Bldg.Brgy. MRR Queen of Peace,Baguio City, Benguet', 'Greendenpeak, OPC', '/greendenpeak/asset/img/logo/logo-brand.png', 'We envisioned our company to become\r\nthe leading cleaning service provider and\r\nsupplier of high-quality cleaning\r\nequipment.', 'We aim to provide our clients with\r\nthe highest level of quality service in\r\nthe cleaning industry and to provide\r\ntop-of-the-line products and\r\nunequaled customer service in the\r\ncleaning equipment industry.', 'Built to last. Clean and convenient\r\nat the same time', 'Founded by Dennis Tupas Salamanca in 2019, Greendenpeak,\r\nOPC is committed to delivering top-of-the-line cleaning\r\nequipment and quality cleaning services. While focusing on\r\nonly two products, Rainbow Cleaning System and Thermostar\r\nDry Steam System, the founder added cleaning services using\r\nthese two cleaning equipment to attain the quality cleaning\r\nservice the customers deserve.\r\n\r\nDennis Tupas Salamanca joined Rainbow Pacific Philippines in\r\n2006 as a dealer. Eventually, he became a senior dealer, then\r\nan executive dealer. Being one of the best in the sales\r\ndepartment, he became a team leader, afterward, a group\r\nmanager. In 2019, he became an official branch distributor,\r\nand he founded a company under Greendenpeak, OPC.\r\nGreendenpeak, OPC is an official branch distributor under\r\nRainbow Pacific Philippines. Its office is in Baguio City,\r\nBenguet, and it caters to all customers nationwide.', '/greendenpeak/asset/img/about-us/6329648852070history.jpg', 'We uphold our core values of honesty,\r\nintegrity, professionalism, hard work,\r\ndedication, and achievement.', 'Dennis Tupas Salamanca', 'admin', '$2y$10$fpKp1HxY88uaaqO5kb7l3..S6ZvHAI7Hb3z9MnWzH6V');
 
 -- --------------------------------------------------------
 
@@ -121,45 +124,6 @@ INSERT INTO `company_link` (`link_id`, `link_name`, `link`, `isShown`, `fk_compa
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
---
-
-CREATE TABLE `customer` (
-  `user_id` int(11) NOT NULL,
-  `user_name` varchar(150) NOT NULL,
-  `user_phoneNo` int(20) NOT NULL,
-  `user_message` varchar(500) NOT NULL,
-  `user_email` varchar(50) NOT NULL,
-  `user_contact_date` datetime NOT NULL,
-  `user_date_appointment` datetime NOT NULL,
-  `user_date_served` datetime NOT NULL,
-  `isServed` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `faq`
---
-
-CREATE TABLE `faq` (
-  `faq_id` int(11) NOT NULL,
-  `faq_question` varchar(500) NOT NULL,
-  `faq_answer` varchar(10000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `faq`
---
-
-INSERT INTO `faq` (`faq_id`, `faq_question`, `faq_answer`) VALUES
-(1, 'What is Greendenpeak?', 'Greendenpeak, OPC is an authorized distributor of Rainbow and Thermostar products. We also offer free in-home demo anywhere in the Philippines.'),
-(2, 'What is Rainbow Vacuum Cleaner?', 'The Earth uses water to cleanse itself of surface dirt, airborne particulates, allergen, dust and man‐made contaminants. It washes the air and cleanses the environment in which we live and breathe. It’s only natural. This works great for outside, but what about inside your home? The Rainbow Cleaning System cleans your home the most natural way possible, using The Power of Water®. It not only cleans your home… it creates a healthier living space.'),
-(3, 'What is Thermostar Dry Steam Cleaner?', 'Thermostar dry steam technology are available in three versions:\r\n\r\nThermostar Avantgarde S4, Thermostar Professional S4 and the brand new Thermostar Professional Plus S4.');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `index_carousel`
 --
 
@@ -175,9 +139,9 @@ CREATE TABLE `index_carousel` (
 --
 
 INSERT INTO `index_carousel` (`carousel_id`, `carousel_title`, `carousel_img`, `isShown`) VALUES
-(1, 'Greendenpeak, OPC', '/greendenpeak/asset/img/index/carousel/carousel-1.png', 1),
-(2, 'Rainbow Vacuum Cleaner', '/greendenpeak/asset/img/index/carousel/carousel-2.jpg', 1),
-(3, 'Thermostar Dry Cleaner', '/greendenpeak/asset/img/index/carousel/carousel-3.jpg', 1);
+(1, 'Greendenpeak, OPC', '/greendenpeak/asset/img/index/63292b99caa7dcarousel-1.png', 1),
+(2, 'Rainbow Cleaning System', '/greendenpeak/asset/img/index/63292ba2c9910carousel-2.jpg', 1),
+(3, 'Thermostar Dry Cleaner', '/greendenpeak/asset/img/index/63292ba8abbddcarousel-3.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -515,18 +479,6 @@ ALTER TABLE `company_link`
   ADD KEY `fk_company_link` (`fk_company_link`);
 
 --
--- Indexes for table `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `faq`
---
-ALTER TABLE `faq`
-  ADD PRIMARY KEY (`faq_id`);
-
---
 -- Indexes for table `index_carousel`
 --
 ALTER TABLE `index_carousel`
@@ -638,22 +590,10 @@ ALTER TABLE `company_link`
   MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `customer`
---
-ALTER TABLE `customer`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `faq`
---
-ALTER TABLE `faq`
-  MODIFY `faq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `index_carousel`
 --
 ALTER TABLE `index_carousel`
-  MODIFY `carousel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `carousel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`

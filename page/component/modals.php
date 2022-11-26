@@ -1,4 +1,4 @@
-<script src="/asset/js/textarea-bullets.js">console.log('try');</script>
+<script src="/asset/js/textarea-bullets.js"></script>
 <!-- Add New Brand Button Modal -->
 <div class="modal fade" id="newbrandmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

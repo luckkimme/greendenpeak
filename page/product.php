@@ -4,12 +4,16 @@
 
     //Includes Scripts
     require_once __DIR__ . '/../includes/connection.php';
+    require_once __DIR__ . '/../includes/processor/index-processor.php';
     require_once __DIR__ . '/../includes/processor/product-processor.php';
 
     //Product Brands for the navbar
     $available = get_available($conn);
     $brand = get_brand($conn);
     $product = get_products($conn);
+    
+    //Company Information
+    $company = get_company_info($conn);
 
     //View Scripts
     require_once __DIR__ . '/../includes/view/product-view.php';
@@ -64,9 +68,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+        <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><?php echo $company['company_name']; ?></title>
+        <link rel="icon" href="<?php echo $company['company_logo']; ?>">
+
 	    <link href="../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link href="../asset/css/product.css?d=<?php echo time(); ?>" rel="stylesheet">
 	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -197,14 +204,6 @@
                         echo '</div>';
                     }
                 ?>
-                
-                <!-- <div id="other-info" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-other-info-tab">
-                    <?php include_once("component/product-other-info.php"); ?>
-                </div>
-
-                <div id="gallery" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-gallery-tab">
-                    <?php include_once("component/product-gallery.php"); ?>
-                </div> -->
                     
                 <div id="user-manual" class="tab-item tab-pane fade" role="tabpanel" aria-labelledby="btn-manual-tab">
                     <h4 class="lh-1 mb-3 py-3 text-center">In need of assistance for using the <?php echo $product_info['product_name']?></h4>

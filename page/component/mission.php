@@ -22,6 +22,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title><?php echo $company['company_name']; ?></title>
+		<link rel="icon" href="<?php echo $company['company_logo']; ?>">
+		
 		<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/jumbotron/">
 		<link href="../../asset/css/navbar.css?d=<?php echo time(); ?>" rel="stylesheet">
 		<link href="../../asset/css/about-us.css?d=<?php echo time(); ?>" rel="stylesheet">

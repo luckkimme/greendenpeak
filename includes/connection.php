@@ -2,7 +2,12 @@
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "greendenpeak-opc";
+$dbName = "greendenpeak";
+
+/* $dbServername = "sg2plzcpnl493870";
+$dbUsername = "xn1lr2yjy9dy";
+$dbPassword = "IBL/j6_m";
+$dbName = "greendenpeak"; */
 
 // Create connection
 $conn = new mysqli($dbServername, $dbUsername, $dbPassword, $dbName);
@@ -11,4 +16,5 @@ $conn = new mysqli($dbServername, $dbUsername, $dbPassword, $dbName);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+
 ?>

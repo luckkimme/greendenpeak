@@ -11,7 +11,7 @@
         $method = $_POST['method'];
     } elseif ($is_get_set) {
         $method = $_GET['method'];
-    }
+    } 
 
     if($method === 'edit_product_information') {
 

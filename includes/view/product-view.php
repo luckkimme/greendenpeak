@@ -17,7 +17,7 @@
                     
                     foreach($product as $p) {
                         if($currBrand == $p['fk_brand_id']) {
-                            $productBrand .= '<span><a class="dropdown-item nav-menu" href="/greendenpeak/page/product.php?productID=' . $p['product_id'] .'">';
+                            $productBrand .= '<span><a class="dropdown-item nav-menu" href="page/product.php?productID=' . $p['product_id'] .'">';
                             $productBrand .= $p['product_name'] . '</a></span>';
                         }
                     } 
@@ -63,7 +63,7 @@
         $prodInfo .='<p class="lead">' . $product_desc . '</p>';
         $prodInfo .='<p class="px-3" style="white-space:pre;">' . $product_desc_list . '</p>';
         $prodInfo .='<div class="d-grid">';
-        $prodInfo .='<a href="/greendenpeak/page/contact-us.php" type="button" class="btn btn-primary btn-lg px-4 btn-page">' . $product_btn_name . '</a></div></div>';
+        $prodInfo .='<a href="page/contact-us.php" type="button" class="btn btn-primary btn-lg px-4 btn-page">' . $product_btn_name . '</a></div></div>';
         
         return $prodInfo;
     }
@@ -220,7 +220,7 @@
             
             $product_accessory_item.= '</div>';
             $product_accessory_item.= '<div class="card-footer d-grid gap-0">';
-            $product_accessory_item.= '<a type="button" href="/greendenpeak/page/contact-us.php" class="btn btn-primary">Get Yours Now!</a>';
+            $product_accessory_item.= '<a type="button" href="page/contact-us.php" class="btn btn-primary">Get Yours Now!</a>';
             $product_accessory_item.= '</div></div></div>';
         }
 

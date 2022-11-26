@@ -24,7 +24,7 @@
     }
 
     function delete_brand(mysqli $conn, int $id) {
-        $query = "UPDATE `brand` SET `is_shown` = 0 WHERE `brand_id` = $id";
+        $query = "UPDATE `brand` SET `isShown` = 0 WHERE `brand_id` = $id";
         return post_query($query, $conn);
     }
 
@@ -44,12 +44,13 @@
         return post_query($query, $conn);
     }
 
-    function update_product_information(mysqli $conn, int $productID, string $product_name, string $product_desc, string $product_img, string $product_btn) {
+    function update_product_information(mysqli $conn, int $productID, string $product_name, string $product_desc, string $product_desc_list, string $product_img, string $product_btn) {
         $product_name = $conn->real_escape_string($product_name);
         $product_desc = $conn->real_escape_string($product_desc);
+        $product_desc_list = $conn->real_escape_string($product_desc_list);
         $product_img = $conn->real_escape_string($product_img);
         $product_btn = $conn->real_escape_string($product_btn);
-        $query = "UPDATE `product` SET `product_name`='{$product_name}',`product_desc`='{$product_desc}',`product_img`='{$product_img}',`product_purchase_btn_name`='{$product_btn}' WHERE `product_id` = {$productID}";
+        $query = "UPDATE `product` SET `product_name`='{$product_name}',`product_desc`='{$product_desc}',`product_desc_list`='{$product_desc_list}',`product_img`='{$product_img}',`product_purchase_btn_name`='{$product_btn}' WHERE `product_id` = {$productID}";
         return post_query($query, $conn);
     }
 
@@ -325,7 +326,62 @@
         return get_multiple_query($query, $conn);
     }
 
+    function update_company_information(mysqli $conn, int $id, string $company_name, string $comp_logo, string $company_email, string $company_tele, string $company_phone, string $company_address, string $company_vision, string $company_mission, string $company_slogan, string $company_history, string $comp_history_img, string $company_core_values, string $company_founder) {
+        $comp_name = $conn->real_escape_string($company_name);
+        $comp_img = $conn->real_escape_string($comp_logo);
+        $comp_email = $conn->real_escape_string($company_email);
+        $comp_tele = $conn->real_escape_string($company_tele);
+        $comp_phone = $conn->real_escape_string($company_phone);
+        $comp_address = $conn->real_escape_string($company_address);
+        $comp_vision = $conn->real_escape_string($company_vision);
+        $comp_mission = $conn->real_escape_string($company_mission);
+        $comp_slogan = $conn->real_escape_string($company_slogan);
+        $comp_history = $conn->real_escape_string($company_history);
+        $comp_hist_img = $conn->real_escape_string($comp_history_img);
+        $comp_values = $conn->real_escape_string($company_core_values);
+        $comp_founder = $conn->real_escape_string($company_founder);
+        $query = "UPDATE `company` SET `email`='{$comp_email}',`phone_no`='{$comp_phone}',`tel_no`='{$comp_tele}',`address`='{$comp_address}',`company_name`='{$comp_name}',`company_logo`='{$comp_img}',`company_vision`='{$comp_vision}',`company_mission`='{$comp_mission}',`company_slogan`='{$comp_slogan}',`company_history`='{$comp_history}',`company_history_img`='{$comp_hist_img}',`company_core_values`='{$comp_values}',`company_founder`='{$comp_founder}' WHERE `company_id` = {$id}";
+        return post_query($query, $conn);
+    }
 
+    function get_socmed_item_by_id(mysqli $conn, int $socmed_id) {
+        $query = "SELECT * FROM `company_link` WHERE `link_id` = $socmed_id";
+        return get_single_query($query, $conn);
+    }
 
-    
+    function edit_socmed_link(mysqli $conn, int $socmed_id, string $socmed_link) {
+        $socmed_link = $conn->real_escape_string($socmed_link);
+        $query = "UPDATE `company_link` SET `link`='{$socmed_link}' WHERE `link_id`='{$socmed_id}'";
+        return post_query($query, $conn);
+    }
+
+    function set_carousel_img(mysqli $conn, string $img_name, string $img_src) {
+        $img_name = $conn->real_escape_string($img_name);
+        $img_src = $conn->real_escape_string($img_src);
+        $query = "INSERT INTO `index_carousel`(`carousel_title`, `carousel_img`) VALUES('$img_name', '$img_src')";
+        return post_query($query, $conn);
+    }
+
+    function get_carousel_img_by_id(mysqli $conn, int $img_id) {
+        $query = "SELECT * FROM `index_carousel` WHERE `id` = $img_id AND `isShown` = 1";
+        return get_single_query($query, $conn);
+    }
+
+    function delete_carousel_img(mysqli $conn, int $img_id) {
+        $query = "UPDATE `index_carousel` SET `isShown` = 0 WHERE `carousel_id` = $img_id";
+        return post_query($query, $conn);
+    }
+
+    function update_carousel_img(mysqli $conn, string $img_name, string $img_src, int $img_id) {
+        $img_name = $conn->real_escape_string($img_name);
+        $img_src = $conn->real_escape_string($img_src);
+        $query = "UPDATE `index_carousel` SET `carousel_title` = '$img_name', `carousel_img` = '$img_src' WHERE `carousel_id` = $img_id";
+        return post_query($query, $conn);
+    }
+
+    function update_password(mysqli $conn, string $new_password) {
+        $new_pass = $conn->real_escape_string($new_password);
+        $query = "UPDATE `company` SET `password` = '$new_pass'";
+        return post_query($query, $conn);
+    }
 ?>

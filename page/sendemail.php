@@ -53,3 +53,10 @@ if (isset($_POST["send"])) {
     </script>
     ";
 } 
+
+session_start();
+
+    if(!$_SESSION['user_id']) {
+        header("Location: index.php");
+    }
+?>

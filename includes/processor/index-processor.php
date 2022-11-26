@@ -3,6 +3,12 @@
     require_once __DIR__ . '/../connection.php';
     require_once __DIR__ . '/../function/query.php';
 
+    function get_login_details($conn) {
+        $query = 'SELECT `username`, `password`, `company_id` FROM `company`';
+        $login = get_single_query($query, $conn);
+        return $login;
+    }
+
     function get_index_carousel($conn) {
         $query = 'SELECT * FROM `index_carousel` WHERE `isShown` = 1';
         $carousel = get_multiple_query($query, $conn);

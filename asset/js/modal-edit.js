@@ -128,7 +128,7 @@ async function toggleUserManualDetails(manualSelect, manualFieldId, nameFieldId,
     const fileField = document.getElementById(fileFieldId);
     const editField = document.getElementById(editId);
     const manualId = manualSelect.value;
-
+ 
     if(manualId == 0) {
         editField.classList.remove('show');
         return;
@@ -236,5 +236,26 @@ function previewYTVideo(ytLink, iframeId) {
 
 function setIdField(dataId, tagId) {
     const idField = document.getElementById(tagId);
+    idField.value = dataId;
+}
+
+function setEditCarouselImageModal(val) {
+    let id = val.split().pop().split('~')[0];
+    let name = val.split('+').pop().split('~')[0];
+    let img = val.split('~').pop();
+    
+    let img_id = document.getElementById("img-id-field");
+    let img_name = document.getElementById("edit-img-title");
+    let img_src = document.getElementById("edit-img-src");
+    let img_preview = document.getElementById("edit-img-preview");
+
+    img_id.value = id;
+    img_name.value = name;
+    img_src.value = img;
+    img_preview.src = img;
+}
+
+function setCarouselId(dataId, tagId) {
+    let idField = document.getElementById(tagId);
     idField.value = dataId;
 }
